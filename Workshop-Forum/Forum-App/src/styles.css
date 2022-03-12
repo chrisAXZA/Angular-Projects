@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* global styleSheet that applies to whole application */
+body {
+    max-width: 1366px;
+    margin: auto;
+    position: relative;
+    min-height: 100vh;
+}
