@@ -10,14 +10,14 @@ import { IPost } from './shared/interfaces';
 export class AppComponent {
   // title = 'Forum-App';
 
-  posts: IPost[] | undefined;
+  recentPosts: IPost[] | undefined;
 
   constructor(private contentService: ContentService) {
-    this.fetchPosts();
+    this.fetchRecentPosts(5);
   }
 
-  fetchPosts(): void {
-    this.posts = undefined;
-    this.contentService.loadPosts().subscribe(posts => this.posts = posts);
+  fetchRecentPosts(amount: number): void {
+    this.recentPosts = undefined;
+    this.contentService.loadPosts(amount).subscribe(posts => this.recentPosts = posts);
   }
 }
