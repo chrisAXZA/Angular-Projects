@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 // 
 
 import { AppComponent } from './app.component';
+import { ContentService } from './content.service';
 import { CoreModule } from './core/core.module';
 import { ThemeComponent } from './theme/theme.component';
 
@@ -28,7 +29,9 @@ import { ThemeComponent } from './theme/theme.component';
     // RouterModule.forRoot(routes),
     CoreModule
   ],
-  providers: [],
+  providers: [
+    ContentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
