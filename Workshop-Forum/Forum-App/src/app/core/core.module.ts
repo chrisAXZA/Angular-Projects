@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AsideComponent } from './aside/aside.component';
@@ -13,9 +14,10 @@ import { AsideComponent } from './aside/aside.component';
     AsideComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
-  exports:[
+  exports: [
     HeaderComponent,
     FooterComponent,
     AsideComponent
