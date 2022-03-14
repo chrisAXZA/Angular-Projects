@@ -12,6 +12,8 @@ export class AppComponent {
 
   recentPosts: IPost[] | undefined;
 
+  toggleTemplate = false;
+
   constructor(private contentService: ContentService) {
     this.fetchRecentPosts(5);
   }

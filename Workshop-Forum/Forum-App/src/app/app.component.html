@@ -6,7 +6,7 @@
         <app-theme></app-theme>
     </main>
     <ng-template #recentPostTemplate let-item let-index="index">
-        {{index}} - 
+        {{index}} +++++++
         <a href="#">
             <h3>{{item.themeId.themeName}}</h3>
             <p>{{item.userId.username}}</p>
@@ -14,8 +14,20 @@
         </a>
     </ng-template>
 
+    <ng-template #recentPostOtherTemplate let-item let-index="index">
+        {{index}} {{"<----->"}}
+            <a href="#">
+                <h3>{{item.themeId.themeName}}</h3>
+                <p>{{item.userId.username}}</p>
+                <p><span>{{item.created_at}}</span></p>
+            </a>
+    </ng-template>
+
+    <button (click)="toggleTemplate = !toggleTemplate">CHANGE TEMPLATE</button>
+
     <!-- aside component  -->
-    <app-aside title="Recent posts" [items]="recentPosts" [itemTemplateRef]="recentPostTemplate"></app-aside>
+    <app-aside title="Recent posts" [items]="recentPosts"
+        [itemTemplateRef]="toggleTemplate ? recentPostTemplate : recentPostOtherTemplate"></app-aside>
     <!-- <app-aside title="Recent posts" [items]="recentPosts"></app-aside> -->
 
     <!-- <app-aside [title]="'Recent posts'"></app-aside> -->
