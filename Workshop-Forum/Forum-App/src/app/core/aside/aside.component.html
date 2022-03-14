@@ -5,12 +5,20 @@
         </h2>
         <div *ngIf="items">
             <div *ngFor="let item of items" class="aside-theme">
-                <a href="#">
+                <!-- generate inside of parent app.component -->
+                <!-- <a href="#">
                     <h3>{{item.themeId.themeName}}</h3>
                     <p>{{item.userId.username}}</p>
                     <p><span>{{item.created_at}}</span></p>
-                </a>
+                </a> -->
             </div>
+
+            <!-- Can not be applied since style for generated elements,
+            will be derived from parent component -->
+            <!-- <ng-template ngFor let item [ngForOf]="items">
+                <div class="aside-theme"></div>
+            </ng-template> -->
+
         </div>
         <div *ngIf="!items">Loading...</div>
     </div>

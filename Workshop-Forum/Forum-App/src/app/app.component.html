@@ -5,6 +5,14 @@
     <main>
         <app-theme></app-theme>
     </main>
+    <ng-template let-item>
+        <a href="#">
+            <h3>{{item.themeId.themeName}}</h3>
+            <p>{{item.userId.username}}</p>
+            <p><span>{{item.created_at}}</span></p>
+        </a>
+    </ng-template>
+
     <!-- aside component  -->
     <app-aside title="Recent posts" [items]="recentPosts"></app-aside>
     <!-- <app-aside [title]="'Recent posts'"></app-aside> -->
