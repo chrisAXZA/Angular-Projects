@@ -6,3 +6,8 @@ body {
     /* background-color: #fcebe7 !important; */
     background-color: #fac8aa !important;
 }
+
+.contact-img {
+    width: 150px;
+    border-radius: 50%;
+}
