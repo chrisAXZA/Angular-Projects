@@ -4,6 +4,7 @@ import { AddContactComponent } from './components/add-contact/add-contact.compon
 
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 import { ViewContactComponent } from './components/view-contact/view-contact.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ContactManagerComponent } from './components/contact-manager/contact-manager.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'contacts/add',component: AddContactComponent},
   { path: 'contacts/edit/:contactId',component: EditContactComponent},
   { path: 'contacts/view/:contactId',component: ViewContactComponent},
+  { path: '**',component: PageNotFoundComponent},
 ];
 
 @NgModule({
