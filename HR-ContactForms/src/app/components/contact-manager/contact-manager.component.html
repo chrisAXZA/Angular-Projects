@@ -27,6 +27,24 @@
 </div>
 <!-- <pre>{{contacts | json}}</pre> -->
 
+<!-- Loading -->
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+</div>
+
+<!-- Error -->
+<div *ngIf="!loading && errorMessage">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger fw-bold">
+                    {{errorMessage}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Cards - Template -->
 <div class="container mt-3" *ngIf="!loading && contacts.length > 0">
     <div class="row">
