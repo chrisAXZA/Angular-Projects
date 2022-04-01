@@ -29,7 +29,7 @@ export class ContactService {
       .pipe(catchError(this.handleError));
   }
 
-  public createContact(contact: IContact): Observable<IContact{
+  public createContact(contact: IContact): Observable<IContact>{
     let dataURL: string = `${this.serverUrl}/contacts`;
 
     return this.httpClient
@@ -37,7 +37,7 @@ export class ContactService {
       .pipe(catchError(this.handleError));
   }
 
-  public updateContact(contact: IContact, contactId: string): Observable<IContact{
+  public updateContact(contact: IContact, contactId: string): Observable<IContact>{
     let dataURL: string = `${this.serverUrl}/contacts/${contactId}`;
 
     return this.httpClient
