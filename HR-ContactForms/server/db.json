@@ -1,0 +1,70 @@
+{
+    "contacts": [
+        {
+            "id": "D6BNdWnHI",
+            "name": "Brad Gibson",
+            "company": "SomeTube",
+            "email": "brad@gmail.com",
+            "title": "SomeTuber",
+            "mobile": "987456231",
+            "photo": "https://pngtree.com/freepng/jobs-overtime-office-computer_3931237.html",
+            "groupId": "3"
+        },
+        {
+            "id": "TVobxeKbI",
+            "name": "Glenda Kim",
+            "company": "Foogle",
+            "email": "glenda@gmail.com",
+            "title": "Foogler",
+            "mobile": "888000123",
+            "photo": "https://pngtree.com/freepng/jobs-overtime-office-computer_3931237.html",
+            "groupId": "2"
+        },
+        {
+            "id": "UyEDV5Yds",
+            "name": "Vladeen Min",
+            "company": "E-Service",
+            "email": "vladeen@gmail.com",
+            "title": "Electrician",
+            "mobile": "987456231",
+            "photo": "https://pngtree.com/freepng/jobs-overtime-office-computer_3931237.html",
+            "groupId": "4"
+        },
+        {
+            "id": "kLt-bJF",
+            "name": "Tom Brady",
+            "company": "HCL Technologies",
+            "email": "tom@gmail.com",
+            "title": "Software Engineer",
+            "mobile": "987456231",
+            "photo": "https://pngtree.com/freepng/jobs-overtime-office-computer_3931237.html",
+            "groupId": "1"
+        }
+    ],
+    "groups": [
+        {
+            "id": "1",
+            "name": "Colleague"
+        },
+        {
+            "id": "2",
+            "name": "Friend"
+        },
+        {
+            "id": "3",
+            "name": "Family"
+        },
+        {
+            "id": "4",
+            "name": "Service"
+        },
+        {
+            "id": "5",
+            "name": "Community"
+        },
+        {
+            "id": "6",
+            "name": "Social"
+        }
+    ]
+}
