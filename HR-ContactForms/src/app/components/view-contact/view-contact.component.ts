@@ -2,6 +2,7 @@ import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from 'src/app/services/contact.service';
 import { IContact } from 'src/app/models/IContact';
+import { IGroup } from 'src/app/models/IGroup';
 
 @Component({
   selector: 'app-view-contact',
@@ -12,6 +13,7 @@ export class ViewContactComponent implements OnInit {
   public loading: boolean = false;
   public contactId: string | null = null;
   public contact: IContact = {} as IContact;
+  public group: IGroup = {} as IGroup;
   public errorMessage: string | null = null;
 
   constructor(private activatedRoute: ActivatedRoute, private contactService: ContactService) { }
@@ -24,7 +26,13 @@ export class ViewContactComponent implements OnInit {
     if (this.contactId) {
       this.loading = true;
       this.contactService.getContact(this.contactId).subscribe({
-        next: (data: IContact) => { this.contact = data; this.loading = false; },
+        next: (data: IContact) => {
+          this.contact = data;
+          this.loading = false;
+          this.contactService.getGroup(data).subscribe({
+            next: (data: IGroup) => { this.group = data },
+          });
+        },
         error: (error) => { this.errorMessage = error; this.loading = false; },
       });
     }
@@ -32,6 +40,6 @@ export class ViewContactComponent implements OnInit {
   }
 
   public isNotEmpty() {
-    return Object.keys(this.contact).length > 0;
+    return Object.keys(this.contact).length > 0 && Object.keys(this.group).length > 0;
   }
 }
