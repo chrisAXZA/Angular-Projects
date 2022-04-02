@@ -49,10 +49,20 @@ export class ContactManagerComponent implements OnInit {
   }
 
   public clickDeleteContact(contactId: string) {
-    this.contactService.deleteContact(contactId).subscribe({
-      next: () => { this.getAllContactsFromServer(); },
-      error: (error) => { this.errorMessage = error; },
-    });
+    this.loading = true;
+
+    setTimeout(() => {
+      this.loading = false;
+      this.contactService.deleteContact(contactId).subscribe({
+        next: () => { this.getAllContactsFromServer(); },
+        error: (error) => { this.errorMessage = error; },
+      });
+    }, 1000);
+
+    // this.contactService.deleteContact(contactId).subscribe({
+    //   next: () => { this.getAllContactsFromServer(); },
+    //   error: (error) => { this.errorMessage = error; },
+    // });
   }
 
   public onSearch() {
