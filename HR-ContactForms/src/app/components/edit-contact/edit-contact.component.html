@@ -12,8 +12,26 @@
     </div>
 </div>
 
+<!-- Loading -->
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+</div>
+
+<!-- Error -->
+<div *ngIf="!loading && errorMessage">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger fw-bold">
+                    {{errorMessage}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Edit Contact Form -->
-<div class="container">
+<div class="container" *ngIf="!loading">
     <div class="row">
         <div class="col-sm-4">
             <form (submit)="submitUpdate()">

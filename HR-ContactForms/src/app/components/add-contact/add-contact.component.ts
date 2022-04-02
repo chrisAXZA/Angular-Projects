@@ -12,7 +12,7 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class AddContactComponent implements OnInit {
 
-  public loading: boolean = false;
+  public loading: boolean = true;
   public contact: IContact = {} as IContact;
   public errorMessage: string | null = null;
   public groups: IGroup[] = [] as IGroup[];
@@ -20,10 +20,17 @@ export class AddContactComponent implements OnInit {
   constructor(private contactService: ContactService, private router: Router) { }
 
   ngOnInit(): void {
+    // setTimeout(() => {
+    //   this.contactService.getAllGroups().subscribe({
+    //     next: (data) => { this.groups = data; this.loading = false; },
+    //     error: (error) => { this.errorMessage = error },
+    //   });
+    // }, 2000);
+
     this.contactService.getAllGroups().subscribe({
-      next: (data) => { this.groups = data; },
+      next: (data) => { this.groups = data; this.loading = false; },
       error: (error) => { this.errorMessage = error },
-    })
+    });
   }
 
   public createSubmit() {

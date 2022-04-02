@@ -8,14 +8,18 @@ import { ContactService } from 'src/app/services/contact.service';
   styleUrls: ['./contact-manager.component.css']
 })
 export class ContactManagerComponent implements OnInit {
-  public loading: boolean = false;
+  public loading: boolean = true;
   public contacts: IContact[] = [];
   public errorMessage: string | null = null;
 
   constructor(private contactService: ContactService) { }
 
   ngOnInit(): void {
-    this.getAllContactsFromServer();
+    setTimeout(() => {
+      this.getAllContactsFromServer();
+    }, 1000);
+
+    // this.getAllContactsFromServer();
 
     // this.loading = true;
 

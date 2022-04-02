@@ -12,7 +12,7 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class EditContactComponent implements OnInit {
 
-  public loading: boolean = false;
+  public loading: boolean = true;
   public contactId: string | null = null;
   public contact: IContact = {} as IContact;
   public errorMessage: string | null = null;
@@ -22,28 +22,49 @@ export class EditContactComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private contactService: ContactService, private router: Router) { }
 
   ngOnInit(): void {
+    // this.loading = true;
 
-    this.loading = true;
+    setTimeout(() => {
+      this.activatedRoute.paramMap.subscribe({
+        next: (param: ParamMap) => { this.contactId = param.get('contactId') },
+      });
 
-    this.activatedRoute.paramMap.subscribe({
-      next: (param: ParamMap) => { this.contactId = param.get('contactId') },
-    });
+      if (this.contactId) {
+        this.contactService.getContact(this.contactId).subscribe({
+          next: (data: IContact) => {
+            this.contact = data;
+            this.loading = false;
+            this.contactService.getAllGroups().subscribe({
+              next: (data: IGroup[]) => { this.groups = data; },
+            });
+            this.contactService.getGroup(this.contact).subscribe({
+              next: (data: IGroup) => { this.group = data; },
+            });
+          },
+          error: (error) => { this.errorMessage = error; this.loading = false; },
+        })
+      }
+    }, 1000);
 
-    if (this.contactId) {
-      this.contactService.getContact(this.contactId).subscribe({
-        next: (data: IContact) => {
-          this.contact = data;
-          this.loading = false;
-          this.contactService.getAllGroups().subscribe({
-            next: (data: IGroup[]) => { this.groups = data; },
-          });
-          this.contactService.getGroup(this.contact).subscribe({
-            next: (data: IGroup) => { this.group = data; },
-          });
-        },
-        error: (error) => { this.errorMessage = error; this.loading = false; },
-      })
-    }
+    // this.activatedRoute.paramMap.subscribe({
+    //   next: (param: ParamMap) => { this.contactId = param.get('contactId') },
+    // });
+
+    // if (this.contactId) {
+    //   this.contactService.getContact(this.contactId).subscribe({
+    //     next: (data: IContact) => {
+    //       this.contact = data;
+    //       this.loading = false;
+    //       this.contactService.getAllGroups().subscribe({
+    //         next: (data: IGroup[]) => { this.groups = data; },
+    //       });
+    //       this.contactService.getGroup(this.contact).subscribe({
+    //         next: (data: IGroup) => { this.group = data; },
+    //       });
+    //     },
+    //     error: (error) => { this.errorMessage = error; this.loading = false; },
+    //   })
+    // }
   }
 
   public submitUpdate() {

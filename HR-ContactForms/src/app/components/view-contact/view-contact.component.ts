@@ -10,7 +10,7 @@ import { IGroup } from 'src/app/models/IGroup';
   styleUrls: ['./view-contact.component.css']
 })
 export class ViewContactComponent implements OnInit {
-  public loading: boolean = false;
+  public loading: boolean = true;
   public contactId: string | null = null;
   public contact: IContact = {} as IContact;
   public group: IGroup = {} as IGroup;
@@ -19,24 +19,43 @@ export class ViewContactComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private contactService: ContactService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe({
-      next: (param: ParamMap) => { this.contactId = param.get('contactId') },
-    });
-
-    if (this.contactId) {
-      this.loading = true;
-      this.contactService.getContact(this.contactId).subscribe({
-        next: (data: IContact) => {
-          this.contact = data;
-          this.loading = false;
-          this.contactService.getGroup(data).subscribe({
-            next: (data: IGroup) => { this.group = data },
-          });
-        },
-        error: (error) => { this.errorMessage = error; this.loading = false; },
+     setTimeout(() => {
+      this.activatedRoute.paramMap.subscribe({
+        next: (param: ParamMap) => { this.contactId = param.get('contactId') },
       });
-    }
+  
+      if (this.contactId) {
+        // this.loading = true;
+        this.contactService.getContact(this.contactId).subscribe({
+          next: (data: IContact) => {
+            this.contact = data;
+            this.loading = false;
+            this.contactService.getGroup(data).subscribe({
+              next: (data: IGroup) => { this.group = data },
+            });
+          },
+          error: (error) => { this.errorMessage = error; this.loading = false; },
+        });
+      }
+    }, 1000);
 
+    // this.activatedRoute.paramMap.subscribe({
+    //   next: (param: ParamMap) => { this.contactId = param.get('contactId') },
+    // });
+
+    // if (this.contactId) {
+    //   // this.loading = true;
+    //   this.contactService.getContact(this.contactId).subscribe({
+    //     next: (data: IContact) => {
+    //       this.contact = data;
+    //       this.loading = false;
+    //       this.contactService.getGroup(data).subscribe({
+    //         next: (data: IGroup) => { this.group = data },
+    //       });
+    //     },
+    //     error: (error) => { this.errorMessage = error; this.loading = false; },
+    //   });
+    // }
   }
 
   public isNotEmpty() {
