@@ -38,30 +38,32 @@
         <div class="col-sm-4">
             <form (submit)="createSubmit()">
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Name" [(ngModel)]="contact.name" name="name" required>
+                    <input type="text" class="form-control" placeholder="Name" [(ngModel)]="contact.name" name="name"
+                        required="true">
                 </div>
                 <div class="mb-2">
                     <input type="text" class="form-control" placeholder="Photo URL" [(ngModel)]="contact.photo"
-                        name="photo" required>
+                        name="photo" required="true">
                 </div>
                 <div class="mb-2">
                     <input type="email" class="form-control" placeholder="Email" [(ngModel)]="contact.email"
-                        name="email" required>
+                        name="email" required="true">
                 </div>
                 <div class="mb-2">
                     <input type="number" class="form-control" placeholder="Mobile" [(ngModel)]="contact.mobile"
-                        name="mobile" required>
+                        name="mobile" required="true">
                 </div>
                 <div class="mb-2">
                     <input type="text" class="form-control" placeholder="Company" [(ngModel)]="contact.company"
-                        name="company" required>
+                        name="company" required="true">
                 </div>
                 <div class="mb-2">
-                    <input type="text" class="form-control" placeholder="Title" [(ngModel)]="contact.title"
-                        name="title" required>
+                    <input type="text" class="form-control" placeholder="Title" [(ngModel)]="contact.title" name="title"
+                        required="true">
                 </div>
                 <div class="mb-2">
-                    <select class="form-control" *ngIf="groups.length > 0" [(ngModel)]="contact.groupId" name="groupId" required>
+                    <select class="form-control" *ngIf="groups.length > 0" [(ngModel)]="contact.groupId" name="groupId"
+                        required="true">
                         <option [ngValue]="undefined" disabled selected>Select a Group</option>
                         <option [value]="group.id" *ngFor="let group of groups">{{group.name}}</option>
                     </select>

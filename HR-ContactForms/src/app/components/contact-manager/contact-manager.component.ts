@@ -8,19 +8,21 @@ import { ContactService } from 'src/app/services/contact.service';
   styleUrls: ['./contact-manager.component.css']
 })
 export class ContactManagerComponent implements OnInit {
-  public   loading: boolean = false;
+  public loading: boolean = false;
   public contacts: IContact[] = [];
   public errorMessage: string | null = null;
 
   constructor(private contactService: ContactService) { }
 
   ngOnInit(): void {
-    this.loading = true;
+    this.getAllContactsFromServer();
 
-    this.contactService.getAllContacts().subscribe({
-      next: (data: IContact[]) => { this.contacts = data; this.loading = false },
-      error: (error) => { this.errorMessage = error; this.loading = false },
-    });
+    // this.loading = true;
+
+    // this.contactService.getAllContacts().subscribe({
+    //   next: (data: IContact[]) => { this.contacts = data; this.loading = false },
+    //   error: (error) => { this.errorMessage = error; this.loading = false },
+    // });
 
     // this.contactService.getAllContacts().subscribe((data: IContact[]) => {
     //   this.contacts = data;
@@ -31,4 +33,19 @@ export class ContactManagerComponent implements OnInit {
     // });
   }
 
+  public getAllContactsFromServer() {
+    this.loading = true;
+
+    this.contactService.getAllContacts().subscribe({
+      next: (data: IContact[]) => { this.contacts = data; this.loading = false },
+      error: (error) => { this.errorMessage = error; this.loading = false },
+    });
+  }
+
+  public clickDeleteContact(contactId: string) {
+    this.contactService.deleteContact(contactId).subscribe({
+      next: () => { this.getAllContactsFromServer(); },
+      error: (error) => { this.errorMessage = error; },
+    });
+  }
 }
