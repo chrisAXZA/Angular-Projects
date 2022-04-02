@@ -45,6 +45,7 @@
                     <select class="form-control" [(ngModel)]="contact.groupId" [value]="contact.groupId" name="groupId"
                         required="true">
                         <!-- <option [value]="contact.groupId" [ngValue]="undefined" selected>{{group.name}}</option> -->
+                        <option [value]="" disabled>Select a Group</option>
                         <option [value]="group.id" *ngFor="let group of groups">{{group.name}}</option>
                     </select>
                 </div>
@@ -61,4 +62,4 @@
     </div>
 </div>
 
-<pre>{{contact | json}}</pre>
+<!-- <pre>{{contact | json}}</pre> -->
