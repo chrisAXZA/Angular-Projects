@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError, Observable, retry, throwError } from 'rxjs';
+import { catchError, map, Observable, retry, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { IGroup } from '../models/IGroup';
@@ -22,6 +22,23 @@ export class ContactService {
       .pipe(catchError(this.handleError));
   }
 
+  public getAllSearchContacts(searchTerm: string): Observable<IContact[]> {
+    let dataURL: string = `${this.serverUrl}/contacts`;
+
+    return this.httpClient
+      .get<IContact[]>(dataURL)
+      .pipe(map(data => {
+        const tempData: IContact[] = [];
+        data.forEach(d => {
+          if (d.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            tempData.push(d);
+          }
+        })
+        return tempData;
+      }),
+        catchError(this.handleError));
+  }
+
   public getContact(contactId: string): Observable<IContact> {
     let dataURL: string = `${this.serverUrl}/contacts/${contactId}`;
 
@@ -30,7 +47,7 @@ export class ContactService {
       .pipe(catchError(this.handleError));
   }
 
-  public createContact(contact: IContact): Observable<IContact>{
+  public createContact(contact: IContact): Observable<IContact> {
     let dataURL: string = `${this.serverUrl}/contacts`;
 
     return this.httpClient
@@ -38,7 +55,7 @@ export class ContactService {
       .pipe(catchError(this.handleError));
   }
 
-  public updateContact(contact: IContact, contactId: string): Observable<IContact>{
+  public updateContact(contact: IContact, contactId: string): Observable<IContact> {
     let dataURL: string = `${this.serverUrl}/contacts/${contactId}`;
 
     return this.httpClient

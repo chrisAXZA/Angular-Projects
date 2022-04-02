@@ -71,10 +71,10 @@ export class EditContactComponent implements OnInit {
     if (this.contactId) {
 
     }
+
     this.contactService.updateContact(this.contact, this.contactId!).subscribe({
       next: (data: IContact) => { this.router.navigate(['/']).then(); },
       error: (error) => { this.errorMessage = error; this.router.navigate([`/contacts/edit/${this.contactId}`]).then(); }
-    }
-    );
+    });
   }
 }

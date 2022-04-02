@@ -1,34 +1,11 @@
 <div class="container mt-3">
-    <div class="row">
+    <p class="h3 text-danger fw-bold my-2">Search Results</p>
+    <div class="row mt-3">
         <div class="col">
-            <p class="h3 text-danger fw-bold">HR Contacts
-                <!-- <a routerLink="/contacts/add" class="btn btn-danger btn-sm">
-                    <i class="fa fa-plus-circle"></i>New</a> -->
-            </p>
-            <p class="fst-italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolores ipsa
-                minus, sint voluptates repellendus alias ipsum consequatur, tenetur id, expedita sed explicabo maiores.
-                Voluptas dolor modi beatae vero. Molestiae.</p>
-            <form>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col">
-                                <input type="text" class="form-control" placeholder="Search User"
-                                    [(ngModel)]='searchTerm' [ngModelOptions]="{standalone: true}">
-                            <!-- </div>
-                            <div class="col"> -->
-                                <input type="submit" class="btn btn-outline-dark" value="Search" (click)="onSearch()">
-                                <a routerLink="/contacts/add" class="btn btn-outline-dark m-lg-2">
-                                    <i class="fa fa-plus-circle"></i>New</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
+            <a routerLink="/" class="btn btn-danger"><i class="fa fa-arrow-circle-left"></i> Back to Main</a>
         </div>
     </div>
 </div>
-<!-- <pre>{{contacts | json}}</pre> -->
 
 <!-- Loading -->
 <div *ngIf="loading">
@@ -82,5 +59,11 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="container mt-3" *ngIf="!loading && contacts.length == 0">
+    <div class="container mt-3">
+        <p class="h3 text-lg-center fw-bold my-5">No Results</p>
     </div>
 </div>
