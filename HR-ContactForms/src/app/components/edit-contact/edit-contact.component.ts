@@ -1,4 +1,4 @@
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { IContact } from 'src/app/models/IContact';
@@ -19,7 +19,7 @@ export class EditContactComponent implements OnInit {
   public groups: IGroup[] = [] as IGroup[];
   public group: IGroup = {} as IGroup;
 
-  constructor(private activatedRoute: ActivatedRoute, private contactService: ContactService) { }
+  constructor(private activatedRoute: ActivatedRoute, private contactService: ContactService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -46,4 +46,14 @@ export class EditContactComponent implements OnInit {
     }
   }
 
+  public submitUpdate() {
+    if (this.contactId) {
+
+    }
+    this.contactService.updateContact(this.contact, this.contactId!).subscribe({
+      next: (data: IContact) => { this.router.navigate(['/']).then(); },
+      error: (error) => { this.errorMessage = error; this.router.navigate([`/contacts/edit/${this.contactId}`]).then(); }
+    }
+    );
+  }
 }
