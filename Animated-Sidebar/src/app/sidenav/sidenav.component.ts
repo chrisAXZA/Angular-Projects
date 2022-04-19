@@ -1,4 +1,4 @@
-import { animate, animation, style, transition, trigger } from '@angular/animations';
+import { animate, animation, keyframes, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 
 import { navbarData } from './nav-data';
@@ -26,6 +26,16 @@ interface SideNavToggle {
           style({ opacity: 0 })
         )
       ]),
+    ]),
+    trigger('rotate', [
+      transition(':enter',[
+        animate('1000ms',
+        keyframes([
+          style({transform: 'rotate(0deg)', offset: '0'}),
+          style({transform: 'rotate(2turn)', offset: '1'}),
+        ])
+        )
+      ])
     ])
   ]
 })
