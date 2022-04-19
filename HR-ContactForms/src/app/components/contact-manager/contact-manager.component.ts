@@ -52,11 +52,12 @@ export class ContactManagerComponent implements OnInit {
     this.loading = true;
 
     setTimeout(() => {
-      this.loading = false;
       this.contactService.deleteContact(contactId).subscribe({
         next: () => { this.getAllContactsFromServer(); },
         error: (error) => { this.errorMessage = error; },
       });
+      
+      this.loading = false;
     }, 1000);
 
     // this.contactService.deleteContact(contactId).subscribe({
