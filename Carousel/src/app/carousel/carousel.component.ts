@@ -29,4 +29,12 @@ export class CarouselComponent implements OnInit {
 
   }
 
+  public onPrevClick(): void {
+    if (this.selectedIndex === 0) {
+      this.selectedIndex = this.images.length - 1;
+    } else {
+      this.selectedIndex--;
+    }
+  }
+
 }
