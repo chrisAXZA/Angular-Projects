@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-interface carouselImage{
+interface carouselImage {
   imageSrc: string;
   imageAlt: string;
 }
@@ -20,6 +20,12 @@ export class CarouselComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // sets index of image on dot/indicator click
+  public selectImage(index: number): void {
+    this.selectedIndex = index;
+
   }
 
 }
