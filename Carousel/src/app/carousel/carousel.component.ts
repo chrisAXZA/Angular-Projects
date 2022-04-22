@@ -14,6 +14,7 @@ export class CarouselComponent implements OnInit {
 
   @Input() images: carouselImage[] = [];
   @Input() indicators = true;
+  @Input() controls = true;
 
   selectedIndex = 0;
 
