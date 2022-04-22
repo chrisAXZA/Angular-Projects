@@ -9,7 +9,11 @@
         </span>
     </div>
 
-    <div *ngIf="controls" class="btn-carousel btn-prev">
+    <button *ngIf="controls" class="btn-carousel btn-prev">
         <i class="fas fa-arrow-circle-left icon-carousel icon-prev" (click)="onPrevClick()"></i>
-    </div>
+    </button>
+
+    <button *ngIf="controls" class="btn-carousel btn-next">
+        <i class="fas fa-arrow-circle-right icon-carousel icon-next" (click)="onPrevClick()"></i>
+    </button>
 </div>
