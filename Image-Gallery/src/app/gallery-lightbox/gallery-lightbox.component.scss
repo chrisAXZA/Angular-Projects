@@ -81,5 +81,13 @@
             border: 0;
             cursor: pointer;
         }
+
+        .btn-prev {
+            left: 0;
+        }
+
+        .btn-next {
+            right: 0;
+        }
     }
 }
