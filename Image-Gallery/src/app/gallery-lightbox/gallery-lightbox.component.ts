@@ -25,7 +25,7 @@ interface Item {
     trigger('animation2', [
       transition(':leave', [
         style({ opacity: 1 }),
-        animate('50ms', style({ opacity: 0.8 }))
+        animate('100ms', style({ opacity: 0.8 }))
       ])
     ]),
   ],
