@@ -4,15 +4,15 @@
             <img (click)="onPreviewImage(i)" [src]="data.imageSrc" [alt]="data.imageAlt">
         </div>
     </div>
-    <div class="lightbox">
-        <span class="count"></span>
-        <button class="close-btn">
-            
-        </button>
-        <button class="btn-lightbox-carousel btn-prev">
+    <div *ngIf="showMask" class="lightbox">
+        <span *ngIf="showCount" class="count"></span>
+        <button *ngIf="previewImage" class="close-btn">
 
         </button>
-        <button class="btn-lightbox-carousel btn-next">
+        <button *ngIf="controls" class="btn-lightbox-carousel btn-prev">
+
+        </button>
+        <button *ngIf="controls" class="btn-lightbox-carousel btn-next">
 
         </button>
     </div>

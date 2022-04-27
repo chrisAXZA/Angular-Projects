@@ -13,6 +13,7 @@ interface Item {
 export class GalleryLightboxComponent implements OnInit {
 
   @Input() galleryData: Item[] = [];
+  @Input() showCount = false;
 
   previewImage = false;
   showMask = false;
