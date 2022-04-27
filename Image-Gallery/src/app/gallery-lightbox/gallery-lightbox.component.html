@@ -7,17 +7,17 @@
     <div *ngIf="showMask" class="lightbox">
         <span *ngIf="showCount" class="count">{{currentIndex + 1}}/{{totalImageCount}}</span>
         <button *ngIf="previewImage" class="close-btn">
-
+            <i class="far fa-times"></i>
         </button>
         <button *ngIf="controls" class="btn-lightbox-carousel btn-prev">
-
+            <i class="fas fa-arrow-left icon-lightbox-carousel icon-prev"></i>
         </button>
         <button *ngIf="controls" class="btn-lightbox-carousel btn-next">
-
+            <i class="fas fa-arrow-right icon-lightbox-carousel icon-next"></i>
         </button>
 
         <div *ngIf="previewImage" class="lightbox-img">
-            <img src="" alt="">
+            <img [src]="currentLightBoxImage.imageSrc" [alt]="currentLightBoxImage.imageAlt">
         </div>
     </div>
 </div>

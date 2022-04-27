@@ -31,5 +31,6 @@ export class GalleryLightboxComponent implements OnInit {
   public onPreviewImage(index: number): void {
     // shows image
     this.currentIndex = index; 
+    this.currentLightBoxImage  = this.galleryData[index];
   }
 }
