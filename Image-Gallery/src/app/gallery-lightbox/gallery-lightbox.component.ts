@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger, AnimationEvent, animation } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations'
 
 interface Item {
   imageSrc: string;
