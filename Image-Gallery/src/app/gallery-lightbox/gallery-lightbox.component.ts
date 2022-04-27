@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 
 interface Item {
@@ -8,7 +9,19 @@ interface Item {
 @Component({
   selector: 'app-gallery-lightbox',
   templateUrl: './gallery-lightbox.component.html',
-  styleUrls: ['./gallery-lightbox.component.scss']
+  styleUrls: ['./gallery-lightbox.component.scss'],
+  animations: [
+    trigger('animation', [
+      transition('void => visible', [
+        style({ transform: 'scale(0.5)' }),
+        animate('150ms', style({ transform: 'scale(1)' }))
+      ]),
+      transition('visible => void', [
+        style({ transform: 'scale(1)' }),
+        animate('150ms', style({ transform: 'scale(0.5)' }))
+      ]),
+    ])
+  ],
 })
 export class GalleryLightboxComponent implements OnInit {
 
