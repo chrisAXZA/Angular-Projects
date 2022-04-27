@@ -16,7 +16,7 @@
             <i class="fas fa-arrow-right icon-lightbox-carousel icon-next"></i>
         </button>
 
-        <div *ngIf="previewImage" class="lightbox-img">
+        <div *ngIf="previewImage" [@animation]="{value : 'visible'}" (@animation.done)="onAnimationEnd($event)" class="lightbox-img">
             <img [src]="currentLightBoxImage.imageSrc" [alt]="currentLightBoxImage.imageAlt">
         </div>
     </div>
