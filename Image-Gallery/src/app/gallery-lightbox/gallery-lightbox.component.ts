@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+interface Item {
+  imageSrc: string;
+  imageAlt: string;
+}
 
 @Component({
   selector: 'app-gallery-lightbox',
@@ -6,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gallery-lightbox.component.scss']
 })
 export class GalleryLightboxComponent implements OnInit {
+
+  @Input() galleryData: Item[] = [];
 
   constructor() { }
 
