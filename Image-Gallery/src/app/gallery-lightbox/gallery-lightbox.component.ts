@@ -1,5 +1,6 @@
-import { animate, style, transition, trigger, AnimationEvent } from '@angular/animations';
+import { animate, style, transition, trigger, AnimationEvent, animation } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 interface Item {
   imageSrc: string;
@@ -20,7 +21,13 @@ interface Item {
         style({ transform: 'scale(1)' }),
         animate('150ms', style({ transform: 'scale(0.5)' }))
       ]),
-    ])
+    ]),
+    trigger('animation2', [
+      transition(':leave', [
+        style({ opacity: 1 }),
+        animate('50ms', style({ opacity: 0.8 }))
+      ])
+    ]),
   ],
 })
 export class GalleryLightboxComponent implements OnInit {
@@ -52,5 +59,9 @@ export class GalleryLightboxComponent implements OnInit {
     if (event.toState === 'void') {
       this.showMask = false;
     }
+  }
+
+  public onClosePreview(): void {
+    this.previewImage = false;
   }
 }

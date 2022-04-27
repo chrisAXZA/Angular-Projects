@@ -4,11 +4,11 @@
             <img (click)="onPreviewImage(i)" [src]="data.imageSrc" [alt]="data.imageAlt">
         </div>
     </div>
-    <div *ngIf="showMask" class="lightbox">
+    <div *ngIf="showMask" class="lightbox" animation2>
         <span *ngIf="showCount" class="count">
             {{currentIndex + 1}}/{{totalImageCount}}
         </span>
-        <button *ngIf="previewImage" class="close-btn">
+        <button *ngIf="previewImage" class="close-btn" (click)="onClosePreview()">
             <i class="far fa-times"></i>
         </button>
         <button *ngIf="controls" class="btn-lightbox-carousel btn-prev">
