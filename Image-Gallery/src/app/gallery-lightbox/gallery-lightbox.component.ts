@@ -20,13 +20,16 @@ export class GalleryLightboxComponent implements OnInit {
   currentLightBoxImage: Item = this.galleryData[0];
   currentIndex = 0;
   controls = true;
+  totalImageCount = 0;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.totalImageCount =  this.galleryData.length;
   }
 
   public onPreviewImage(index: number): void {
-    // shows image 
+    // shows image
+    this.currentIndex = index; 
   }
 }

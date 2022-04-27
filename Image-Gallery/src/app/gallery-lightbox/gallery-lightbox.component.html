@@ -5,7 +5,7 @@
         </div>
     </div>
     <div *ngIf="showMask" class="lightbox">
-        <span *ngIf="showCount" class="count"></span>
+        <span *ngIf="showCount" class="count">{{currentIndex + 1}}/{{totalImageCount}}</span>
         <button *ngIf="previewImage" class="close-btn">
 
         </button>
@@ -15,5 +15,9 @@
         <button *ngIf="controls" class="btn-lightbox-carousel btn-next">
 
         </button>
+
+        <div *ngIf="previewImage" class="lightbox-img">
+            <img src="" alt="">
+        </div>
     </div>
 </div>
