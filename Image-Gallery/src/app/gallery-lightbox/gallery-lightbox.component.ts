@@ -1,4 +1,4 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+import { animate, style, transition, trigger, AnimationEvent } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 
 interface Item {
@@ -46,5 +46,11 @@ export class GalleryLightboxComponent implements OnInit {
     this.previewImage = true;
     this.currentIndex = index;
     this.currentLightBoxImage = this.galleryData[index];
+  }
+
+  public onAnimationEnd(event: AnimationEvent): void {
+    if (event.toState === 'void') {
+      this.showMask = false;
+    }
   }
 }
