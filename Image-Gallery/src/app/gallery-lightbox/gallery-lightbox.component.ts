@@ -64,4 +64,24 @@ export class GalleryLightboxComponent implements OnInit {
   public onClosePreview(): void {
     this.previewImage = false;
   }
+
+  public next(): void {
+    this.currentIndex = this.currentIndex + 1;
+
+    if (this.currentIndex > this.galleryData.length - 1) {
+      this.currentIndex = 0;
+    }
+
+    this.currentLightBoxImage = this.galleryData[this.currentIndex];
+  }
+
+  public prev(): void {
+    this.currentIndex = this.currentIndex - 1;
+
+    if (this.currentIndex < 0) {
+      this.currentIndex = this.galleryData.length - 1;
+    }
+
+    this.currentLightBoxImage = this.galleryData[this.currentIndex];
+  }
 }
