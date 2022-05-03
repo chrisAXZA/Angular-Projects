@@ -80,6 +80,10 @@ export class FormComponent implements OnInit {
     this.hobbies.push(new FormControl(''));
   }
 
+  getControl(controlName: string): FormControl{
+    return this.personalForm.get(controlName) as FormControl;
+  }
+
   onSubmit(): void {
     console.log(this.personalForm.controls);
   }

@@ -8,11 +8,12 @@
 
 <span *ngIf="control?.enabled" class="badge rounded-pill bg-success">Enabled</span>
 
-<span *ngIf="control?.pristine" class="badge rounded-pill bg-light">Pristine</span>
-
-<span *ngIf="control?.pristine" class="badge rounded-pill bg-success">Pristine</span>
+<span *ngIf="control?.pristine" class="badge rounded-pill bg-light text-dark">Pristine</span>
 
 <span *ngIf="control?.dirty" class="badge rounded-pill bg-dark">Dirty</span>
 
-<span *ngIf="control?.touched" class="badge rounded-pill bg-warning">Warning</span>
+<span *ngIf="control?.touched" class="badge rounded-pill bg-warning text-dark">Touched</span>
 
+<span *ngIf="control?.untouched" class="badge rounded-pill bg-info text-dark">Untouched</span>
+
+<span *ngIf="control?.errors" style="color: red;">{{control?.errors | json}}</span>

@@ -6,6 +6,7 @@
             </div>
             <div class="col">
                 <input type="text" name="name" placeholder="Name" formControlName="name">
+                <app-status [control]="getControl('name')"></app-status>
                 <!-- {{formGroup.controls['name'] | json}} -->
                 <!-- <ng-container *ngIf="formGroup.controls['name'].touched">
                 <div>
@@ -23,6 +24,7 @@
             </div>
             <div class="col">
                 <input type="text" name="age" placeholder="Age" formControlName="age">
+                <app-status [control]="getControl('age')"></app-status>
             </div>
         </div>
 
@@ -32,6 +34,7 @@
             </div>
             <div class="col">
                 <input type="text" name="email" placeholder="Email" formControlName="email">
+                <app-status [control]="getControl('email')"></app-status>
             </div>
         </div>
 
@@ -44,6 +47,7 @@
                 </div>
                 <div class="col">
                     <input type="text" name="street" placeholder="Street" formControlName="street">
+                    <app-status [control]="getControl('address.street')"></app-status>
                 </div>
             </div>
 
@@ -53,6 +57,7 @@
                 </div>
                 <div class="col">
                     <input type="text" name="city" placeholder="City" formControlName="city">
+                    <app-status [control]="getControl('address.city')"></app-status>
                 </div>
             </div>
 
@@ -62,6 +67,7 @@
                 </div>
                 <div class="col">
                     <input type="text" name="state" placeholder="State" formControlName="state">
+                    <app-status [control]="getControl('address.state')"></app-status>
                 </div>
             </div>
 
@@ -71,6 +77,7 @@
                 </div>
                 <div class="col">
                     <input type="text" name="zip" placeholder="Zip" formControlName="zip">
+                    <app-status [control]="getControl('address.zip')"></app-status>
                 </div>
             </div>
 
