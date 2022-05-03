@@ -38,6 +38,10 @@ export class FormComponent implements OnInit {
       }),
       hobbies: new FormArray([]),
     });
+
+    this.personalForm.valueChanges.subscribe((value)=>{
+      // console.log('Value Changes >>> ', value);
+    });
   }
 
   get hobbies() {
