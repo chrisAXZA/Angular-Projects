@@ -36,18 +36,21 @@ export class FormComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email], []),
       address: new FormGroup({
         street: new FormControl(''),
-        city: new FormControl('',[],[this.cityValidator.validate.bind(this.cityValidator)]),
+        city: new FormControl('', [], [this.cityValidator.validate.bind(this.cityValidator)]),
         state: new FormControl(''),
         zip: new FormControl(''),
       }),
       hobbies: new FormArray([]),
     },
-      { validators: locationAgeValidator }
+      // { validators: locationAgeValidator }
     );
 
     this.personalForm.valueChanges.subscribe((value) => {
       // console.log('Value Changes >>> ', value);
     });
+
+    console.log(this.personalForm.updateOn);
+    console.log(this.personalForm.get('address.city')?.updateOn);
   }
 
   get hobbies() {
@@ -86,6 +89,13 @@ export class FormComponent implements OnInit {
     // this.personalForm.markAsTouched();
     // this.personalForm.get(['address'])?.markAllAsTouched();
 
+    this.personalForm.statusChanges.subscribe((status)=>{
+      console.log('status change', status);
+    });
+
+    console.log(this.personalForm.updateOn);
+    console.log(this.personalForm.get('address.city')?.updateOn);
+
     this.personalForm.markAsDirty();
     this.personalForm.markAllAsTouched();
   }
@@ -116,6 +126,27 @@ export class FormComponent implements OnInit {
       this.personalForm.get('address')?.enable({});
     } else {
       this.personalForm.get('address')?.disable();
+    }
+  }
+
+  changeValidators(): void {
+    // this.personalForm.clearValidators();
+    // this.personalForm.updateValueAndValidity();
+
+    // this.personalForm.get('address.city')?.clearAsyncValidators();
+    // this.personalForm.get('address.city')?.updateValueAndValidity();
+
+    // this.personalForm.get('age')?.setValidators([Validators.required]);
+    // this.personalForm.get('age')?.updateValueAndValidity();
+
+    if (!this.personalForm.get('address.zip')?.hasValidator(Validators.required)) {
+      this.personalForm.get('address.zip')?.addValidators([Validators.required]);
+      this.personalForm.get('address.zip')?.updateValueAndValidity();
+
+      setTimeout(() => {
+        this.personalForm.get('address.zip')?.removeValidators([Validators.required]);
+        this.personalForm.get('address.zip')?.updateValueAndValidity();
+      }, 2000);
     }
   }
 
