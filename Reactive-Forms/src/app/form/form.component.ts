@@ -12,6 +12,12 @@ export class FormComponent implements OnInit {
     name: new FormControl(''),
     age: new FormControl(''),
     email: new FormControl(''),
+    address: new FormGroup({
+      street: new FormControl(''),
+      city: new FormControl(''),
+      state: new FormControl(''),
+      zip: new FormControl(''),
+    }),
   });
 
   constructor(private formBuilder: FormBuilder) { }
