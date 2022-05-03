@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { locationAgeValidator } from '../validators/location-age.validator';
 
 import { numericValidator } from '../validators/numeric.validators';
+import { locationAgeValidator } from '../validators/location-age.validator';
 
 @Component({
   selector: 'app-form',
@@ -122,7 +122,20 @@ export class FormComponent implements OnInit {
     console.log(this.personalForm.value);
     // console.log(this.personalForm.controls);
 
-    this.personalForm.markAsPristine();
-    this.personalForm.markAsUntouched();
+    // this.personalForm.markAsPristine();
+    // this.personalForm.markAsUntouched();
+
+    if (this.personalForm.valid) {
+      console.log(this.personalForm.value);
+      this.personalForm.markAsPristine();
+      this.personalForm.markAsUntouched();
+    } else {
+      if (this.personalForm.hasError('locationAge')) {
+        const errors = this.personalForm.getError('locationAge');
+        console.log(errors);
+
+        alert(`The age should be between 17 and 100 for the state of Kabala! Entered age is ${errors.age}`);
+      }
+    }
   }
 }

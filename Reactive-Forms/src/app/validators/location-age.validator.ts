@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
-export const locationAgeValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null{
+export const locationAgeValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
     const age = control.get('age')?.value;
     const location = control.get('address.state')?.value;
 
