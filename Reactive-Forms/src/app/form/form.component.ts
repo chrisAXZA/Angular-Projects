@@ -39,7 +39,7 @@ export class FormComponent implements OnInit {
       hobbies: new FormArray([]),
     });
 
-    this.personalForm.valueChanges.subscribe((value)=>{
+    this.personalForm.valueChanges.subscribe((value) => {
       // console.log('Value Changes >>> ', value);
     });
   }
@@ -80,8 +80,16 @@ export class FormComponent implements OnInit {
     this.hobbies.push(new FormControl(''));
   }
 
-  getControl(controlName: string): FormControl{
+  getControl(controlName: string): FormControl {
     return this.personalForm.get(controlName) as FormControl;
+  }
+
+  changeMode(): void {
+    if (this.personalForm.get('address')?.disabled) {
+      this.personalForm.get('address')?.enable({});
+    } else {
+      this.personalForm.get('address')?.disable();
+    }
   }
 
   onSubmit(): void {

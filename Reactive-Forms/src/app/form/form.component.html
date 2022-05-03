@@ -2,6 +2,15 @@
     <form (ngSubmit)="onSubmit()" [formGroup]="personalForm">
         <div class="row g-3">
             <div class="col-2">
+                <h2>Form Status</h2>
+            </div>
+            <div class="col">
+                <app-status [control]="$any(personalForm)"></app-status>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-2">
                 <label>Name</label>
             </div>
             <div class="col">
@@ -41,7 +50,7 @@
         <div formGroupName="address">
             <div class="row g-3">
                 <div class="col-2">
-                    <h4>Address</h4>
+                    <h2>Address</h2>
                 </div>
                 <div class="col">
                     <app-status [control]="getControl('address')"></app-status>
@@ -90,7 +99,7 @@
         </div>
 
         <div formArrayName="hobbies">
-            <h4>Hobbies: </h4>
+            <h2>Hobbies: </h2>
             <button type="button" class="btn btn-primary mb-3" (click)="addHobby()"> + Add Hobby</button>
 
             <div *ngFor="let hobby of hobbies.controls; let i = index" class="row g-3">
@@ -122,6 +131,9 @@
             <button class="btn btn-primary" (click)="patchValue()">Patch Values</button>
         </div>
         <div class="col-2">
+            <button class="btn btn-primary" (click)="changeMode()">Enable/Disable</button>
+        </div>
+        <div class="col-2">
             <button class="btn btn-primary" (click)="clearValues()">Reset Values</button>
         </div>
     </div>
@@ -129,7 +141,7 @@
 <hr>
 Form Value => {{personalForm.value | json}}
 <br>
-Form Status => {{personalForm.status}} >>> 
-<app-status [control]="$any(personalForm)"></app-status>
-<br>
 Hobbies => {{personalForm.get('hobbies')?.value}}
+<!-- Form Status => {{personalForm.status}} >>>
+<app-status [control]="$any(personalForm)"></app-status>
+<br> -->
