@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 
 import { numericValidator } from '../validators/numeric.validators';
 import { locationAgeValidator } from '../validators/location-age.validator';
+import { CityValidator } from '../validators/city.async.validator';
 
 @Component({
   selector: 'app-form',
@@ -26,7 +27,7 @@ export class FormComponent implements OnInit {
 
   personalForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private cityValidator: CityValidator) { }
 
   ngOnInit(): void {
     this.personalForm = this.formBuilder.group({
@@ -35,7 +36,7 @@ export class FormComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email], []),
       address: new FormGroup({
         street: new FormControl(''),
-        city: new FormControl(''),
+        city: new FormControl('',[],[this.cityValidator.validate.bind(this.cityValidator)]),
         state: new FormControl(''),
         zip: new FormControl(''),
       }),
