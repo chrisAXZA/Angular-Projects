@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { locationAgeValidator } from '../validators/location-age.validator';
+
+import { numericValidator } from '../validators/numeric.validators';
 
 @Component({
   selector: 'app-form',
@@ -28,7 +31,7 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.personalForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required], []),
-      age: new FormControl('', [Validators.max(100), Validators.min(0)], []),
+      age: new FormControl('', [numericValidator(), Validators.max(100), Validators.min(0)], []),
       email: new FormControl('', [Validators.required, Validators.email], []),
       address: new FormGroup({
         street: new FormControl(''),
@@ -37,7 +40,9 @@ export class FormComponent implements OnInit {
         zip: new FormControl(''),
       }),
       hobbies: new FormArray([]),
-    });
+    },
+      { validators: locationAgeValidator }
+    );
 
     this.personalForm.valueChanges.subscribe((value) => {
       // console.log('Value Changes >>> ', value);
