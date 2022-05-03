@@ -61,6 +61,25 @@ export class FormComponent implements OnInit {
       },
       hobbies: this.hobbies.value,
     });
+
+    this.extraFunctionality();
+  }
+
+  extraFunctionality(): void {
+    // this.personalForm.get(['address', 'city'])?.markAsDirty({ onlySelf: true });
+
+    this.personalForm.get(['address', 'city'])?.markAsDirty();
+    setTimeout(() => {
+      this.personalForm.get(['address', 'city'])?.markAsPristine();
+    }, 2000);
+
+    // this.personalForm.get(['address', 'city'])?.markAsTouched();
+    // setTimeout(() => {
+    //     this.personalForm.get(['address', 'city'])?.markAsUntouched();
+    // }, 2000);
+
+    // this.personalForm.markAllAsTouched();
+    // this.personalForm.get(['address'])?.markAllAsTouched();
   }
 
   patchValue(): void {
