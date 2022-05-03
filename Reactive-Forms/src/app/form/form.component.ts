@@ -30,13 +30,26 @@ export class FormComponent implements OnInit {
       name: 'new value',
       age: '10',
       email: 'test@abc.com',
+      address: {
+        street: 'sfsfsfs',
+        city: 'mmm',
+        state: 'kekeke',
+        zip: '1111',
+      },
     });
   }
 
   patchValue(): void {
     this.personalForm.patchValue({
       name: 'patched value',
+      address: {
+        city: 'bebebe',
+      },
     });
+  }
+
+  clearValues(): void {
+    this.personalForm.reset();
   }
 
   onSubmit(): void {
