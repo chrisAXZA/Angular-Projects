@@ -8,22 +8,36 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  personalForm: FormGroup = this.formBuilder.group({
-    name: new FormControl(''),
-    age: new FormControl(''),
-    email: new FormControl(''),
-    address: new FormGroup({
-      street: new FormControl(''),
-      city: new FormControl(''),
-      state: new FormControl(''),
-      zip: new FormControl(''),
-    }),
-    hobbies: new FormArray([]),
-  });
+  // personalForm: FormGroup = this.formBuilder.group({
+  //   name: new FormControl(''),
+  //   age: new FormControl(''),
+  //   email: new FormControl(''),
+  //   address: new FormGroup({
+  //     street: new FormControl(''),
+  //     city: new FormControl(''),
+  //     state: new FormControl(''),
+  //     zip: new FormControl(''),
+  //   }),
+  //   hobbies: new FormArray([]),
+  // });
+
+  personalForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.personalForm = this.formBuilder.group({
+      name: new FormControl(''),
+      age: new FormControl(''),
+      email: new FormControl(''),
+      address: new FormGroup({
+        street: new FormControl(''),
+        city: new FormControl(''),
+        state: new FormControl(''),
+        zip: new FormControl(''),
+      }),
+      hobbies: new FormArray([]),
+    });
   }
 
   get hobbies() {
@@ -63,6 +77,6 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.personalForm.value);
+    console.log(this.personalForm.controls);
   }
 }
