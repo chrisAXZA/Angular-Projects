@@ -89,7 +89,7 @@ export class FormComponent implements OnInit {
     // this.personalForm.markAsTouched();
     // this.personalForm.get(['address'])?.markAllAsTouched();
 
-    this.personalForm.statusChanges.subscribe((status)=>{
+    this.personalForm.statusChanges.subscribe((status) => {
       console.log('status change', status);
     });
 
@@ -104,13 +104,15 @@ export class FormComponent implements OnInit {
     this.personalForm.patchValue({
       name: 'patched value',
       address: {
-        city: 'bebebe',
+        city: 'ktm',
       },
     });
   }
 
   clearValues(): void {
-    this.personalForm.reset();
+    // this.personalForm.reset();
+
+    this.personalForm.reset('', { emitEvent: false });
   }
 
   addHobby(): void {
