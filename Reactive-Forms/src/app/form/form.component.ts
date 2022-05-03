@@ -19,6 +19,20 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  setValue(): void {
+    this.personalForm.setValue({
+      name: 'new value',
+      age: '10',
+      email: 'test@abc.com',
+    });
+  }
+
+  patchValue(): void {
+    this.personalForm.patchValue({
+      name: 'patched value',
+    });
+  }
+
   onSubmit(): void {
     console.log(this.personalForm.value);
   }
