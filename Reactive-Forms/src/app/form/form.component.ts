@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -27,9 +27,9 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.personalForm = this.formBuilder.group({
-      name: new FormControl(''),
-      age: new FormControl(''),
-      email: new FormControl(''),
+      name: new FormControl('', [Validators.required], []),
+      age: new FormControl('', [Validators.max(100), Validators.min(0)], []),
+      email: new FormControl('', [Validators.required, Validators.email], []),
       address: new FormGroup({
         street: new FormControl(''),
         city: new FormControl(''),
@@ -67,19 +67,21 @@ export class FormComponent implements OnInit {
 
   extraFunctionality(): void {
     // this.personalForm.get(['address', 'city'])?.markAsDirty({ onlySelf: true });
-
-    this.personalForm.get(['address', 'city'])?.markAsDirty();
-    setTimeout(() => {
-      this.personalForm.get(['address', 'city'])?.markAsPristine();
-    }, 2000);
+    // this.personalForm.get(['address', 'city'])?.markAsDirty();
+    // setTimeout(() => {
+    //   this.personalForm.get(['address', 'city'])?.markAsPristine();
+    // }, 2000);
 
     // this.personalForm.get(['address', 'city'])?.markAsTouched();
     // setTimeout(() => {
     //     this.personalForm.get(['address', 'city'])?.markAsUntouched();
     // }, 2000);
 
-    // this.personalForm.markAllAsTouched();
+    // this.personalForm.markAsTouched();
     // this.personalForm.get(['address'])?.markAllAsTouched();
+
+    this.personalForm.markAsDirty();
+    this.personalForm.markAllAsTouched();
   }
 
   patchValue(): void {
@@ -112,6 +114,10 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.personalForm.controls);
+    console.log(this.personalForm.value);
+    // console.log(this.personalForm.controls);
+
+    this.personalForm.markAsPristine();
+    this.personalForm.markAsUntouched();
   }
 }
