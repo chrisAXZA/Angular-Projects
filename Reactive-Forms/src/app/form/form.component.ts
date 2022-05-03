@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -18,11 +18,16 @@ export class FormComponent implements OnInit {
       state: new FormControl(''),
       zip: new FormControl(''),
     }),
+    hobbies: new FormArray([]),
   });
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  get hobbies() {
+    return this.personalForm.get('hobbies') as FormArray;
   }
 
   setValue(): void {
@@ -36,6 +41,7 @@ export class FormComponent implements OnInit {
         state: 'kekeke',
         zip: '1111',
       },
+      hobbies: this.hobbies.value,
     });
   }
 
@@ -50,6 +56,10 @@ export class FormComponent implements OnInit {
 
   clearValues(): void {
     this.personalForm.reset();
+  }
+
+  addHobby(): void {
+    this.hobbies.push(new FormControl(''));
   }
 
   onSubmit(): void {

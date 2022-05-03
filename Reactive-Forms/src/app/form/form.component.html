@@ -76,6 +76,20 @@
 
         </div>
 
+        <div formArrayName="hobbies">
+            <h4>Hobbies: </h4>
+            <button type="button" class="btn btn-primary mb-3" (click)="addHobby()"> + Add Hobby</button>
+
+            <div *ngFor="let hobby of hobbies.controls; let i = index" class="row g-3">
+                <div class="col-2">
+                    <label>Hobby:</label>
+                </div>
+                <div class="col">
+                    <input type="text" name="hobby-{{ i }}" placeholder="Hobby" [formControlName]="i">
+                </div>
+            </div>
+        </div>
+
         <div class="row g-3">
             <div class="col-2">
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -100,3 +114,5 @@
 Form Value => {{personalForm.value | json}}
 <br>
 Form Status => {{personalForm.status}}
+<br>
+Hobbies => {{personalForm.get('hobbies')?.value}}
