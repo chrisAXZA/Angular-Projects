@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +29,7 @@ import { LoginComponent } from './components/login/login.component';
     MatInputModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
   ],
   providers: [],

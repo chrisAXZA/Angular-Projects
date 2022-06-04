@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  loading: boolean = false;
 
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar) {
     this.form = this.fb.group({
