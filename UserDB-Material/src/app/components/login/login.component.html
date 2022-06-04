@@ -6,14 +6,14 @@
             <h1>Login</h1>
             <mat-form-field class="field" appearance="fill" hideRequiredMarker="true">
                 <mat-label>Username</mat-label>
-                <input matInput autocomplete="off" formControlName="username">
+                <input type="text" matInput autocomplete="off" formControlName="username">
             </mat-form-field>
             <mat-form-field class="field" appearance="fill" hideRequiredMarker="true">
                 <mat-label>Password</mat-label>
-                <input matInput autocomplete="off" formControlName="password">
+                <input type="password" matInput autocomplete="off" formControlName="password">
             </mat-form-field>
             <br>
-            <button type="submit" class="field button" mat-raised-button color="primary">Login</button>
+            <button type="submit" class="field button" mat-raised-button color="primary" [disabled]="form.invalid">Login</button>
         </form>
     </div>
 
