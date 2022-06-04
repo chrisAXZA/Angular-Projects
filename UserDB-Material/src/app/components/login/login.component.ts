@@ -28,9 +28,10 @@ export class LoginComponent implements OnInit {
     const password = this.form.value.password;
 
     if (username == 'pesho' && password == 'admin123') {
-
+      this.fakeLoading();
     } else {
       this.error();
+      this.form.reset();
     }
   }
 
@@ -40,5 +41,12 @@ export class LoginComponent implements OnInit {
       horizontalPosition: 'center',
       verticalPosition: 'top',
     });
+  }
+
+  fakeLoading(): void {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
   }
 }
