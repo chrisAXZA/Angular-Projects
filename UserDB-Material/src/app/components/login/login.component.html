@@ -1,19 +1,19 @@
 <div class="body">
     <div class="login">
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="login()">
             <img src="/assets/img/user-icon.png" alt="user-icon" width="50%">
             <!-- <img src="../../../assets/img/user-icon.png" alt="user-icon"> -->
             <h1>Login</h1>
-            <mat-form-field class="field" appearance="fill">
+            <mat-form-field class="field" appearance="fill" hideRequiredMarker="true">
                 <mat-label>Username</mat-label>
-                <input matInput autocomplete="off">
+                <input matInput autocomplete="off" formControlName="username">
             </mat-form-field>
-            <mat-form-field class="field" appearance="fill">
+            <mat-form-field class="field" appearance="fill" hideRequiredMarker="true">
                 <mat-label>Password</mat-label>
-                <input matInput autocomplete="off">
+                <input matInput autocomplete="off" formControlName="password">
             </mat-form-field>
             <br>
-            <button class="field button" mat-raised-button color="primary">Login</button>
+            <button type="submit" class="field button" mat-raised-button color="primary">Login</button>
         </form>
     </div>
 
