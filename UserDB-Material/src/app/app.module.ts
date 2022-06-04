@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
+import {MatInputModule} from '@angular/material/input'; 
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -17,6 +19,8 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
