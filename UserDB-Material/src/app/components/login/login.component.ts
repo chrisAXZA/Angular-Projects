@@ -29,7 +29,15 @@ export class LoginComponent implements OnInit {
     if (username == 'pesho' && password == 'admin123') {
 
     } else {
-
+      this.error();
     }
+  }
+
+  error(): void {
+    this.snackBar.open('Username or password are invalid!', '', {
+      duration: 2000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
   }
 }
