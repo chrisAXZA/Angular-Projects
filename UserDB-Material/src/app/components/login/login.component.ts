@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,7 +13,10 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   loading: boolean = false;
 
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar,
+    private router: Router) {
     this.form = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -46,7 +50,8 @@ export class LoginComponent implements OnInit {
   fakeLoading(): void {
     this.loading = true;
     setTimeout(() => {
-      this.loading = false;
+      // this.loading = false;
+      this.router.navigate(['dashboard']);
     }, 1500);
   }
 }
