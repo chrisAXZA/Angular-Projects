@@ -5,7 +5,7 @@
 
     <mat-form-field appearance="standard">
         <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Find User" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Find User" #input autocomplete="off">
     </mat-form-field>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -47,4 +47,6 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
 </div>
