@@ -7,46 +7,52 @@
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Find User" #input autocomplete="off">
     </mat-form-field>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <ng-container matColumnDef="username">
-            <th mat-header-cell *matHeaderCellDef> Username </th>
-            <td mat-cell *matCellDef="let element"> {{element.username}} </td>
-        </ng-container>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
 
-        <ng-container matColumnDef="firstName">
-            <th mat-header-cell *matHeaderCellDef> First Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-        </ng-container>
+            <ng-container matColumnDef="username">
+                <th mat-header-cell *matHeaderCellDef> Username </th>
+                <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+            </ng-container>
 
-        <ng-container matColumnDef="secondName">
-            <th mat-header-cell *matHeaderCellDef> Second Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.secondName}} </td>
-        </ng-container>
+            <ng-container matColumnDef="firstName">
+                <th mat-header-cell *matHeaderCellDef> First Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+            </ng-container>
 
-        <ng-container matColumnDef="gender">
-            <th mat-header-cell *matHeaderCellDef> Gender </th>
-            <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
-        </ng-container>
+            <ng-container matColumnDef="secondName">
+                <th mat-header-cell *matHeaderCellDef> Second Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.secondName}} </td>
+            </ng-container>
 
-        <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> </th>
-            <td mat-cell *matCellDef="let element" style="text-align: right;">
-                <a class="pointer" style="color: #1878b0;" matTooltip="Details User">
-                    <mat-icon>search</mat-icon>
-                </a>
-                <a class="pointer" style="color: #1f516f;" matTooltip="Edit User">
-                    <mat-icon>edit</mat-icon>
-                </a>
-                <a class="pointer" style="color: #e15639;" matTooltip="Delete User">
-                    <mat-icon>delete</mat-icon>
-                </a>
-            </td>
-        </ng-container>
+            <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef> Gender </th>
+                <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+            </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
-    </mat-paginator>
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let element" style="text-align: right;">
+                    <a class="pointer" style="color: #1878b0;" matTooltip="Details User">
+                        <mat-icon>search</mat-icon>
+                    </a>
+                    <a class="pointer" style="color: #1f516f;" matTooltip="Edit User">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <a class="pointer" style="color: #e15639;" matTooltip="Delete User">
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+
+
 </div>
