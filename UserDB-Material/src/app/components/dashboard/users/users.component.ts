@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { IUser } from 'src/app/interfaces/user';
+import { MatSort } from '@angular/material/sort';
 
 // const userList: IUser[] = [
 //   { username: 'pesho', firstName: 'Pesho', secondName: 'Peshov', gender: 'Male' },
@@ -34,6 +35,7 @@ export class UsersComponent implements OnInit {
   dataSource = new MatTableDataSource(this.userList);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor() { }
 
@@ -42,6 +44,7 @@ export class UsersComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

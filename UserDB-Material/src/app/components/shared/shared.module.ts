@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 // Angular Material
+import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
@@ -31,6 +32,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
+    MatSortModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],
@@ -46,6 +48,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatTableModule,
     MatTooltipModule,
     MatPaginatorModule,
+    MatSortModule,
     ReactiveFormsModule,
     HttpClientModule,
   ]
