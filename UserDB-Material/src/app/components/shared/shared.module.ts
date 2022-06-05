@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule } from '@angular/forms';
 // Angular Material
+import {MatIconModule} from '@angular/material/icon'; 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
@@ -22,6 +23,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
+    MatIconModule,
     ReactiveFormsModule,
   ],
   exports: [
@@ -32,6 +34,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
+    MatIconModule,
     ReactiveFormsModule,
   ]
 })
