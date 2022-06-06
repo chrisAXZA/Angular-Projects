@@ -26,7 +26,7 @@ export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['username', 'firstName', 'secondName', 'gender', 'actions'];
   // dataSource = userList;
   // dataSource = new MatTableDataSource(this.userList);
-  dataSource!: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<IUser>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -52,4 +52,10 @@ export class UsersComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  deleteUser(index: number): void {
+    // console.log(index);
+
+    this._userService.deleteUser(index);
+    this.loadUsers();
+  }
 }
