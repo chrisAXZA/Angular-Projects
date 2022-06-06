@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private snackBar: MatSnackBar,
+    private _snackBar: MatSnackBar,
     private router: Router) {
     this.form = this.fb.group({
       username: ['', Validators.required],
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   error(): void {
-    this.snackBar.open('Username or password are invalid!', '', {
+    this._snackBar.open('Username or password are invalid!', '', {
       duration: 2000,
       horizontalPosition: 'center',
       verticalPosition: 'top',

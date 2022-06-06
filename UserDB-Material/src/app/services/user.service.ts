@@ -22,6 +22,10 @@ export class UserService {
     return this.userList.slice();
   }
 
+  getUser(index: number): IUser{
+    return this.userList[index];
+  }
+
   deleteUser(index: number): void {
     this.userList.splice(index, 1);
   }
