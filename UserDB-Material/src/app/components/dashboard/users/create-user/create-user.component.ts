@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class CreateUserComponent implements OnInit {
 
   genders: string[] = ['Male', 'Female'];
+  form: FormGroup;
 
-  constructor() { }
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      username: ['', Validators.required],
+      firstName: ['', Validators.required],
+      secondName: ['', Validators.required],
+      gender: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
   }

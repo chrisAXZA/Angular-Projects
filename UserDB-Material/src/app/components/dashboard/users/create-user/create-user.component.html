@@ -4,33 +4,33 @@
     </mat-toolbar>
 
     <mat-card style="margin-top: 10px;">
-        <form>
+        <form [formGroup]="form" (ngSubmit)="addUser()">
             <mat-grid-list cols="4" rowHeight="70px">
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
-                    <mat-form-field class="width">
-                        <mat-label>User</mat-label>
-                        <input matInput autocomplete="off">
+                    <mat-form-field class="width" hideRequiredMarker="true">
+                        <mat-label>Username</mat-label>
+                        <input matInput autocomplete="off" formControlName="username">
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="3" [rowspan]="5">
                     <img src="./assets/img/user-icon.png" width="250" height="250">
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
-                    <mat-form-field class="width">
+                    <mat-form-field class="width" hideRequiredMarker="true">
                         <mat-label>First Name</mat-label>
-                        <input matInput autocomplete="off">
+                        <input matInput autocomplete="off" formControlName="firstName">
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
-                    <mat-form-field class="width">
+                    <mat-form-field class="width" hideRequiredMarker="true">
                         <mat-label>Second Name</mat-label>
-                        <input matInput autocomplete="off">
+                        <input matInput autocomplete="off" formControlName="secondName">
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
-                    <mat-form-field class="width">
+                    <mat-form-field class="width" hideRequiredMarker="true">
                         <mat-label>Select Gender</mat-label>
-                        <mat-select>
+                        <mat-select formControlName="gender">
                             <mat-option *ngFor="let gender of genders" [value]="gender">
                                 {{gender}}
                             </mat-option>
@@ -39,7 +39,7 @@
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
                     <button mat-raised-button style="margin-right: 20px;">Return</button>
-                    <button mat-raised-button color="primary">Accept Data</button>
+                    <button type="submit" mat-raised-button color="primary">Accept Data</button>
                 </mat-grid-tile>
             </mat-grid-list>
             <!-- <mat-grid-list cols="4" rowHeight="100px">
