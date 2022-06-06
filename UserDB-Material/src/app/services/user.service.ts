@@ -22,8 +22,12 @@ export class UserService {
     return this.userList.slice();
   }
 
-  getUser(index: number): IUser{
+  getUser(index: number): IUser {
     return this.userList[index];
+  }
+
+  addUser(user: IUser): void {
+    this.userList.push(user);
   }
 
   deleteUser(index: number): void {

@@ -39,7 +39,7 @@
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
                     <button mat-raised-button style="margin-right: 20px;">Return</button>
-                    <button type="submit" mat-raised-button color="primary">Accept Data</button>
+                    <button [disabled]="form.invalid" type="submit" mat-raised-button color="primary">Accept Data</button>
                 </mat-grid-tile>
             </mat-grid-list>
             <!-- <mat-grid-list cols="4" rowHeight="100px">
