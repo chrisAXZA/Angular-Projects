@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+// Angular Material
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { HeaderComponent } from './header.component';
 
 @NgModule({
@@ -7,7 +12,12 @@ import { HeaderComponent } from './header.component';
     HeaderComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    RouterModule,
+    MatToolbarModule,
+  ],
+  exports: [
+    HeaderComponent,
+  ],
 })
 export class HeaderModule { }
