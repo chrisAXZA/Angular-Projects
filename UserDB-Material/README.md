@@ -1,4 +1,25 @@
 # UserDBMaterial
+Basic demo page testing out different Angular Material Modules (SnackBar, Field, Forms) and form validations .
+
+--
+
+### Login Page:
+<img src="Login.png"/>
+
+--
+
+### Main Page:
+<img src="Main-Page.png"/>
+
+--
+
+### Add User:
+<img src="Add-User.png"/>
+
+
+---
+
+## Overview
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
