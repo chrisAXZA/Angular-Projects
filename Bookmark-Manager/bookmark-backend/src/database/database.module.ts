@@ -7,10 +7,10 @@ import { MongooseModule } from '@nestjs/mongoose';
         // forRootAsync allows for async configuration
         MongooseModule.forRootAsync({
             useFactory: (configService: ConfigService) => ({
-                uri: configService.get<string>('MONGODB_URI')
+                uri: configService.get<string>('MONGODB_URI'),
             }),
             inject: [ConfigService],
         }),
-    ]
+    ],
 })
 export class DatabaseModule { }
