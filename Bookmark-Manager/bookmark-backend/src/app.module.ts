@@ -2,12 +2,13 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
-// import { Joi } from 'joi';
-import Joi = require("joi")
+import * as Joi from 'joi';
+// import Joi = require("joi");
 
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { UsersModule } from './users/users.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { UsersModule } from './users/users.module';
       validationSchema: Joi.object({
         PORT: Joi.number().required,
         MONGODB_URI: Joi.string().required,
-        // when app starts up and no PORT or MONGO_URI is
+        // when app starts up and no PORT or MONGODB_URI is
         // provided, Joi will inform the user with notification
       }),
     }),
@@ -26,6 +27,7 @@ import { UsersModule } from './users/users.module';
     // driver: constitutes serverAdapter in this case Apollo
     GraphQLModule.forRoot<ApolloDriverConfig>({ autoSchemaFile: true, driver: ApolloDriver }),
     UsersModule,
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
