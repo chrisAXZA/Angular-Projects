@@ -5,6 +5,7 @@ import { User } from './models/user.model';
 import { UsersService } from './users.service';
 import { UsersResolver } from './users.resolver';
 import { UserSchema } from './models/user.schema';
+import { UsersRepository } from './users.repository';
 
 @Module({
   imports: [
@@ -12,6 +13,10 @@ import { UserSchema } from './models/user.schema';
       { name: User.name, schema: UserSchema },
     ]),
   ],
-  providers: [UsersResolver, UsersService]
+  providers: [
+    UsersResolver,
+    UsersService,
+    UsersRepository,
+  ]
 })
 export class UsersModule { }
