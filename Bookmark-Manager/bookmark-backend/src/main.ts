@@ -9,9 +9,10 @@ async function bootstrap() {
   // Any request send to the server will go through the ValidationPipe
   // which will handle any class validators in the model classes (@IsEmail, @IsString)
   app.useGlobalPipes(new ValidationPipe());
-  const configService = app.get(ConfigService);
-  const port = configService.get<string>('PORT');
+  // const configService = app.get(ConfigService);
+  // const port = configService.get<string>('PORT');
 
-  await app.listen(port);
+  // await app.listen(port);
+  await app.listen(3000);
 }
 bootstrap();

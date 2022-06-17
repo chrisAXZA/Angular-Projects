@@ -16,12 +16,13 @@ import { DatabaseModule } from './database/database.module';
       isGlobal: true,
       // declares ConfigModule as global so no need to 
       // redeclare in each module where being used
-      validationSchema: Joi.object({
-        PORT: Joi.number().required,
-        MONGODB_URI: Joi.string().required,
-        // when app starts up and no PORT or MONGODB_URI is
-        // provided, Joi will inform the user with notification
-      }),
+      
+      // validationSchema: Joi.object({
+      //   PORT: Joi.number().required,
+      //   MONGODB_URI: Joi.string().required,
+      //   // when app starts up and no PORT or MONGODB_URI is
+      //   // provided, Joi will inform the user with notification
+      // }),
     }),
     // graphql schema file will be automatically generated, code-first approach + file in memory
     // driver: constitutes serverAdapter in this case Apollo
