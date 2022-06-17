@@ -1,5 +1,8 @@
+import * as bcrypt from 'bcrypt';
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 
+import { User } from './models/user.model';
+import { UserDocument } from './models/user.schema';
 import { UsersRepository } from './users.repository';
 import { GetUserArgs } from './dto/args/get-user-args.dto';
 import { CreateUserInput } from './dto/input/create-user-input.dto';
@@ -12,12 +15,19 @@ export class UsersService {
     async createUser(createUserData: CreateUserInput) {
         await this.validateCreateUserData(createUserData);
 
-        // password needs to be stored in hashed format
+        // when creating new user entity, user password needs to be stored in hashed format
+        const userDocument = await this.usersRepository.create({
+            ...createUserData,
+            password: await bcrypt.hash(createUserData.password, 10),
+        });
 
+        return this.toModel(userDocument);
     }
 
     async getUser(getUserArgs: GetUserArgs) {
+        const userDocument = await this.usersRepository.findOne(getUserArgs);
 
+        return this.toModel(userDocument);
     }
 
     private async validateCreateUserData(createUserData: CreateUserInput) {
@@ -25,5 +35,13 @@ export class UsersService {
             await this.usersRepository.findOne({ email: createUserData.email })
             throw new UnprocessableEntityException('Email is already being used!');
         } catch (error) { }
+    }
+
+    private toModel(userDocument: UserDocument): User {
+        return {
+            _id: userDocument._id.toHexString(),
+            email: userDocument.email,
+            // password is not passed on by the service layer as a security measure
+        };
     }
 }
