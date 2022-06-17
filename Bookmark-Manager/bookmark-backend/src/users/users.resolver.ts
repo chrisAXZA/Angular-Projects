@@ -9,11 +9,14 @@ import { UsersService } from './users.service';
 export class UsersResolver {
     constructor(private readonly userService: UsersService) { }
 
+    // @Mutation allows to create a user
     @Mutation(() => User)
     async createUser(@Args('createUserData') createUserData: CreateUserInput){
         return this.userService.createUser(createUserData);
     }
 
+    // @Query returns user, name: 'user' enforces query to be called
+    // user instead of default getUser
     @Query(() => User, {name: 'user'})
     async getUser(@Args() getUserArgs: GetUserArgs){
         return this.userService.getUser(getUserArgs);

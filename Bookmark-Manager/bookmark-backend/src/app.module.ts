@@ -17,7 +17,7 @@ import { UsersModule } from './users/users.module';
       // redeclare in each module where being used
       validationSchema: Joi.object({
         PORT: Joi.number().required,
-        MONGO_URI: Joi.string().required,
+        MONGODB_URI: Joi.string().required,
         // when app starts up and no PORT or MONGO_URI is
         // provided, Joi will inform the user with notification
       }),
