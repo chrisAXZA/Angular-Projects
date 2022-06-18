@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -28,11 +28,11 @@ import { SignUpModule } from './auth/sign-up/sign-up.module';
     HeaderModule,
     LoginModule,
     SignUpModule,
-    // ApolloModule,
+    ApolloModule,
   ],
-  // exports: [ApolloModule],
+  exports: [ApolloModule],
   providers: [
-    // Apollo,
+    Apollo,
     {
       provide: APOLLO_OPTIONS,
       useFactory: (httpLink: HttpLink) => {
