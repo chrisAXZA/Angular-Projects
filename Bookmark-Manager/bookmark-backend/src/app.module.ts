@@ -6,10 +6,10 @@ import * as Joi from 'joi';
 // import Joi = require("joi");
 
 import { AppService } from './app.service';
+import { AuthModule } from './auth/auth.module';
 import { AppController } from './app.controller';
 import { UsersModule } from './users/users.module';
 import { DatabaseModule } from './database/database.module';
-import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -21,6 +21,8 @@ import { AuthModule } from './auth/auth.module';
       // validationSchema: Joi.object({
       //   PORT: Joi.number().required,
       //   MONGODB_URI: Joi.string().required,
+      //   JWT_EXPIRATION: Joi.string().required,
+      //   JWT_SECRET: Joi.string().required,
       //   // when app starts up and no PORT or MONGODB_URI is
       //   // provided, Joi will inform the user with notification
       // }),
