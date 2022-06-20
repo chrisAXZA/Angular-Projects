@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcrypt';
-import { Injectable, UnprocessableEntityException } from '@nestjs/common';
+import { Injectable, UnauthorizedException, UnprocessableEntityException } from '@nestjs/common';
 
 import { User } from './models/user.model';
 import { UserDocument } from './models/user.schema';
@@ -27,6 +27,18 @@ export class UsersService {
     async getUser(getUserArgs: GetUserArgs) {
         const userDocument = await this.usersRepository.findOne(getUserArgs);
 
+        return this.toModel(userDocument);
+    }
+
+    async validateUser(email: string, password: string): Promise<User> {
+        const userDocument = await this.usersRepository.findOne({ email });
+        const passwordIsValid = await bcrypt.compare(password, userDocument.password);
+
+        if (!passwordIsValid) {
+            throw new UnauthorizedException('Credentials are not valid!');
+        }
+
+        // returns the user without the password !!!
         return this.toModel(userDocument);
     }
 
