@@ -1,9 +1,11 @@
+import { UseGuards } from '@nestjs/common';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { GetUserArgs } from './dto/args/get-user-args.dto';
 import { CreateUserInput } from './dto/input/create-user-input.dto';
 
 import { User } from './models/user.model';
 import { UsersService } from './users.service';
+import { GetUserArgs } from './dto/args/get-user-args.dto';
+import { GqlAuthGuard } from 'src/auth/guards/gql-auth.guard';
 
 @Resolver(() => User)
 export class UsersResolver {
@@ -15,6 +17,9 @@ export class UsersResolver {
         return this.userService.createUser(createUserData);
     }
 
+    // getUser controller route is now protected by GqlAuthGuard which will require
+    // a valid jwt cookie in order to be executed
+    @UseGuards(GqlAuthGuard)
     // @Query returns user, name: 'user' enforces query to be called
     // user instead of default getUser
     @Query(() => User, {name: 'user'})
