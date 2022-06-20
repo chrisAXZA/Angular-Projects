@@ -17,6 +17,7 @@ import { UsersRepository } from './users.repository';
     UsersResolver,
     UsersService,
     UsersRepository,
-  ]
+  ],
+  exports: [UsersService],
 })
 export class UsersModule { }
