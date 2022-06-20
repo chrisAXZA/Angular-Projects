@@ -5,6 +5,7 @@ import { ExtractJwt, Strategy } from "passport-jwt";
 import { PassportStrategy } from "@nestjs/passport";
 
 import { UsersService } from "src/users/users.service";
+import { TokenPayload } from "../auth.service";
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -21,5 +22,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     }
 
     // ensure that token payload (which contains userId) corresponds to a valid user
-    
+    // passes on TokenPayload (decoded token!) instead of user password
+    async validate({ userId }: TokenPayload) {
+        // returns user if exists, otherwise throws error
+        return this.usersService.getUser({ _id: userId });
+    }
 };
