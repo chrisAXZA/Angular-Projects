@@ -17,7 +17,8 @@ export class AuthController {
     @Post('login')
     // gets current User of ongoing request, allows access to userObject from ongoing request
     // Also requires response object in order to set cookie on the current response
-    async login(@CurrentUser() user: User,
+    async login(
+        @CurrentUser() user: User,
         @Res({ passthrough: true }) response: Response) { // sends to the normal NestJS response processing
         await this.authService.login(user, response);
 
