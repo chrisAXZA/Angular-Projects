@@ -37,5 +37,11 @@ export class AuthService {
         });
     }
 
-    
+    logout(response: Response) {
+        // overrides the original authentication cookie
+        response.cookie('Authentication', '', {
+            httpOnly: true,
+            expires: new Date(), // expires immediately
+        });
+    }
 }
