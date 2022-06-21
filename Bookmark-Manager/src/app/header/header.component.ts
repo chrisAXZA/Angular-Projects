@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   // out the jwt (authentication cookie)
   // Besides, jwt is httpOnly so only server can modify/erase
   onLogout() {
-
+    this.authService.logout();
   }
 
 }
