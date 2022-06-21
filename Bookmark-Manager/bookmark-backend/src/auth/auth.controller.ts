@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { response, Response } from 'express';
 import { Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
 
 import { AuthService } from './auth.service';
@@ -34,4 +34,14 @@ export class AuthController {
     isAuthenticated() {
         return true;
     }
+
+    @Post('logout')
+    @UseGuards(JwtAuthGuard)
+    async logout(@Res({ passthrough: true }) response: Response) {
+        // access to response is required in order to gain access to cookies
+        this.authService.logout(response);
+        // provide empty json object to signal that logout has been successfull
+        response.json({});
+    }
+
 }

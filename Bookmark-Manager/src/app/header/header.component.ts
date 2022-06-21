@@ -21,8 +21,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // logout will be handled on server-side, in order to clear
+  // out the jwt (authentication cookie)
+  // Besides, jwt is httpOnly so only server can modify/erase
   onLogout() {
-    
+
   }
 
 }
