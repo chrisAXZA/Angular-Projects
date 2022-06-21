@@ -2,4 +2,15 @@
     <a routerLink="/">
         <h1>Bookmark Manager</h1>
     </a>
+    <ul class="nav">
+        <li>
+            <div *ngIf="(isLoggedIn$ | async) === true; else login">
+                <a (click)="onLogout()">Logout</a>
+            </div>
+            <ng-template #login>
+                <a routerLink="/login">Login</a>
+            </ng-template>
+        </li>
+    </ul>
+
 </mat-toolbar>
