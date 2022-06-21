@@ -1,5 +1,6 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+
 import { CreateUserInput, User } from "src/generated-types";
 
 @Injectable({
