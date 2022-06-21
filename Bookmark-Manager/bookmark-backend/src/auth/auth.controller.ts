@@ -37,7 +37,7 @@ export class AuthController {
 
     @Post('logout')
     @UseGuards(JwtAuthGuard)
-    async logout(@Res({ passthrough: true }) response: Response) {
+    logout(@Res({ passthrough: true }) response: Response) {
         // access to response is required in order to gain access to cookies
         this.authService.logout(response);
         // provide empty json object to signal that logout has been successfull
