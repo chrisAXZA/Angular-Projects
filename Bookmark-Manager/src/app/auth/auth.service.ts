@@ -1,3 +1,4 @@
+import { Router } from "@angular/router";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
@@ -15,7 +16,7 @@ export class AuthService {
     // Only private authenticated can emit events inside of Authservice only
     authenticated$ = this.authenticated.asObservable();
 
-    constructor(private readonly httpClient: HttpClient) { }
+    constructor(private readonly httpClient: HttpClient, private readonly router: Router) { }
 
     // checks if current user is authenticated, since jwt is not 
     // stored in localStorage (httpOnly Cookie) jwt can not accessed in order to verify
@@ -32,5 +33,13 @@ export class AuthService {
                 // return Observable of false
                 catchError(() => of(false)),
             );
+    }
+
+    logout() {
+        // post with empty body
+        this.httpClient.post('api/auth/logout', {}).subscribe(() => {
+            this.authenticated.next(false);
+            this.router.navigate(['/login']);
+        });
     }
 }
