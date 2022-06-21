@@ -1,7 +1,8 @@
 import { Response } from 'express';
-import { Controller, Post, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
 
 import { AuthService } from './auth.service';
+import JwtAuthGuard from './guards/jwt-auth.guard';
 import { User } from 'src/users/models/user.model';
 import { CurrentUser } from './current-user.decorator';
 import { LocalAuthGuard } from './guards/local-auth.guard';
@@ -25,4 +26,12 @@ export class AuthController {
         response.send(user);
     }
 
+    // route that controls whether user is authenticated
+    // JwtAuthGuard will either return true or throw error, with regards
+    // whether given user is authenticated
+    @UseGuards(JwtAuthGuard)
+    @Get()
+    isAuthenticated() {
+        return true;
+    }
 }
