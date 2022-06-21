@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { CreateUserGQL } from '../../../generated-types';
@@ -10,7 +11,7 @@ import { CreateUserGQL } from '../../../generated-types';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(private readonly createUserGql: CreateUserGQL) { }
+  constructor(private readonly createUserGql: CreateUserGQL, private readonly router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +22,8 @@ export class SignUpComponent implements OnInit {
     // mutate requires subscribe for call to be made
     this.createUserGql
       .mutate({ createUserData: { email, password } })
-      .subscribe(() => { });
+      .subscribe(() => {
+        this.router.navigate(['/']);
+      });
   }
 }
