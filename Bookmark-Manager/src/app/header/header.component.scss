@@ -10,3 +10,9 @@ h1 {
 ul {
     list-style-type: none;
 }
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
