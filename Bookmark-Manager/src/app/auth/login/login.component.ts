@@ -19,8 +19,10 @@ export class LoginComponent implements OnInit {
   // login({ email, password }: any): void {
   login(createUserData: CreateUserInput) {
     // console.log(email, password);
-    
+
     // returns Observable
-    this.loginService.login(createUserData).subscribe();
+    this.loginService.login(createUserData).subscribe(() => {
+      this.router.navigate(['/']);
+    });
   }
 }
