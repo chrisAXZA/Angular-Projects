@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import { catchError, of } from "rxjs";
+import { catchError, of, Subject, tap } from "rxjs";
 
 
 // allows to authenticate the given user from throughou the app
@@ -9,6 +9,12 @@ import { catchError, of } from "rxjs";
     providedIn: 'root',
 })
 export class AuthService {
+    private readonly authenticated = new Subject<boolean>();
+    // asObservable exposes observable to the outside world, but does
+    // not allow events to be emitted from outside on this observable
+    // Only private authenticated can emit events inside of Authservice only
+    authenticated$ = this.authenticated.asObservable();
+
     constructor(private readonly httpClient: HttpClient) { }
 
     // checks if current user is authenticated, since jwt is not 
@@ -18,6 +24,10 @@ export class AuthService {
     isAuthenticated() {
         return this.httpClient.get<boolean>('api/auth')
             .pipe(
+                // tap will only trigger if no error is thrown !
+                tap(() => {
+                    this.authenticated.next(true);
+                }),
                 // when user is not authenticated error is thrown from route and
                 // return Observable of false
                 catchError(() => of(false)),
