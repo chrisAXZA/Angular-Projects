@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
-import { CreateBookmarkGQL } from '../../../generated-types';
+import { BookmarksDocument, CreateBookmarkGQL } from '../../../generated-types';
 
 @Component({
     selector: 'app-create-bookmark',
@@ -31,6 +31,8 @@ export class CreateBookmarkComponent implements OnInit {
         this.createBookmarkGql
             .mutate({
                 createBookmarkData: { name: this.bookmarkName.value },
+            }, {
+                refetchQueries: [{ query: BookmarksDocument }], // specifies queries which need to be re-executed after the given mutation
             })
             .subscribe(() => { // subscribe will close the opened dialog
                 this.dialogRef.close();
