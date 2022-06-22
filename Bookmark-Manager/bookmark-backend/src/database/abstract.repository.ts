@@ -1,5 +1,5 @@
-import { Logger, NotFoundException } from "@nestjs/common";
 import { FilterQuery, Model, Types } from "mongoose";
+import { Logger, NotFoundException } from "@nestjs/common";
 
 import { AbstractDocument } from "./abstract.schema";
 
