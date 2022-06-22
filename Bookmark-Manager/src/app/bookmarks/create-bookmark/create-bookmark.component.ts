@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
-import {CreateBookmarkGQL} from '../../../generated-types';
+import { CreateBookmarkGQL } from '../../../generated-types';
 
 @Component({
     selector: 'app-create-bookmark',
@@ -12,7 +13,7 @@ export class CreateBookmarkComponent implements OnInit {
 
     bookmarkName = new FormControl('', [Validators.required]);
 
-    constructor(private readonly createBookmarkGql: CreateBookmarkGQL) { }
+    constructor(private readonly createBookmarkGql: CreateBookmarkGQL, private readonly dialogRef: MatDialogRef<CreateBookmarkComponent>) { }
 
     ngOnInit(): void {
     }
@@ -27,6 +28,12 @@ export class CreateBookmarkComponent implements OnInit {
 
     // executes the createBookmark mutation
     createBookmark() {
-
+        this.createBookmarkGql
+            .mutate({
+                createBookmarkData: { name: this.bookmarkName.value },
+            })
+            .subscribe(() => { // subscribe will close the opened dialog
+                this.dialogRef.close();
+            });
     }
 }
