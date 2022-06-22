@@ -50,8 +50,14 @@ export type MutationCreateUserArgs = {
 
 export type Query = {
   __typename?: 'Query';
+  bookmark: Bookmark;
   bookmarks: Array<Bookmark>;
   user: User;
+};
+
+
+export type QueryBookmarkArgs = {
+  _id: Scalars['String'];
 };
 
 
@@ -71,6 +77,13 @@ export type CreateUserMutationVariables = Exact<{
 
 
 export type CreateUserMutation = { __typename?: 'Mutation', createUser: { __typename?: 'User', _id: string, email: string } };
+
+export type BookmarkQueryVariables = Exact<{
+  _id: Scalars['String'];
+}>;
+
+
+export type BookmarkQuery = { __typename?: 'Query', bookmark: { __typename?: 'Bookmark', _id: string, name: string, userId: string, links: Array<string> } };
 
 export type BookmarksQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -98,6 +111,27 @@ export const CreateUserDocument = gql`
   })
   export class CreateUserGQL extends Apollo.Mutation<CreateUserMutation, CreateUserMutationVariables> {
     document = CreateUserDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const BookmarkDocument = gql`
+    query bookmark($_id: String!) {
+  bookmark(_id: $_id) {
+    _id
+    name
+    userId
+    links
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class BookmarkGQL extends Apollo.Query<BookmarkQuery, BookmarkQueryVariables> {
+    document = BookmarkDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);
