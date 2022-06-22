@@ -20,7 +20,7 @@ export class BookmarksService {
     }
 
     async getBookmarks(userId: string) {
-
+        const bookmarkDocuments = await this.bookmarksRepository.find({ userId });
     }
 
     // will return same object with new _id
