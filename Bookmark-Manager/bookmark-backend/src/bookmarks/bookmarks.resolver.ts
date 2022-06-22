@@ -7,6 +7,7 @@ import { BookmarksService } from './bookmarks.service';
 import { CurrentUser } from 'src/auth/current-user.decorator';
 import { GqlAuthGuard } from 'src/auth/guards/gql-auth.guard';
 import { CreateBookmarkInput } from './dto/create-bookmark-input.dto';
+import { GetBookmarkArgs } from './dto/args/get-bookmark-args.dto';
 
 // resolver will actually create new bookmarks entities
 @Resolver(() => Bookmark) // will return a type of bookmark
@@ -29,4 +30,14 @@ export class BookmarksResolver {
     async getBookmarks(@CurrentUser() user: User) { // returns all of the bookmarks created by the given user
         return this.bookmarksService.getBookmarks(user._id);
     }
+
+    @UseGuards(GqlAuthGuard)
+    @Query(() => Bookmark, { name: 'bookmark' })
+    async getBookmark(
+        @Args() getBookmarkArgs: GetBookmarkArgs,
+        @CurrentUser() user: User, // only user who owns the bookmark should be able to access it
+    ) {
+        return this.bookmarksService.getBookmark(getBookmarkArgs, user._id);
+    }
+
 }
