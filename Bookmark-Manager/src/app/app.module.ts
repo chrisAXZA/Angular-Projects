@@ -4,9 +4,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 // Apollo Imports
-import { APOLLO_OPTIONS, ApolloModule, Apollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
+import { APOLLO_OPTIONS, ApolloModule, Apollo } from 'apollo-angular';
 
 
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { HomeModule } from './home/home.module';
 import { HeaderModule } from './header/header.module';
 import { LoginModule } from './auth/login/login.module';
 import { SignUpModule } from './auth/sign-up/sign-up.module';
+import { BookmarkModule } from './bookmarks/bookmark/bookmark.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SignUpModule } from './auth/sign-up/sign-up.module';
     SignUpModule,
     ApolloModule,
     HomeModule,
+    BookmarkModule,
   ],
   exports: [ApolloModule],
   providers: [
