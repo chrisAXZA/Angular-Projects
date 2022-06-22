@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
+import { CreateBookmarkComponent } from './create-bookmark/create-bookmark.component';
 
 @Component({
     selector: 'app-bookmarks',
@@ -7,12 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookmarksComponent implements OnInit {
 
-    constructor() { }
+    constructor(private readonly dialog: MatDialog) { }
 
     ngOnInit(): void {
     }
 
     onFabClick() {
-
+        this.dialog.open(CreateBookmarkComponent);
     }
 }
