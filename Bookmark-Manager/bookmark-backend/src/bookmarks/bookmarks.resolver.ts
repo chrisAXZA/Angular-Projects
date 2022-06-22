@@ -26,7 +26,7 @@ export class BookmarksResolver {
     // query currently available bookmarks
     @UseGuards(GqlAuthGuard)
     @Query(() => [Bookmark], { name: 'bookmarks' })
-    async getBookmarks(@CurrentUser() user: User) {
+    async getBookmarks(@CurrentUser() user: User) { // returns all of the bookmarks created by the given user
         return this.bookmarksService.getBookmarks(user._id);
     }
 }

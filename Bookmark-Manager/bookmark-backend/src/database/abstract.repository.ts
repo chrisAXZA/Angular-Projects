@@ -37,6 +37,6 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument>{
     }
 
     async find(filterQuery: FilterQuery<TDocument>) {
-        return this.model.find(filterQuery, {}, { lean: true });
+        return this.model.find(filterQuery, {}, { lean: true }); // returns non-mongoose document (raw vs. hydrated)
     }
 }
