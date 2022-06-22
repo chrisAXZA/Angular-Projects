@@ -1,5 +1,5 @@
-import { Query, UseGuards } from '@nestjs/common';
-import { Args, Mutation, Resolver } from '@nestjs/graphql';
+import { UseGuards } from '@nestjs/common';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { Bookmark } from './models/bookmark.model';
 import { User } from 'src/users/models/user.model';
