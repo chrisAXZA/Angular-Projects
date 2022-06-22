@@ -2,7 +2,7 @@
     <h2>Create Bookmark</h2>
     <mat-form-field appearance="outline">
         <mat-label>Bookmark Name</mat-label>
-        <input type="text" matInput [formControl]="bookmarkName" required>
+        <input type="text" matInput [formControl]="bookmarkName" required /> 
         <mat-error *ngIf="bookmarkName.invalid">
             {{ getBookmarkNameError() }}
         </mat-error>
