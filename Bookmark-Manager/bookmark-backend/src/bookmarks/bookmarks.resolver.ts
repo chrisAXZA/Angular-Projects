@@ -1,4 +1,4 @@
-import { UseGuards } from '@nestjs/common';
+import { Query, UseGuards } from '@nestjs/common';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 import { Bookmark } from './models/bookmark.model';
@@ -21,5 +21,12 @@ export class BookmarksResolver {
         @CurrentUser() user: User // extracts currentUser from request object
     ) {
         return this.bookmarksService.createBookmark(createBookmarkData, user._id);
+    }
+
+    // query currently available bookmarks
+    @UseGuards(GqlAuthGuard)
+    @Query(() => [Bookmark], { name: 'bookmarks' })
+    async getBookmarks(@CurrentUser() user: User) {
+        return this.bookmarksService.getBookmarks(user._id);
     }
 }
