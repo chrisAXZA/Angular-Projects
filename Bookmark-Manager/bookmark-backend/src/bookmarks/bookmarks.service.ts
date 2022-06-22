@@ -19,6 +19,10 @@ export class BookmarksService {
         return this.toModel(bookmarkDocument);
     }
 
+    async getBookmarks(userId: string) {
+
+    }
+
     // will return same object with new _id
     private toModel(bookmarkDocument: BookmarkDocument) {
         return {
