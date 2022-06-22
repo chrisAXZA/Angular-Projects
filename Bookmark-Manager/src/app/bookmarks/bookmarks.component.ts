@@ -29,4 +29,8 @@ export class BookmarksComponent implements OnInit {
     onFabClick() {
         this.dialog.open(CreateBookmarkComponent);
     }
+
+    onBookmarkClick(bookmarkId: string) {
+        
+    }
 }
