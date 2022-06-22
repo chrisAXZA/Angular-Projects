@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { map } from 'rxjs';
 
 import { Observable } from 'rxjs';
@@ -16,7 +17,11 @@ export class BookmarksComponent implements OnInit {
 
     bookmarks$: Observable<Bookmark[]>;
 
-    constructor(private readonly dialog: MatDialog, private readonly bookmarkGql: BookmarksGQL) { }
+    constructor(
+        private readonly dialog: MatDialog,
+        private readonly bookmarkGql: BookmarksGQL,
+        private readonly router: Router
+    ) { }
 
     ngOnInit(): void {
         // watches changes, wether from direct call or cache
@@ -31,6 +36,6 @@ export class BookmarksComponent implements OnInit {
     }
 
     onBookmarkClick(bookmarkId: string) {
-        
+        this.router.navigate([`/bookmarks`, bookmarkId]);
     }
 }
