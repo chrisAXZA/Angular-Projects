@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
+import {CreateBookmarkGQL} from '../../../generated-types';
+
 @Component({
     selector: 'app-create-bookmark',
     templateUrl: './create-bookmark.component.html',
@@ -10,7 +12,7 @@ export class CreateBookmarkComponent implements OnInit {
 
     bookmarkName = new FormControl('', [Validators.required]);
 
-    constructor() { }
+    constructor(private readonly createBookmarkGql: CreateBookmarkGQL) { }
 
     ngOnInit(): void {
     }
@@ -23,6 +25,7 @@ export class CreateBookmarkComponent implements OnInit {
         return '';
     }
 
+    // executes the createBookmark mutation
     createBookmark() {
 
     }
