@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 import { BookmarksRepository } from './bookmarks.repository';
+import { GetBookmarkArgs } from './dto/args/get-bookmark-args.dto';
 import { CreateBookmarkInput } from './dto/create-bookmark-input.dto';
 import { BookmarkDocument } from './models/bookmark.schema';
 
@@ -23,6 +24,15 @@ export class BookmarksService {
         const bookmarkDocuments = await this.bookmarksRepository.find({ userId });
 
         return bookmarkDocuments.map((bookmark) => this.toModel(bookmark));
+    }
+
+    async getBookmark(getBookmarkArgs: GetBookmarkArgs, userId: string) {
+        const bookmarkDocument = await this.bookmarksRepository.findOne({
+            ...getBookmarkArgs,
+            userId,
+        });
+
+        return this.toModel(bookmarkDocument);
     }
 
     // will return same object with new _id
