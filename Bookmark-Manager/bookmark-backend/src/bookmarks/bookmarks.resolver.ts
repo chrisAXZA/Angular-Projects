@@ -24,6 +24,12 @@ export class BookmarksResolver {
         return this.bookmarksService.createBookmark(createBookmarkData, user._id);
     }
 
+    @UseGuards(GqlAuthGuard)
+    @Mutation(() => Bookmark)
+    async updateBookmark() {
+
+    }
+
     // query currently available bookmarks
     @UseGuards(GqlAuthGuard)
     @Query(() => [Bookmark], { name: 'bookmarks' })
