@@ -37,7 +37,12 @@ export class BookmarksService {
     }
 
     async updateBookmark(updateBookmarkData: UpdateBookmarkInput, userId: string) {
-        
+        const bookmarkDocument = await this.bookmarksRepository.findOneAndUpdate(
+            { _id: updateBookmarkData._id, userId },
+            updateBookmarkData,
+        );
+
+        return this.toModel(bookmarkDocument);
     }
 
     // will return same object with new _id
