@@ -36,6 +36,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   createBookmark: Bookmark;
   createUser: User;
+  updateBookmark: Bookmark;
 };
 
 
@@ -46,6 +47,11 @@ export type MutationCreateBookmarkArgs = {
 
 export type MutationCreateUserArgs = {
   createUserData: CreateUserInput;
+};
+
+
+export type MutationUpdateBookmarkArgs = {
+  updateBookmarkData: UpdateBookmarkInput;
 };
 
 export type Query = {
@@ -63,6 +69,11 @@ export type QueryBookmarkArgs = {
 
 export type QueryUserArgs = {
   _id: Scalars['String'];
+};
+
+export type UpdateBookmarkInput = {
+  _id: Scalars['String'];
+  links: Array<Scalars['String']>;
 };
 
 export type User = {
