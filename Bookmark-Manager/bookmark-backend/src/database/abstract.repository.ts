@@ -1,4 +1,4 @@
-import { FilterQuery, Model, Types } from "mongoose";
+import { FilterQuery, Model, Types, UpdateQuery } from "mongoose";
 import { Logger, NotFoundException } from "@nestjs/common";
 
 import { AbstractDocument } from "./abstract.schema";
@@ -31,6 +31,21 @@ export abstract class AbstractRepository<TDocument extends AbstractDocument>{
         if (!document) {
             this.logger.warn('Document not found with filterQuery >>> ', filterQuery);
             throw new NotFoundException('Document not found!');
+        }
+
+        return document;
+    }
+
+    async findOneAndUpdate(filterQuery: FilterQuery<TDocument>, update: UpdateQuery<TDocument>) {
+        const document = await this.model.findOneAndUpdate(filterQuery, update, {
+            lean: true,
+            new: true, // when the given document has been updated, the new document will be passed back in place of the old one
+        });
+
+        // if document has not been found by the filter-query
+        if (!document) {
+            this.logger.warn('Document not found with filterQuery >>> ', filterQuery);
+            throw new NotFoundException('Document not found!!!');
         }
 
         return document;
