@@ -1,1 +1,8 @@
-<p>bookmark works!</p>
+<ng-container *ngIf="bookmark">
+    <mat-toolbar color="primary">
+        <span>{{ bookmark.name }}</span>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="onAdd()"></button>
+        <mat-icon>add</mat-icon>
+    </mat-toolbar>
+</ng-container>
