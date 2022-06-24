@@ -6,8 +6,9 @@ import { User } from 'src/users/models/user.model';
 import { BookmarksService } from './bookmarks.service';
 import { CurrentUser } from 'src/auth/current-user.decorator';
 import { GqlAuthGuard } from 'src/auth/guards/gql-auth.guard';
-import { CreateBookmarkInput } from './dto/create-bookmark-input.dto';
 import { GetBookmarkArgs } from './dto/args/get-bookmark-args.dto';
+import { CreateBookmarkInput } from './dto/create-bookmark-input.dto';
+import { UpdateBookmarkInput } from './dto/update-bookmark-input.dto';
 
 // resolver will actually create new bookmarks entities
 @Resolver(() => Bookmark) // will return a type of bookmark
@@ -26,8 +27,10 @@ export class BookmarksResolver {
 
     @UseGuards(GqlAuthGuard)
     @Mutation(() => Bookmark)
-    async updateBookmark() {
-
+    async updateBookmark(
+        @Args('updateBookmarkData') updateBookmarkData: UpdateBookmarkInput,
+        @CurrentUser() user: User) {
+        return this.bookmarksService.updateBookmark(updateBookmarkData, user._id);
     }
 
     // query currently available bookmarks
