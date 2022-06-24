@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { AddLinkComponent } from './add-link.component';
-
-
 
 @NgModule({
   declarations: [
@@ -10,6 +9,9 @@ import { AddLinkComponent } from './add-link.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [
+    AddLinkComponent,
+  ],
 })
 export class AddLinkModule { }

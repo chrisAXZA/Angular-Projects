@@ -3,7 +3,11 @@ import { Component, OnInit } from '@angular/core';
 
 import { switchMap } from 'rxjs';
 
+// Angular material
+import { MatDialog } from '@angular/material/dialog';
+
 import { Bookmark, BookmarkGQL } from 'src/generated-types';
+import { AddLinkComponent } from './add-link/add-link.component';
 
 @Component({
   selector: 'app-bookmark',
@@ -14,7 +18,10 @@ export class BookmarkComponent implements OnInit {
 
   bookmark: Bookmark;
 
-  constructor(private readonly route: ActivatedRoute, private readonly bookmarkGql: BookmarkGQL) { }
+  constructor(
+    private readonly route: ActivatedRoute,
+    private readonly bookmarkGql: BookmarkGQL,
+    private readonly dialog: MatDialog) { }
 
   // will listen to the changes in the route parameter
   ngOnInit(): void {
@@ -31,7 +38,9 @@ export class BookmarkComponent implements OnInit {
   }
 
   onAdd() {
-    
+    this.dialog.open(AddLinkComponent, {
+      data: { bookmark: this.bookmark },
+    });
   }
 
 }

@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { BookmarkComponent } from './bookmark.component';
+import { AddLinkModule } from './add-link/add-link.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BookmarkComponent } from './bookmark.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    AddLinkModule,
   ]
 })
 export class BookmarkModule { }
