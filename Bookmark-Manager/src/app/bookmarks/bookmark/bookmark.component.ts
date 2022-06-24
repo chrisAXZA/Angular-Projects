@@ -30,4 +30,8 @@ export class BookmarkComponent implements OnInit {
       });
   }
 
+  onAdd() {
+    
+  }
+
 }
