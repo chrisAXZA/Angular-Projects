@@ -11,7 +11,7 @@ import { AddLinkComponent } from './add-link.component';
     CommonModule
   ],
   exports: [
-    AddLinkComponent,
+    // AddLinkComponent,
   ],
 })
 export class AddLinkModule { }

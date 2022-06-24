@@ -21,7 +21,7 @@ import { AddLinkModule } from './add-link/add-link.module';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    AddLinkModule,
+    // AddLinkModule,
   ]
 })
 export class BookmarkModule { }
