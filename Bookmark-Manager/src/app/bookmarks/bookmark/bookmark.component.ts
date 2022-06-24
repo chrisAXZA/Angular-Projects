@@ -38,6 +38,7 @@ export class BookmarkComponent implements OnInit {
   }
 
   onAdd() {
+    // AddLinkComponent is used as a host for the dialog form
     this.dialog.open(AddLinkComponent, {
       data: { bookmark: this.bookmark },
     });
