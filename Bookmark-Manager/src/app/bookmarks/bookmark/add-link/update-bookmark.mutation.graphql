@@ -1,5 +1,5 @@
 mutation updateBookmark($updateBookmarkData: UpdateBookmarkInput!) {
-    updateBookmark(updateBookmarkData: @updateBookmarkData) {
+    updateBookmark(updateBookmarkData: $updateBookmarkData) {
         _id
         name
         userId

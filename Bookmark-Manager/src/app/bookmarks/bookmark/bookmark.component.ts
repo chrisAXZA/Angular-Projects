@@ -19,12 +19,13 @@ export class BookmarkComponent implements OnInit {
   bookmark: Bookmark;
 
   constructor(
-    private readonly route: ActivatedRoute,
+    private readonly route: ActivatedRoute, // activatedRoute injects the current route into the component
     private readonly bookmarkGql: BookmarkGQL,
     private readonly dialog: MatDialog) { }
 
   // will listen to the changes in the route parameter
   ngOnInit(): void {
+    // will listen to the changes in the route parameter which is also containing the id of the current bookmark
     this.route.params
       .pipe(
         // will switch to a new set of code each time the observable in the given pipe changes
@@ -43,5 +44,4 @@ export class BookmarkComponent implements OnInit {
       data: { bookmark: this.bookmark },
     });
   }
-
 }
