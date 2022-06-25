@@ -32,6 +32,14 @@ export type CreateUserInput = {
   password: Scalars['String'];
 };
 
+export type Link = {
+  __typename?: 'Link';
+  images: Array<Scalars['String']>;
+  siteName: Scalars['String'];
+  title: Scalars['String'];
+  url: Scalars['String'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createBookmark: Bookmark;
@@ -58,12 +66,18 @@ export type Query = {
   __typename?: 'Query';
   bookmark: Bookmark;
   bookmarks: Array<Bookmark>;
+  links: Array<Link>;
   user: User;
 };
 
 
 export type QueryBookmarkArgs = {
   _id: Scalars['String'];
+};
+
+
+export type QueryLinksArgs = {
+  urls: Array<Scalars['String']>;
 };
 
 
@@ -102,6 +116,13 @@ export type BookmarkQueryVariables = Exact<{
 
 
 export type BookmarkQuery = { __typename?: 'Query', bookmark: { __typename?: 'Bookmark', _id: string, name: string, userId: string, links: Array<string> } };
+
+export type LinksQueryVariables = Exact<{
+  urls: Array<Scalars['String']> | Scalars['String'];
+}>;
+
+
+export type LinksQuery = { __typename?: 'Query', links: Array<{ __typename?: 'Link', siteName: string, title: string, images: Array<string>, url: string }> };
 
 export type BookmarksQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -171,6 +192,27 @@ export const BookmarkDocument = gql`
   })
   export class BookmarkGQL extends Apollo.Query<BookmarkQuery, BookmarkQueryVariables> {
     document = BookmarkDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const LinksDocument = gql`
+    query links($urls: [String!]!) {
+  links(urls: $urls) {
+    siteName
+    title
+    images
+    url
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class LinksGQL extends Apollo.Query<LinksQuery, LinksQueryVariables> {
+    document = LinksDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);
