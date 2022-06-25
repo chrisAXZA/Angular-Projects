@@ -11,6 +11,7 @@ import { AppController } from './app.controller';
 import { UsersModule } from './users/users.module';
 import { DatabaseModule } from './database/database.module';
 import { BookmarksModule } from './bookmarks/bookmarks.module';
+import { LinksModule } from './links/links.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { BookmarksModule } from './bookmarks/bookmarks.module';
     DatabaseModule,
     AuthModule,
     BookmarksModule,
+    LinksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
