@@ -58,4 +58,8 @@ export class BookmarkComponent implements OnInit {
       data: { bookmark: this.bookmark },
     });
   }
+
+  onLinkClick(url: string) {
+    window.open(url, '_blank'); // url should be opened in a new (blank) window
+  }
 }
