@@ -1,4 +1,30 @@
-# BookmarkManager
+# BookmarkManager with Apollo-Angular, GrapQL + GraphQL-Codegen, Nest.JS
+
+## Overview
+More of a technology demonstrator showcasing a bookmark manager that takes up site URLs and renders them employing. With GraphQL-Codegen running in the backgroung, queries are auto-generated. Nest.JS handles communication between MongoDB and GraphQL.
+
+--
+
+### SignIn/Login Page:
+<img src="SignIn-Login.png"/>
+
+--
+
+### Main Page:
+<img src="Main-Page.png"/>
+
+--
+
+### Add-Link Page:
+<img src="Add-Link.png"/>
+
+--
+
+### Link-Collection Page:
+<img src="Link-Collection.png"/>
+
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
