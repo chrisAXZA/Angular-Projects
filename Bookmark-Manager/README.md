@@ -11,17 +11,17 @@ More of a technology demonstrator showcasing a bookmark manager that takes up si
 --
 
 ### Main Page:
-<img src="Main-Page.png"/>
+<img src="Main-Page1.png"/>
 
 --
 
 ### Add-Link Page:
-<img src="Add-Link.png"/>
+<img src="Add-Link1.png"/>
 
 --
 
 ### Link-Collection Page:
-<img src="Link-Collection.png"/>
+<img src="Link-Collection1.png"/>
 
 
 ---
