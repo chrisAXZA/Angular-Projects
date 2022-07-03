@@ -1,7 +1,7 @@
 # BookmarkManager with Apollo-Angular, GrapQL + GraphQL-Codegen, Nest.JS
 
 ## Overview
-More of a technology demonstrator showcasing a bookmark manager that takes up site URLs and renders them employing. With GraphQL-Codegen running in the backgroung, queries are auto-generated. Nest.JS handles communication between MongoDB and GraphQL.
+More of a technology demonstrator showcasing a bookmark manager that takes up site URLs and renders them employing. With GraphQL-Codegen running in the background, queries are auto-generated. Nest.JS handles communication between MongoDB and GraphQL.
 
 --
 
