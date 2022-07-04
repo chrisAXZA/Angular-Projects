@@ -1,5 +1,5 @@
-import { ArgsType, Field } from "@nestjs/graphql";
 import { IsUrl } from "class-validator";
+import { ArgsType, Field } from "@nestjs/graphql";
 
 @ArgsType()
 export class GetLinksArgs {
