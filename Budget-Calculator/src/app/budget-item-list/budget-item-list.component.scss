@@ -21,10 +21,24 @@
             flex-grow: 1; // columns will take up all available space
 
             h1 {
-                font-family: 'Lato';
+                font-family: "Lato";
                 font-size: 24px;
                 font-weight: 900;
                 text-transform: uppercase;
+            }
+        }
+
+        .income-column {
+            margin-right: 35px;
+
+            h1 {
+                color: $green;
+            }
+        }
+
+        .expenses-column {
+            h1 {
+                color: $red;
             }
         }
     }
