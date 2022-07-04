@@ -1,4 +1,4 @@
-@import '../../main-styles.scss';
+@import "../../main-styles.scss";
 
 .top-bar {
     display: flex;
@@ -11,7 +11,7 @@
     align-items: center;
 
     h1 {
-        font-family: 'Lato';
+        font-family: "Lato";
         font-size: 18px;
         letter-spacing: 1px;
         font-weight: 900;
@@ -20,8 +20,25 @@
     }
 }
 
-.total-budget-section{
+.total-budget-section {
     display: flex;
     height: 250px;
     background: $dark;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        font-family: "Lato";
+        font-weight: 300;
+        font-size: 58px;
+        color: white;
+
+        &.green {
+            color: lighten($green, 12%);
+        }
+
+        &.red {
+            color: lighten($red, 12%);
+        }
+    }
 }
