@@ -3,6 +3,17 @@
 .root {
     display: flex;
     width: 100%;
+    position: relative; // required since delete button postion will be set to absolute
+
+    .x-icon-button{
+        position: absolute;
+        height: 34px;
+        width: 34px;
+        border-radius: 50%;
+        background: $dark;
+        right: -17px; // half of the width
+        top: -17px; // half of the height
+    }
 }
 
 .budget-item {
