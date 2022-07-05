@@ -27,7 +27,7 @@
         cursor: pointer;
         
         // transition button effect
-        transition: opacity 0.2s ease-out, transform 0.2s ease-out; // sets timing function
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out; // sets timing function
         transform: scale(0); // sets visibility to zero
         opacity: 0;
 
@@ -58,6 +58,12 @@
     .amount {
         padding: 5px;
         border-radius: 3px;
+    }
+
+    transition: background-color 0.4s ease-out;
+    &:hover{
+        background-color: darken($light-grey, 15%);
+
     }
 }
 
