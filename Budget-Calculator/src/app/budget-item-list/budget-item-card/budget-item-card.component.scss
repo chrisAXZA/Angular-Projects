@@ -5,6 +5,14 @@
     width: 100%;
     position: relative; // required since delete button postion will be set to absolute
 
+    //styling will only apply when hover event is triggered on the root element
+    &:hover {
+        .x-icon-button {
+            opacity: 1; // set to full visibility
+            transform: scale(1); // sets the correct size
+        }
+    }
+
     .x-icon-button {
         position: absolute;
         height: 34px;
@@ -17,16 +25,13 @@
         right: -17px; // half of the width
         top: -17px; // half of the height
         
+        // transition button effect
         transition: opacity 0.2s ease-out, transform 0.2s ease-out; // sets timing function
         transform: scale(0); // sets visibility to zero
         opacity: 0;
-    }
 
-    //styling will only apply when hover event is triggered on the root element
-    &:hover {
-        .x-icon-button {
-            opacity: 1; // set to full visibility
-            transform: scale(1); // sets the correct size
+        &:hover {
+            transform: scale(1.2); // creates zoom in effect
         }
     }
 }
