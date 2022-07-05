@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { BudgetItem } from 'src/shared/modules/budget-item.model';
 
 @Component({
-  selector: 'app-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss']
+    selector: 'app-main-page',
+    templateUrl: './main-page.component.html',
+    styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+    budgetItems: BudgetItem[] = new Array<BudgetItem>(); // array needs to be intialized
 
-  ngOnInit(): void {
-  }
+    constructor() { }
+
+    ngOnInit(): void {
+    }
+
+    addItem(newItem: BudgetItem) {
+
+    }
 
 }
