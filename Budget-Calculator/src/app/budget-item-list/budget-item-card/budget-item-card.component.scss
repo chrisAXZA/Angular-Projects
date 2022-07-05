@@ -16,6 +16,17 @@
         background-position: center;
         right: -17px; // half of the width
         top: -17px; // half of the height
+        
+        transition: opacity 0.2s ease-in, transform 0.2s ease-in; // sets timing function
+        transform: scale(0); // sets visibility to zero
+    }
+
+    //styling will only apply when hover event is triggered on the root element
+    &:hover {
+        .x-icon-button {
+            opacity: 1; // set to full visibility
+            transform: scale(1); // sets the correct size
+        }
     }
 }
 
