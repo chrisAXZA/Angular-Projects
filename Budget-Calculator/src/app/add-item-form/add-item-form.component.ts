@@ -1,5 +1,7 @@
 import { NgForm } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { BudgetItem } from 'src/shared/modules/budget-item.model';
 
 @Component({
   selector: 'app-add-item-form',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-item-form.component.scss']
 })
 export class AddItemFormComponent implements OnInit {
+
+  // item needs to be set with default value
+  @Input() item: BudgetItem = new BudgetItem('', 0);
 
   constructor() { }
 
