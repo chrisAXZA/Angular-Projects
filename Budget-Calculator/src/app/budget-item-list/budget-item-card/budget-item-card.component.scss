@@ -14,9 +14,13 @@
     cursor: pointer;
 
     .description {
+        display: flex;
         flex-grow: 1; // grow will take up remaining space with 1 setting
         font-size: 18px;
         margin-left: 5px;
+
+        // vertically center the given children elements
+        align-items: center;
     }
 
     .amount {
