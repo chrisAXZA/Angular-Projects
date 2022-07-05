@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { BudgetItem } from 'src/shared/modules/budget-item.model';
 
 @Component({
-  selector: 'app-budget-item-list',
-  templateUrl: './budget-item-list.component.html',
-  styleUrls: ['./budget-item-list.component.scss']
+    selector: 'app-budget-item-list',
+    templateUrl: './budget-item-list.component.html',
+    styleUrls: ['./budget-item-list.component.scss']
 })
 export class BudgetItemListComponent implements OnInit {
 
-  constructor() { }
+    @Input() budgetItems!: BudgetItem[];
 
-  ngOnInit(): void {
-  }
+    constructor() { }
+
+    ngOnInit(): void {
+    }
 
 }
