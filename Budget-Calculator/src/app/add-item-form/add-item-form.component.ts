@@ -19,6 +19,7 @@ export class AddItemFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    // console.log(`Value: ${form.value} >>> Valid: ${form.valid}`);
     console.log(form.value, form.valid);
   }
 
