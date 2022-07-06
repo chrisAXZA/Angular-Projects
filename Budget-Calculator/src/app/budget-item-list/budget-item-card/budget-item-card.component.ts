@@ -13,7 +13,8 @@ export class BudgetItemCardComponent implements OnInit {
     @Input() item!: BudgetItem;
     // any or void since no data is emitted, parent component already knows what item to delete since
     // parent component is passing the item to the child component and also binds to the click event
-    @Output() xButtonClick: EventEmitter<any> = new EventEmitter<any>(); 
+    @Output() xButtonClick: EventEmitter<any> = new EventEmitter<any>();
+    @Output() cardClick: EventEmitter<any> = new EventEmitter<any>();
 
     constructor() { }
 
@@ -23,5 +24,9 @@ export class BudgetItemCardComponent implements OnInit {
     onXButtonClick() {
         // will emit delete event
         this.xButtonClick.emit();
+    }
+
+    onCardClick() {
+        this.cardClick.emit();
     }
 }
