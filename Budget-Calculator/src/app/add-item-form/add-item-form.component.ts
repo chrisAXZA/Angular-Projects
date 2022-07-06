@@ -23,6 +23,7 @@ export class AddItemFormComponent implements OnInit {
         // console.log(`Value: ${form.value} >>> Valid: ${form.valid}`);
         // console.log(form.value, form.valid);
         this.formSubmit.emit(form.value);
+        form.reset();
     }
 
 }
