@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BudgetItem } from 'src/shared/modules/budget-item.model';
 
@@ -11,10 +11,17 @@ export class BudgetItemCardComponent implements OnInit {
 
     // @Input() isIncome: boolean = true;
     @Input() item!: BudgetItem;
+    // any or void since no data is emitted, parent component already knows what item to delete since
+    // parent component is passing the item to the child component and also binds to the click event
+    @Output() xButtonClick: EventEmitter<any> = new EventEmitter<any>(); 
 
     constructor() { }
 
     ngOnInit(): void {
     }
 
+    onXButtonClick() {
+        // will emit delete event
+        this.xButtonClick.emit();
+    }
 }
