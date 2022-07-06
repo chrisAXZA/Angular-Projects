@@ -9,7 +9,7 @@ import { BudgetItem } from 'src/shared/modules/budget-item.model';
 })
 export class EditItemModalComponent implements OnInit {
 
-    @Input() item!: BudgetItem;
+    @Input() item: BudgetItem = new BudgetItem('', 0);
 
     constructor() { }
 
