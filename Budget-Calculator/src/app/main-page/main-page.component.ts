@@ -9,6 +9,7 @@ import { BudgetItem } from 'src/shared/modules/budget-item.model';
 export class MainPageComponent implements OnInit {
 
     budgetItems: BudgetItem[] = new Array<BudgetItem>(); // array needs to be intialized
+    totalBudget: number = 0;
 
     constructor() { }
 
@@ -18,11 +19,15 @@ export class MainPageComponent implements OnInit {
     addItem(newItem: BudgetItem) {
         this.budgetItems.push(newItem);
         // console.log(newItem.id);
+
+        this.totalBudget += newItem.amount!;
     }
 
     deleteItem(item: BudgetItem) {
         // this.budgetItems = this.budgetItems.filter((i) => i.id !== item.id);
         let index = this.budgetItems.indexOf(item);
         this.budgetItems.splice(index, 1);
+
+        this.totalBudget -= item.amount!;
     }
 }
