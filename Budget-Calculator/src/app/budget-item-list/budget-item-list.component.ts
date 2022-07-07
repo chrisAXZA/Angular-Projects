@@ -37,7 +37,7 @@ export class BudgetItemListComponent implements OnInit {
 
         // subscribe to the event when the dialog is closed
         diaologRef.afterClosed()
-            .subscribe((result) => { // result is emitted by the closed dialog
+            .subscribe((result) => { // result is emitted by the closed dialog, updatedItem from edit-item-modal component
                 // checks if result has a value
                 if (result){
                     // result is the actual updated item

@@ -11,12 +11,23 @@ import { BudgetItem } from 'src/shared/modules/budget-item.model';
 export class AddItemFormComponent implements OnInit {
 
     // item needs to be set with default value
-    @Input() item: BudgetItem = new BudgetItem('', 0);
+    // @Input() item: BudgetItem = new BudgetItem('', 0);
+    @Input() item!: BudgetItem;
     @Output() formSubmit: EventEmitter<BudgetItem> = new EventEmitter<BudgetItem>();
+
+    isNewItem!: boolean;
 
     constructor() { }
 
     ngOnInit(): void {
+        // check if already existing item value was passed unto the component
+        // if (this.item.amount === 0 && this.item.description === '') {
+        if (this.item) {
+            this.isNewItem = false;
+        } else {
+            this.isNewItem = true;
+            this.item = new BudgetItem('', null);
+        }
     }
 
     onSubmit(form: NgForm) {
