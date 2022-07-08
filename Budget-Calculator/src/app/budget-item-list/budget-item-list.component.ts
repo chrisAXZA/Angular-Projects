@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { BudgetItem } from 'src/shared/modules/budget-item.model';
 import { EditItemModalComponent } from '../edit-item-modal/edit-item-modal.component';
 
-interface UpdateEvent {
+export interface UpdateEvent {
     old: BudgetItem;
     new: BudgetItem;
 }

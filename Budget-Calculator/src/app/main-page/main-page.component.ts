@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { BudgetItem } from 'src/shared/modules/budget-item.model';
+import { UpdateEvent } from '../budget-item-list/budget-item-list.component';
 
 @Component({
     selector: 'app-main-page',
@@ -29,5 +31,15 @@ export class MainPageComponent implements OnInit {
         this.budgetItems.splice(index, 1);
 
         this.totalBudget -= item.amount!;
+    }
+
+    updateItem(updateEvent: UpdateEvent) {
+        const index = this.budgetItems.indexOf(updateEvent.old);
+        this.budgetItems[index] = updateEvent.new;
+        const oldAmount = updateEvent.old.amount!;
+        const newAmount = updateEvent.new.amount!;
+
+        this.totalBudget -= oldAmount;
+        this.totalBudget += newAmount;
     }
 }
