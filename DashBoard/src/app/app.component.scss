@@ -8,7 +8,8 @@
 .top-section {
     background-color: aquamarine;
     text-align: center;
-    flex-grow: 1;
+    // flex-grow: 1;
+    padding: 100px 0;
 
     h1 {
         font-size: 120px;
@@ -28,7 +29,7 @@
 
 .content-section {
     background-color: cadetblue;
-    flex-grow: 4;
+    flex-grow: 1;
 }
 
 .bottom-section {
