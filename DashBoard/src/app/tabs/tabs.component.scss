@@ -4,4 +4,17 @@
     padding: 10px;
     background-color: rgba(white, 0.25);
     border-radius: 12px;
+    gap: 14px;
+}
+
+.tab{
+    // requires &:not(:last-child){ margin-right: 14px; }
+
+}
+
+.tab-tile {
+    padding: 18px;
+    background: rgba(black, 0.1);
+    // margin-right: 14px; alternative to gap: 14px; 
+    // - however leaves extra right margin after the last icon
 }
