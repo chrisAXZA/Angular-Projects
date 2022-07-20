@@ -1,6 +1,23 @@
 # BudgetCalculator
+Budget calculator created with SCSS, Bulma and Angular Material. Allows to dynamically render various incomes and expenses, as well as their total calculated difference.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+--
+
+### Main Page:
+<img src="Main-Page.png"/>
+
+--
+
+### Add Budget Item:
+<img src="Add-BudgetItem.png"/>
+
+--
+
+### Various Budget Items:
+<img src="BudgetItems.png"/>
+
+
+---
 
 ## Development server
 
