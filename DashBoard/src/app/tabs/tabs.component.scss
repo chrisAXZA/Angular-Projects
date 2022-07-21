@@ -34,8 +34,8 @@
 }
 
 // or after can be used
-.tab-tile::before{
-    content: '';
+.tab-tile::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -43,8 +43,15 @@
     width: 100%;
     border-radius: 12px;
     z-index: -1;
+    transition: all 0.5s;
     // background: rgba(violet, 0.5);
     // background: linear-gradient(45deg, #f8b5a5, #e2d2fd);
+}
+
+// implement hover effect of each ::before pseudo-element
+.tab-tile:hover::before {
+    // transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 // targets background shape of the tab-tile that is nested inside of bookmarks element
@@ -53,10 +60,10 @@
     background: linear-gradient(45deg, #f7d4cc, #a97ff1);
 }
 
-.todos-tab .tab-tile::before{
+.todos-tab .tab-tile::before {
     background: linear-gradient(45deg, #a2ffff, #ffbdde);
 }
 
-.notes-tab .tab-tile::before{
-    background: linear-gradient(45deg,#d2cdff , #5fffbc);
+.notes-tab .tab-tile::before {
+    background: linear-gradient(45deg, #d2cdff, #5fffbc);
 }
