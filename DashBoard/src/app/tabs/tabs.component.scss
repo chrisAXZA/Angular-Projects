@@ -13,6 +13,7 @@
 .tab {
     position: relative;
     z-index: 1;
+    text-decoration: none;
     // requires &:not(:last-child){ margin-right: 14px; }
 }
 
