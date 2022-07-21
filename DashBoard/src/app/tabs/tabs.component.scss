@@ -44,6 +44,7 @@
     border-radius: 12px;
     z-index: -1;
     transition: all 0.5s;
+    opacity: 0.9;
     // background: rgba(violet, 0.5);
     // background: linear-gradient(45deg, #f8b5a5, #e2d2fd);
 }
@@ -52,6 +53,7 @@
 .tab-tile:hover::before {
     // transform: scale(1.2);
     transform: scale(1.1);
+    opacity: 1;
 }
 
 // targets background shape of the tab-tile that is nested inside of bookmarks element
