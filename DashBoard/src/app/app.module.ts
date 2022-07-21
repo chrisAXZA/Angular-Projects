@@ -6,13 +6,15 @@ import { TabsComponent } from './tabs/tabs.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { TodosComponent } from './todos/todos.component';
+import { NotesComponent } from './notes/notes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TabsComponent,
     BookmarksComponent,
-    TodosComponent
+    TodosComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,
