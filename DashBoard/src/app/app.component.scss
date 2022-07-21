@@ -2,11 +2,16 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: #e1e2ed;
+    // background-color: #e1e2ed;
+    background-image: url("https://images.unsplash.com/photo-1656067335552-1f6fbe336b5a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1ODQwODE4OQ&ixlib=rb-1.2.1&q=80&w=1920");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .top-section {
-    background-color: aquamarine;
+    // background-color: aquamarine;
     text-align: center;
     // flex-grow: 1;
     padding: 100px 0;
@@ -28,12 +33,12 @@
 }
 
 .content-section {
-    background-color: cadetblue;
+    // background-color: cadetblue;
     flex-grow: 1;
 }
 
 .bottom-section {
-    background-color: coral;
+    // background-color: coral;
     display: flex;
 
     app-tabs{
