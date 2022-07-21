@@ -3,6 +3,7 @@
     flex-direction: row;
     padding: 10px;
     background-color: rgba(white, 0.25);
+    backdrop-filter: blur(3px);
     border-radius: 12px;
     gap: 14px;
 }
