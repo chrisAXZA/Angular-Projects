@@ -11,14 +11,19 @@
 }
 
 .tab {
+    position: relative;
+    z-index: 1;
     // requires &:not(:last-child){ margin-right: 14px; }
 }
 
 .tab-tile {
     display: flex;
     padding: 18px;
-    background: rgba(black, 0.1);
+    // background: rgba(black, 0.1);
+    // background: linear-gradient(45deg, #f8b5a5, #e2d2fd);
     cursor: pointer;
+    // border-radius: 12px;
+
     // margin-right: 14px; alternative to gap: 14px;
     // - however leaves extra right margin after the last icon
 
@@ -26,4 +31,18 @@
         // color: white;
         color: #222;
     }
+}
+
+// or after can be used
+.tab-tile::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    // background: rgba(violet, 0.5);
+    background: linear-gradient(45deg, #f8b5a5, #e2d2fd);
+    border-radius: 12px;
+    z-index: -1;
 }
