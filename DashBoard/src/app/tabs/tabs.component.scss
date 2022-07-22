@@ -29,7 +29,8 @@
 
 // style is only applied when tab element has the selected class
 .tab.selected .tab-tile {
-    transform: translateY(-28px);
+    transform: translateY(-50%);
+    // transform: translateY(-28px);
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0, 0, 0, 1.5);
 
