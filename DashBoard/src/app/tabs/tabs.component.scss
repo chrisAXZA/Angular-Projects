@@ -24,13 +24,17 @@
     transform: scale(1.1);
     // transform: scale(1.1) translateY(-20px); // shows that only icon moves upwards, not its contents
     opacity: 1;
+    box-shadow: 0px 7px 5px rgba(black, 0.28);
 }
 
 // style is only applied when tab element has the selected class
 .tab.selected .tab-tile {
     transform: translateY(-28px);
     transition-duration: 0.5s;
-    transition-timing-function: cubic-bezier(0, 0, 0, 1.5) ;
+    transition-timing-function: cubic-bezier(0, 0, 0, 1.5);
+    // better to add box-shadow on shape itself so that border-radius is not required
+    // box-shadow: 0px 4px 12px rgba(black, 0.4);
+    // border-radius: 50%;
 }
 
 .tab-tile {
