@@ -32,6 +32,7 @@
     transform: translateY(-28px);
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0, 0, 0, 1.5);
+
     // better to add box-shadow on shape itself so that border-radius is not required
     // box-shadow: 0px 4px 12px rgba(black, 0.4);
     // border-radius: 50%;
@@ -41,9 +42,10 @@
     display: flex;
     padding: 18px;
     cursor: pointer;
-    transition: all 0.5s; // applies transition speed when not in selected state
+    transition: all 0.5s ease-out; // applies transition speed when not in selected state
     // transition: all 0.5s cubic-bezier(0, 0, 0, 2);
     // transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.475); // will only overshot when last value is over 1
+
 
     // background: rgba(black, 0.1);
     // background: linear-gradient(45deg, #f8b5a5, #e2d2fd);
