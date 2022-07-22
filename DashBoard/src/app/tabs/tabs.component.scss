@@ -25,6 +25,7 @@
     // transform: scale(1.1) translateY(-20px); // shows that only icon moves upwards, not its contents
     opacity: 1;
     box-shadow: 0px 7px 5px rgba(black, 0.28);
+    transition-delay: 0.1s;
 }
 
 // style is only applied when tab element has the selected class
@@ -46,7 +47,6 @@
     transition: all 0.5s ease-out; // applies transition speed when not in selected state
     // transition: all 0.5s cubic-bezier(0, 0, 0, 2);
     // transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.475); // will only overshot when last value is over 1
-
 
     // background: rgba(black, 0.1);
     // background: linear-gradient(45deg, #f8b5a5, #e2d2fd);
@@ -100,3 +100,33 @@
 }
 
 // end of tab tile background 'shape' styles
+
+// styles for the underline effect
+
+.tab::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    width: 50%;
+    background-color: rgba(white, 0.85);
+    margin: auto;
+    border-radius: 3px;
+    transition: all 0.5s;
+    transform: scaleX(0); // will only scale on the x-axis, growing and expanding on the x-axis
+
+    // hide underline by default when not selected
+    opacity: 0;
+}
+
+.tab.selected::after {
+    opacity: 1;
+    transform: scaleX(1);
+    transition-delay: 0.25s;
+}
+
+.tab.selected {
+    outline: none;
+}
