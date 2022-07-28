@@ -1,5 +1,6 @@
 .bookmark-tile {
-    display: flex;
+    display: flex; // by default items are next to each other
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgba(black, 0.5);
@@ -8,6 +9,10 @@
     height: 100px;
 }
 
-.bookmark-tile img{
+.bookmark-tile img {
     max-width: 32px;
+}
+
+.tile-text {
+    color: rgba(white, 0.85);
 }
