@@ -7,7 +7,8 @@
 
 .todo-item {
     display: flex;
-    background-color: rgba(black, 0.4);
+    align-items: center;
+    background-color: rgba(black, 0.5);
     // higher the pixel and larger than overall height, generates rounded form
     // however pixel number must not be exaggerated as multi-line content will
     // create completely rounded sides instead of just rounded edges
@@ -18,4 +19,12 @@
 
 .todo-text {
     color: rgba(wheat, 0.92);
+}
+
+.check-box {
+    display: flex;
+    padding: 4px;
+    border: 2px solid rgba(wheat, 0.35);
+    border-radius: 50%;
+    margin-right: 15px;
 }
