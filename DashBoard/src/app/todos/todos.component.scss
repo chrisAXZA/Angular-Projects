@@ -31,6 +31,22 @@
     }
 }
 
+.todo-item.completed {
+    .todo-text {
+        color: rgba(wheat, 0.78);
+    }
+
+    .check-box {
+        background: yellowgreen;
+        border-color: transparent;
+        // background: rgb(9, 218, 89);
+
+        i { 
+            opacity: 1;
+        }
+    }
+}
+
 .todo-text {
     color: rgba(wheat, 0.9);
 }
