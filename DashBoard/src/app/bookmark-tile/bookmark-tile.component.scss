@@ -3,10 +3,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(black, 0.5);
+    background: rgba(black, 0.55);
     border-radius: 12px;
     width: 100px;
     height: 100px;
+    gap: 12px;
+    cursor: context-menu;
+
+    &:hover{
+        background: rgba(black, 0.68);
+        backdrop-filter: blur(1px);
+    }
 }
 
 .bookmark-tile img {
@@ -14,5 +21,6 @@
 }
 
 .tile-text {
+    font-size: 14px;
     color: rgba(white, 0.85);
 }
