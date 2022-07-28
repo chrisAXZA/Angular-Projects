@@ -3,20 +3,6 @@
     // background-color: wheat;
 }
 
-.bookmark-tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(black, 0.5);
-    border-radius: 12px;
-    width: 100px;
-    height: 100px;
-}
-
-.bookmark-tile img{
-    max-width: 32px;
-}
-
 .bookmark-tiles-container {
     display: flex;
     gap: 20px;
