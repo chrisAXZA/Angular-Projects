@@ -1,16 +1,21 @@
-.todos-wrapper{
+.todos-wrapper {
     height: 100%;
     overflow-y: auto;
-    color: wheat;
+    // color: wheat;
     // background-color: wheat;
 }
 
-.todo-item{
+.todo-item {
     display: flex;
     background-color: rgba(black, 0.4);
-    // higher the pixel and larger than overall height, generates rounded form 
-    // however pixel number must not be exaggerated as multi-line content will 
+    // higher the pixel and larger than overall height, generates rounded form
+    // however pixel number must not be exaggerated as multi-line content will
     // create completely rounded sides instead of just rounded edges
-    border-radius: 24px; 
+    border-radius: 24px;
     margin-bottom: 15px;
+    padding: 10px 12px;
+}
+
+.todo-text {
+    color: rgba(wheat, 0.92);
 }
