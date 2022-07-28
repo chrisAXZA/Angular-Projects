@@ -9,10 +9,17 @@
     height: 100px;
     gap: 12px;
     cursor: context-menu;
+    transition: all 0.5s;
 
     &:hover{
         background: rgba(black, 0.68);
         backdrop-filter: blur(1px);
+    }
+
+    &:active{
+        background: rgba(black, 0.75);
+        transform: translateY(6px);
+        transition-duration: 0.2s;
     }
 }
 
