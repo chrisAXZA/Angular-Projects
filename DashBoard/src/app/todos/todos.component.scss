@@ -20,7 +20,8 @@
 
 .todo-item:hover {
     .todo-text {
-        color: whitesmoke;
+        // color: whitesmoke;
+        color: rgba(whitesmoke, 0.95);
     }
 
     .check-box {
@@ -49,6 +50,7 @@
 
 .todo-text {
     color: rgba(wheat, 0.9);
+    // color: rgba(wheat, 0.2);
 }
 
 .check-box {
@@ -62,4 +64,9 @@
         font-size: 18px;
         opacity: 0;
     }
+}
+
+.todo-text,
+.check-box{
+    transition: 0.8s;
 }
