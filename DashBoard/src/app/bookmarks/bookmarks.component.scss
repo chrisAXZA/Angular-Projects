@@ -1,6 +1,6 @@
 .bookmarks-wrapper {
     height: 100%;
-    background-color: wheat;
+    // background-color: wheat;
 }
 
 .bookmark-tile {
@@ -8,8 +8,13 @@
     justify-content: center;
     align-items: center;
     background: rgba(black, 0.5);
+    border-radius: 12px;
     width: 100px;
     height: 100px;
+}
+
+.bookmark-tile img{
+    max-width: 32px;
 }
 
 .bookmark-tiles-container {
