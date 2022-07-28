@@ -11,12 +11,12 @@
     cursor: context-menu;
     transition: all 0.5s;
 
-    &:hover{
+    &:hover {
         background: rgba(black, 0.68);
         backdrop-filter: blur(1px);
     }
 
-    &:active{
+    &:active {
         background: rgba(black, 0.75);
         transform: translateY(6px);
         transition-duration: 0.2s;
@@ -30,4 +30,8 @@
 .tile-text {
     font-size: 14px;
     color: rgba(white, 0.85);
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    text-overflow: ellipsis;
 }
