@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BookmarksComponent } from './bookmarks/bookmarks.component';
-import { TodosComponent } from './todos/todos.component';
 import { NotesComponent } from './notes/notes.component';
+import { TodosComponent } from './todos/todos.component';
+import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { BookmarkTileComponent } from './bookmark-tile/bookmark-tile.component';
 
 @NgModule({
@@ -16,11 +17,12 @@ import { BookmarkTileComponent } from './bookmark-tile/bookmark-tile.component';
     BookmarksComponent,
     TodosComponent,
     NotesComponent,
-    BookmarkTileComponent
+    BookmarkTileComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
