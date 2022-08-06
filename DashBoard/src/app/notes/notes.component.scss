@@ -4,4 +4,10 @@
     padding: 25px;
     border-radius: 12px;
     cursor: pointer;
+    transition: 0.4s;
+
+    &:hover {
+        background-color: rgba(black, 0.6);
+        backdrop-filter: blur(2px);
+    }
 }
