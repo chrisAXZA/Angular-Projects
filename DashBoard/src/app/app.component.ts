@@ -31,12 +31,12 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                     }),
                 ], { optional: true }),
                 // set opacity of entering component to zero, so that it remains invisible 
-                query(':enter', [
-                    style({
-                        opacity: 0,
-                        // height: '100%',
-                    }),
-                ], { optional: true }),
+                // query(':enter', [
+                //     style({
+                //         opacity: 0,
+                //         // height: '100%',
+                //     }),
+                // ], { optional: true }),
                 group([
                     // first animate leaving component
                     query(':leave', [
@@ -56,7 +56,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                             // sets starting position of entering component
                             // transform: 'translateX(80px)',
 
-                            // opacity: 0,
+                            opacity: 0,
                             // display needs to be set to block, as default inline will not be rendered correctly
                             // display: 'block',
                             // height needs to be set to 100% to avoid overflow
