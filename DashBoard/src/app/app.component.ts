@@ -51,7 +51,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                         // ease-in (start off slow and then accelerate towards the end)
                         animate('350ms ease-in', style({
                             opacity: 0,
-                            // transform: 'translateX(-80px)',
+                            transform: 'translateX(-80px)',
                         })),
                     ], { optional: true }),
                     query(':enter', [
@@ -67,7 +67,48 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                         }),
                         // end-state has alreadt opacity styling, so no explicit style has to be set
                         // in animate function
-                        animate(600, style({
+                        animate('500ms 120ms', style({
+                            opacity: 1,
+                            // moves into position
+                            transform: 'translateX(0)',
+                        })),
+                    ], { optional: true }),
+                ]),
+            ]),
+            transition(':decrement', [
+                style({
+                    position: 'relative',
+                    overflow: 'hidden',
+                }),
+                query(':enter, :leave', [
+                    style({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                    }),
+                ], { optional: true }),
+                group([
+                    query(':leave', [
+                        style({
+                            // display: 'block',
+                            // height: '100%',
+                        }),
+                        // ease-in (start off slow and then accelerate towards the end)
+                        animate('350ms ease-in', style({
+                            opacity: 0,
+                            transform: 'translateX(80px)',
+                        })),
+                    ], { optional: true }),
+                    query(':enter', [
+                        style({
+                            // sets starting position of entering component
+                            transform: 'translateX(-80px)',
+                            opacity: 0,
+                        }),
+                        // style for entering animation
+                        animate('500ms 120ms', style({
                             opacity: 1,
                             // moves into position
                             transform: 'translateX(0)',
