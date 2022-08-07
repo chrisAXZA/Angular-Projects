@@ -25,11 +25,15 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                         // component width must be set to 100% in order to span the whole window width
                         // and not just the width of its content (content cards)
                         width: '100%',
+                        height: '100%',
                     }),
                 ], { optional: true }),
                 // set opacity of entering component to zero, so that it remains invisible 
                 query(':enter', [
-                    style({ opacity: 0 },),
+                    style({
+                        opacity: 0,
+                        // height: '100%',
+                    }),
                 ], { optional: true }),
                 // first animate leaving component
                 query(':leave', [
@@ -37,6 +41,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                     // an opacity style is already set
                     style({
                         display: 'block',
+                        // height: '100%',
                     }),
                     animate(350, style({
                         opacity: 0,
@@ -48,7 +53,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                         // display needs to be set to block, as default inline will not be rendered correctly
                         display: 'block',
                         // height needs to be set to 100% to avoid overflow
-                        height: '100%',
+                        // height: '100%',
                     }),
                     // end-state has alreadt opacity styling, so no explicit style has to be set
                     // in animate function
