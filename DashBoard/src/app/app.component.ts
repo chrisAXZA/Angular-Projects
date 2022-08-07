@@ -65,7 +65,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                         }),
                         // end-state has alreadt opacity styling, so no explicit style has to be set
                         // in animate function
-                        animate(700, style({
+                        animate(600, style({
                             opacity: 1,
                             // moves into position
                             transform: 'translateX(0)',

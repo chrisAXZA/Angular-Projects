@@ -6,9 +6,10 @@ import { TodosComponent } from './todos/todos.component';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 
 const routes: Routes = [
-  {path: 'bookmarks', component: BookmarksComponent},
-  {path: 'notes', component: NotesComponent},
-  {path: 'todos', component: TodosComponent},
+  // data will set the tabNumber of each Dashboard item
+  { path: 'bookmarks', component: BookmarksComponent, data: { tab: 1 } },
+  { path: 'notes', component: NotesComponent, data: { tab: 2 } },
+  { path: 'todos', component: TodosComponent, data: { tab: 3 } },
 ];
 
 @NgModule({
