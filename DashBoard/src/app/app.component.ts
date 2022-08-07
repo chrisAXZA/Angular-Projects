@@ -36,7 +36,6 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                         // height: '100%',
                     }),
                 ], { optional: true }),
-
                 group([
                     // first animate leaving component
                     query(':leave', [
@@ -46,12 +45,16 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                             // display: 'block',
                             // height: '100%',
                         }),
-                        animate(700, style({
+                        animate(350, style({
                             opacity: 0,
+                            transform: 'translateX(-80px)',
                         })),
                     ], { optional: true }),
                     query(':enter', [
                         style({
+                            // sets starting position of entering component
+                            // transform: 'translateX(80px)',
+
                             // opacity: 0,
                             // display needs to be set to block, as default inline will not be rendered correctly
                             // display: 'block',
@@ -62,6 +65,8 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                         // in animate function
                         animate(700, style({
                             opacity: 1,
+                            // moves into position
+                            // transform: 'translateX(0)',
                         })),
                     ], { optional: true }),
                 ]),
