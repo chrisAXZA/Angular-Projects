@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { animate, query, style, transition, trigger } from '@angular/animations';
+import { animate, group, query, style, transition, trigger } from '@angular/animations';
 
 @Component({
     selector: 'app-root',
@@ -36,32 +36,35 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                         // height: '100%',
                     }),
                 ], { optional: true }),
-                // first animate leaving component
-                query(':leave', [
-                    // no starting styles to animate, only to a given style is required 
-                    // an opacity style is already set
-                    style({
-                        // display: 'block',
-                        // height: '100%',
-                    }),
-                    animate(350, style({
-                        opacity: 0,
-                    })),
-                ], { optional: true }),
-                query(':enter', [
-                    style({
-                        // opacity: 0,
-                        // display needs to be set to block, as default inline will not be rendered correctly
-                        // display: 'block',
-                        // height needs to be set to 100% to avoid overflow
-                        // height: '100%',
-                    }),
-                    // end-state has alreadt opacity styling, so no explicit style has to be set
-                    // in animate function
-                    animate(350, style({
-                        opacity: 1,
-                    })),
-                ], { optional: true }),
+
+                group([
+                    // first animate leaving component
+                    query(':leave', [
+                        // no starting styles to animate, only to a given style is required 
+                        // an opacity style is already set
+                        style({
+                            // display: 'block',
+                            // height: '100%',
+                        }),
+                        animate(700, style({
+                            opacity: 0,
+                        })),
+                    ], { optional: true }),
+                    query(':enter', [
+                        style({
+                            // opacity: 0,
+                            // display needs to be set to block, as default inline will not be rendered correctly
+                            // display: 'block',
+                            // height needs to be set to 100% to avoid overflow
+                            // height: '100%',
+                        }),
+                        // end-state has alreadt opacity styling, so no explicit style has to be set
+                        // in animate function
+                        animate(700, style({
+                            opacity: 1,
+                        })),
+                    ], { optional: true }),
+                ]),
             ]),
             // * => * indicates transition from start-state to end-state
             // transition('* => *', [
