@@ -13,6 +13,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                 // ie instead of inline style="position: relative"
                 style({
                     position: 'relative',
+                    overflow: 'hidden',
                 }),
                 // set position to absolute for both entering and leaving components
                 query(':enter, :leave', [
