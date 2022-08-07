@@ -26,7 +26,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                         // and not just the width of its content (content cards)
                         width: '100%',
                         height: '100%',
-                        display: 'block',
+                        // display: 'block',
                     }),
                 ], { optional: true }),
                 // set opacity of entering component to zero, so that it remains invisible 
