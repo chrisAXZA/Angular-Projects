@@ -9,6 +9,11 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
     animations: [
         trigger('routeAnim', [
             transition('* => *', [
+                // styles for the host component can be set here
+                // ie instead of inline style="position: relative"
+                style({
+                    position: 'relative',
+                }),
                 // set position to absolute for both entering and leaving components
                 query(':enter, :leave', [
                     style({
