@@ -8,7 +8,9 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
     styleUrls: ['./app.component.scss'],
     animations: [
         trigger('routeAnim', [
-            transition('* => *', [
+            // transition('1 -> 2', [
+            // transition('* => *', [
+            transition(':increment', [
                 // styles for the host component can be set here
                 // ie instead of inline style="position: relative"
                 style({
