@@ -112,7 +112,8 @@ export class AppComponent {
 
     prepareRoute(outlet: RouterOutlet) {
         if (outlet.isActivated) {
-            return outlet.activatedRoute.snapshot.url;
+            return outlet.activatedRouteData['tab'];
+            // return outlet.activatedRoute.snapshot.url;
         }
 
         return null;
