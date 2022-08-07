@@ -9,6 +9,17 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
     animations: [
         trigger('routeAnim', [
             transition('* => *', [
+                // first animate leaving component
+                query(':leave', [
+                    // no starting styles to animate, only to a given style is required 
+                    // an opacity style is already set
+                    style({
+                        display: 'block',
+                    }),
+                    animate(700, style({
+                        opacity: 0,
+                    })),
+                ], { optional: true }),
                 query(':enter', [
                     style({
                         opacity: 0,
