@@ -50,7 +50,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                 ], { optional: true }),
                 query(':enter', [
                     style({
-                        opacity: 0,
+                        // opacity: 0,
                         // display needs to be set to block, as default inline will not be rendered correctly
                         // display: 'block',
                         // height needs to be set to 100% to avoid overflow
