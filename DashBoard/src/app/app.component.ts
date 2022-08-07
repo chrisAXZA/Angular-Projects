@@ -67,7 +67,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                         }),
                         // end-state has alreadt opacity styling, so no explicit style has to be set
                         // in animate function
-                        animate('500ms 120ms', style({
+                        animate('500ms 120ms ease-out', style({
                             opacity: 1,
                             // moves into position
                             transform: 'translateX(0)',
@@ -108,7 +108,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                             opacity: 0,
                         }),
                         // style for entering animation
-                        animate('500ms 120ms', style({
+                        animate('500ms 120ms ease-out', style({
                             opacity: 1,
                             // moves into position
                             transform: 'translateX(0)',
