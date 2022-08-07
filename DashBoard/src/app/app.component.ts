@@ -26,6 +26,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                         // and not just the width of its content (content cards)
                         width: '100%',
                         height: '100%',
+                        display: 'block',
                     }),
                 ], { optional: true }),
                 // set opacity of entering component to zero, so that it remains invisible 
@@ -40,7 +41,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                     // no starting styles to animate, only to a given style is required 
                     // an opacity style is already set
                     style({
-                        display: 'block',
+                        // display: 'block',
                         // height: '100%',
                     }),
                     animate(350, style({
@@ -51,7 +52,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                     style({
                         opacity: 0,
                         // display needs to be set to block, as default inline will not be rendered correctly
-                        display: 'block',
+                        // display: 'block',
                         // height needs to be set to 100% to avoid overflow
                         // height: '100%',
                     }),
