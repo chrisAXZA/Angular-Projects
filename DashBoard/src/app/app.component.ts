@@ -9,6 +9,19 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
     animations: [
         trigger('routeAnim', [
             transition('* => *', [
+                // set position to absolute for both entering and leaving components
+                query(':enter, :leave', [
+                    style({
+                        position: 'absolute',
+                        // top + left 0 must be relative to the content-section and
+                        // not the actual browser window
+                        top: 0,
+                        left: 0,
+                        // component width must be set to 100% in order to span the whole window width
+                        // and not just the width of its content (content cards)
+                        width: '100%',
+                    }),
+                ], { optional: true }),
                 // set opacity of entering component to zero, so that it remains invisible 
                 query(':enter', [
                     style({ opacity: 0 },),
@@ -20,7 +33,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                     style({
                         display: 'block',
                     }),
-                    animate(700, style({
+                    animate(350, style({
                         opacity: 0,
                     })),
                 ], { optional: true }),
@@ -34,7 +47,7 @@ import { animate, query, style, transition, trigger } from '@angular/animations'
                     }),
                     // end-state has alreadt opacity styling, so no explicit style has to be set
                     // in animate function
-                    animate(700, style({
+                    animate(350, style({
                         opacity: 1,
                     })),
                 ], { optional: true }),
