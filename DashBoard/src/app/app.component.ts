@@ -46,7 +46,8 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                             // display: 'block',
                             // height: '100%',
                         }),
-                        animate(350, style({
+                        // ease-in (start off slow and then accelerate towards the end)
+                        animate('350 ease-in', style({
                             opacity: 0,
                             transform: 'translateX(-80px)',
                         })),
