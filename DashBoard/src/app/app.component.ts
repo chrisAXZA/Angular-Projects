@@ -47,15 +47,15 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                             // height: '100%',
                         }),
                         // ease-in (start off slow and then accelerate towards the end)
-                        animate('350 ease-in', style({
+                        animate('350ms ease-in', style({
                             opacity: 0,
-                            transform: 'translateX(-80px)',
+                            // transform: 'translateX(-80px)',
                         })),
                     ], { optional: true }),
                     query(':enter', [
                         style({
                             // sets starting position of entering component
-                            // transform: 'translateX(80px)',
+                            transform: 'translateX(80px)',
 
                             opacity: 0,
                             // display needs to be set to block, as default inline will not be rendered correctly
@@ -68,7 +68,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                         animate(700, style({
                             opacity: 1,
                             // moves into position
-                            // transform: 'translateX(0)',
+                            transform: 'translateX(0)',
                         })),
                     ], { optional: true }),
                 ]),
