@@ -8,7 +8,8 @@
     color: rgba(wheat, 0.95);
     padding: 25px;
     border-radius: 12px;
-    cursor: pointer;
+    cursor: context-menu;
+    // cursor: pointer;
     transition: 0.4s;
 
     &:hover {
