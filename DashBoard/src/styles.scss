@@ -36,6 +36,12 @@ h2 {
     border-radius: 12px;
 }
 
-.btns-container{
+.btns-container {
+    display: flex;
     margin-top: 20px;
+
+    // and class btns-centered
+    &.btns-centered {
+        justify-content: center;
+    }
 }
