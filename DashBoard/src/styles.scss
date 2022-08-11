@@ -42,6 +42,10 @@ h2 {
         background: rgba(black, 0.78);
         backdrop-filter: blur(2px);
     }
+
+    &:active {
+        background: rgba(black, 0.85);
+    }
 }
 
 .btns-container {
