@@ -1,4 +1,4 @@
-.notes-wrapper{
+.notes-wrapper {
     height: 100%;
     overflow-y: auto;
 }
@@ -17,11 +17,16 @@
     }
 }
 
-.note-card-title{
+.note-card-title {
     font-size: 20px;
     font-weight: 600;
 }
 
-.note-card-content{
+.note-card-content {
     margin-top: 7px;
+}
+
+.add-btn i {
+    margin-right: 5px;
+    margin-left: -4px;
 }
