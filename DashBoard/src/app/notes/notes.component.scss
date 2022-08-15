@@ -7,3 +7,10 @@
     margin-right: 5px;
     margin-left: -4px;
 }
+
+app-note-card {
+    // by default angular components implement display:inline
+    // needs to be changed to block in order for styling to take effect
+    display: block;
+    margin-bottom: 8px;
+}
