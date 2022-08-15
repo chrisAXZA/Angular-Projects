@@ -4,11 +4,9 @@
 
         <div class="notes-list">
 
-            <div class="note-card">
-                <div class="note-card-title">This is the Note Title!</div>
-                <div class="note-card-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus dolor
-                    unde dolorum quaerat omnis, molestias, recusandae numquam culpa laboriosam ducimus repellat iusto
-                    corporis hic adipisci, distinctio placeat sequi veniam fugit.</div>
+            <div class="note-card" *ngFor="let note of notes">
+                <div class="note-card-title">{{note.title}}</div>
+                <div class="note-card-content">{{note.content}}</div>
             </div>
 
         </div>

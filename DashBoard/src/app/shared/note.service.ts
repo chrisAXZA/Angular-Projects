@@ -7,7 +7,11 @@ import { Note } from './note.model';
 })
 export class NoteService {
 
-    notes!: Note[];
+    // notes!: Note[];
+    notes: Note[] = [
+        new Note('Test Note1', 'Some random note content1'),
+        new Note('Test Note2', 'Some random note content2'),
+    ];
 
     constructor() { }
 
@@ -30,11 +34,11 @@ export class NoteService {
 
     deleteNote(id: string) {
         const noteIndex = this.notes.findIndex((n) => n.id === id);
-        
+
         if (noteIndex === -1) {
             return;
         }
-        
+
         this.notes.splice(noteIndex, 1);
     }
 }
