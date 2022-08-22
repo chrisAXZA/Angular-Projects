@@ -19,8 +19,8 @@ export class NoteService {
         return this.notes;
     }
 
-    getNote(id: string) {
-        return this.notes.find((n) => n.id === id);
+    getNote(id: string) : Note {
+        return this.notes.find((n) => n.id === id)!;
     }
 
     addNote(note: Note) {
