@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotesComponent } from './notes/notes.component';
 import { TodosComponent } from './todos/todos.component';
 import { AddNoteComponent } from './add-note/add-note.component';
+import { EditNoteComponent } from './edit-note/edit-note.component';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'todos', component: TodosComponent, data: { tab: 2 } },
   { path: 'notes', component: NotesComponent, data: { tab: 3 } },
   { path: 'notes/add', component: AddNoteComponent, },
+  { path: 'notes/:id', component: EditNoteComponent, },
 ];
 
 @NgModule({
