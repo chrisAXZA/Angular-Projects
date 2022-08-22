@@ -11,7 +11,8 @@ elements a blurred white background -->
             <ng-container *ngIf="titleField.invalid">
                 <!-- <p style="color: red;">Please enter a note title!</p> -->
                 <p style="color: red;" *ngIf="titleField?.errors?.['required']">Please enter a note title!</p>
-                <p style="color: red;" *ngIf="titleField?.errors?.['minlength']">Note title must be at least 3 characters long!</p>
+                <p style="color: red;" *ngIf="titleField?.errors?.['minlength']">Note title must be at least 3
+                    characters long!</p>
             </ng-container>
         </div>
 
