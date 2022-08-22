@@ -30,6 +30,7 @@ export class AddNoteComponent implements OnInit {
     this.noteService.addNote(note);
     this.router.navigateByUrl("/notes");
 
+    return null;
     // alert("Form has been added!");
   }
 }
