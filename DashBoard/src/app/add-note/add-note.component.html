@@ -8,7 +8,7 @@ elements a blurred white background -->
             <!-- template variable titleField receives access to the formField object -->
             <input ngModel #titleField="ngModel" name="title" class="textbox" type="text"
                 placeholder="Enter note title..." required minlength="3">
-            <ng-container *ngIf="titleField.invalid">
+            <ng-container *ngIf="showValidationErrors && titleField.invalid">
                 <!-- <p style="color: red;">Please enter a note title!</p> -->
                 <p style="color: red;" *ngIf="titleField?.errors?.['required']">Please enter a note title!</p>
                 <p style="color: red;" *ngIf="titleField?.errors?.['minlength']">Note title must be at least 3

@@ -12,6 +12,8 @@ import { NoteService } from '../shared/note.service';
 })
 export class AddNoteComponent implements OnInit {
 
+  showValidationErrors!: boolean;
+
   constructor(private noteService: NoteService, private router: Router) { }
 
   ngOnInit(): void {
@@ -20,7 +22,8 @@ export class AddNoteComponent implements OnInit {
   onFormSubmit(form: NgForm) {
     console.log(form);
     if (form.invalid) {
-      return alert('Title field is invalid!');
+      return this.showValidationErrors = true;
+      // return alert('Title field is invalid!');
     }
 
     const note = new Note(form.value.title, form.value.content);
