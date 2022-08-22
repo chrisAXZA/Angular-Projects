@@ -43,7 +43,7 @@ h2 {
     text-decoration: none;
     font-family: inherit;
 
-    &.back{
+    &.back {
         cursor: alias;
     }
 
@@ -65,8 +65,8 @@ h2 {
     &.btns-centered {
         justify-content: center;
     }
-    
-    .align-end{
+
+    .align-end {
         margin-left: auto;
     }
 }
@@ -82,7 +82,11 @@ h2.is-bold {
     letter-spacing: -2px;
 }
 
-.form-field{
+a {
+    text-decoration: none;
+}
+
+.form-field {
     margin-bottom: 20px;
 }
 
