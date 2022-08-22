@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { Note } from '../shared/note.model';
@@ -28,7 +29,12 @@ export class EditNoteComponent implements OnInit {
         this.router.navigateByUrl("/notes");
       }
     });
+  }
 
+  onFormSubmit(form: NgForm) {
+    // console.log(form.value);
+    this.noteService.updateNote(this.note.id, form.value);
+    this.router.navigateByUrl("/notes");
   }
 
 }

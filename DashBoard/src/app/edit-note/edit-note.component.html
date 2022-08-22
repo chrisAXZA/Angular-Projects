@@ -1,8 +1,8 @@
 <div class="edit-note-wrapper container has-blurred-white-bg">
     <h2 class="is-bold">Edit Note</h2>
 
-    <!-- <form #form="ngForm" (ngSubmit)="onFormSubmit(form)"> -->
-    <form #form="ngForm" >
+    <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+    <!-- <form #form="ngForm" > -->
         <div class="form-field">
             <input [ngModel]="note?.title" #titleField="ngModel" name="title" class="textbox" type="text"
                 placeholder="Enter note title..." required minlength="3">
