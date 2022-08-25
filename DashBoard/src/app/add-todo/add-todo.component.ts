@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTodoComponent implements OnInit {
 
+  showValidationErrors!: boolean;
+
   constructor() { }
 
   ngOnInit(): void {

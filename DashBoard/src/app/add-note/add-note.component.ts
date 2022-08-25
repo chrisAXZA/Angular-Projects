@@ -6,31 +6,31 @@ import { Note } from '../shared/note.model';
 import { NoteService } from '../shared/note.service';
 
 @Component({
-  selector: 'app-add-note',
-  templateUrl: './add-note.component.html',
-  styleUrls: ['./add-note.component.scss']
+    selector: 'app-add-note',
+    templateUrl: './add-note.component.html',
+    styleUrls: ['./add-note.component.scss']
 })
 export class AddNoteComponent implements OnInit {
 
-  showValidationErrors!: boolean;
+    showValidationErrors!: boolean;
 
-  constructor(private noteService: NoteService, private router: Router) { }
+    constructor(private noteService: NoteService, private router: Router) { }
 
-  ngOnInit(): void {
-  }
-
-  onFormSubmit(form: NgForm) {
-    console.log(form);
-    if (form.invalid) {
-      return this.showValidationErrors = true;
-      // return alert('Title field is invalid!');
+    ngOnInit(): void {
     }
 
-    const note = new Note(form.value.title, form.value.content);
-    this.noteService.addNote(note);
-    this.router.navigateByUrl("/notes");
+    onFormSubmit(form: NgForm) {
+        console.log(form);
+        if (form.invalid) {
+            return this.showValidationErrors = true;
+            // return alert('Title field is invalid!');
+        }
 
-    return null;
-    // alert("Form has been added!");
-  }
+        const note = new Note(form.value.title, form.value.content);
+        this.noteService.addNote(note);
+        this.router.navigateByUrl("/notes");
+
+        return null;
+        // alert("Form has been added!");
+    }
 }
