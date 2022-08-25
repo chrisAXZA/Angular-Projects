@@ -2,7 +2,7 @@
 
     <div class="container">
 
-        <app-todo-item></app-todo-item>
+        <app-todo-item *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
 
         <!-- <div class="todo-item completed">
             <div class="check-box">
