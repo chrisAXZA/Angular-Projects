@@ -12,9 +12,7 @@ export class TodoService {
         new Todo('A second todo on your list!'),
     ];
 
-    constructor() { 
-        this.todos[0].completed = true;
-    }
+    constructor() { }
 
     getTodos() {
         return this.todos;
