@@ -1,6 +1,6 @@
-
 .todo-item {
     display: flex;
+    position: relative;
     align-items: center;
     background-color: rgba(black, 0.5);
     // higher the pixel and larger than overall height, generates rounded form
@@ -36,7 +36,7 @@
         border-color: transparent;
         // background: rgb(9, 218, 89);
 
-        i { 
+        i {
             opacity: 1;
         }
     }
@@ -61,6 +61,21 @@
 }
 
 .todo-text,
-.check-box{
+.check-box {
     transition: 0.8s;
+}
+
+.todo-item-actions {
+    position: absolute;
+    right: 5px;
+    background: rgba(72, 72, 82, 0.85);
+    border-radius: 24px;
+}
+
+.todo-item-action-btn {
+    background: transparent;
+}
+
+.todo-item-action-btn i {
+    font-size: 20px;
 }
