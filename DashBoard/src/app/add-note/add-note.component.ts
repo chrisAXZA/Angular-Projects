@@ -20,7 +20,7 @@ export class AddNoteComponent implements OnInit {
     }
 
     onFormSubmit(form: NgForm) {
-        console.log(form);
+        // console.log(form);
         if (form.invalid) {
             return this.showValidationErrors = true;
             // return alert('Title field is invalid!');
