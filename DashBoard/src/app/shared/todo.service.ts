@@ -7,9 +7,14 @@ import { Todo } from './todo.model';
 })
 export class TodoService {
 
-    todos!: Todo[];
+    todos: Todo[] = [
+        new Todo('This is a test!'),
+        new Todo('A second todo on your list!'),
+    ];
 
-    constructor() { }
+    constructor() { 
+        this.todos[0].completed = true;
+    }
 
     getTodos() {
         return this.todos;
