@@ -23,7 +23,11 @@ export class TodosComponent implements OnInit {
         this.todoService.updateTodo(todo.id, { completed: !todo.completed });
     }
 
-    onEditClick(todo: Todo){
+    onEditClick(todo: Todo) {
         this.router.navigate(['/todos', todo.id]);
+    }
+
+    onDeleteClick(todo: Todo) {
+        this.todoService.deleteTodo(todo.id);
     }
 }
