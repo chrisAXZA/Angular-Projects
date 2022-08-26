@@ -26,6 +26,12 @@
     }
 }
 
+.todo-item:hover .todo-item-actions {
+    visibility: visible;
+    transition-delay: 0.5s;
+    opacity: 1;
+}
+
 .todo-item.completed {
     .todo-text {
         color: rgba(wheat, 0.78);
@@ -74,6 +80,11 @@
     backdrop-filter: blur(2px);
     // 0px-horizontal 4px-vertical 12px-blur
     box-shadow: 0px 4px 12px rgba(black, 0.2);
+
+    // hide by default
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
 }
 
 .todo-item-action-btn {
