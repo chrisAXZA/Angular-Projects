@@ -74,6 +74,21 @@
 
 .todo-item-action-btn {
     background: transparent;
+    border-radius: inherit;
+
+    &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    &:hover {
+        background: rgb(50, 50, 53);
+    }
 }
 
 .todo-item-action-btn i {
