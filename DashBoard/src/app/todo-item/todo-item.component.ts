@@ -1,18 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { Todo } from '../shared/todo.model';
 
 @Component({
-  selector: 'app-todo-item',
-  templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.scss']
+    selector: 'app-todo-item',
+    templateUrl: './todo-item.component.html',
+    styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
 
-  @Input() todo!: Todo;
+    @Input() todo!: Todo;
+    @Output() editClick: EventEmitter<void> = new EventEmitter();
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
+    onEditClick() {
+        this.editClick.emit();
+    }
 }
