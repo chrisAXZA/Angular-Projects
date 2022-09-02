@@ -18,9 +18,9 @@ export class TodoService {
         return this.todos;
     }
 
-    getTodo(id: string) {
+    getTodo(id: string): Todo{
         const todo = this.todos.find((t) => t.id === id);
-        return todo;
+        return todo!;
     }
 
     addTodo(todo: Todo) {
