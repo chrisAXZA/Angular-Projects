@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Form } from '@angular/forms';
 
 @Component({
     selector: 'app-add-bookmark',
@@ -12,4 +13,7 @@ export class AddBookmarkComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    onFormSubmit(form: Form) {
+        console.log(form);
+    }
 }
