@@ -2,8 +2,21 @@
     <h2 class="is-bold">Add Bookmark</h2>
 
     <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+
         <div class="form-field">
-            <input ngModel #textField="ngModel" name="name" class="textbox" type="text" placeholder="Enter a bookmark name..."
+            <label class="form-label">Bookmark Name</label>
+            <input ngModel #textField="ngModel" name="name" class="textbox" type="text" placeholder="i.e. Wikipedia"
+                required minlength="3">
+            <ng-container *ngIf="showValidationErrors && textField.invalid">
+                <p style="color: red;" *ngIf="textField?.errors?.['required']">Please enter some text for this todo!</p>
+                <p style="color: red;" *ngIf="textField?.errors?.['minlength']">Todo text must be at least 3
+                    characters long!</p>
+            </ng-container>
+        </div>
+
+        <div class="form-field">
+            <label class="form-label">URL Link</label>
+            <input ngModel #textField="ngModel" name="url" class="textbox" type="url" placeholder="i.e. https://wikipedia.org"
                 required minlength="3">
             <ng-container *ngIf="showValidationErrors && textField.invalid">
                 <p style="color: red;" *ngIf="textField?.errors?.['required']">Please enter some text for this todo!</p>
