@@ -12,6 +12,13 @@
     border-bottom-left-radius: 5px;
 }
 
+.sidebar-heading {
+    color: rgba(black, 0.9);
+    font-weight: 600;
+    font-size: 20px;
+    padding: 25px;
+}
+
 .content {
     flex-grow: 1;
     border-top-right-radius: 5px;
