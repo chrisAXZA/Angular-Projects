@@ -7,7 +7,11 @@ import { Bookmark } from './bookmark.model';
 })
 export class BookmarkService {
 
-    bookmarks!: Bookmark[];
+    // bookmarks!: Bookmark[];
+    bookmarks: Bookmark[] = [
+        new Bookmark('Wikipedia', 'https://wikipedia.org'),
+        new Bookmark('DuckDuckGo', 'https://duckduckgo.com'),
+    ];
 
     constructor() { }
 
