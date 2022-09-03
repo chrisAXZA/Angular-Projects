@@ -19,6 +19,18 @@
     padding: 25px;
 }
 
+.sidebar-items {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sidebar-item {
+    color: rgba(black, 0.9);
+    // 5px top/bottom 25px left/right
+    padding: 5px 25px;
+}
+
 .content {
     flex-grow: 1;
     border-top-right-radius: 5px;
