@@ -9,11 +9,13 @@ import { EditNoteComponent } from './edit-note/edit-note.component';
 import { EditTodoComponent } from './edit-todo/edit-todo.component';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { AddBookmarkComponent } from './add-bookmark/add-bookmark.component';
+import { ManageBookmarksComponent } from './manage-bookmarks/manage-bookmarks.component';
 
 const routes: Routes = [
   // data will set the tabNumber of each Dashboard item
   { path: 'bookmarks', component: BookmarksComponent, data: { tab: 1 } },
   { path: 'bookmarks/add', component: AddBookmarkComponent, },
+  { path: 'bookmarks/manage', component: ManageBookmarksComponent, },
   { path: 'todos', component: TodosComponent, data: { tab: 2 } },
   { path: 'todos/add', component: AddTodoComponent, },
   { path: 'todos/:id', component: EditTodoComponent, },
