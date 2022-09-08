@@ -6,6 +6,7 @@
 .sidebar {
     height: 100%;
     width: 220px;
+    overflow: auto;
     background-color: rgba(grey, 0.7);
     backdrop-filter: blur(4px);
     border-top-left-radius: 5px;
