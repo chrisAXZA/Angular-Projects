@@ -11,6 +11,7 @@ export class BookmarkService {
     bookmarks: Bookmark[] = [
         new Bookmark('Wikipedia', 'https://wikipedia.org'),
         new Bookmark('DuckDuckGo', 'https://duckduckgo.com'),
+        new Bookmark('Mozilla', 'https://developer.mozilla.org'),
     ];
 
     constructor() { }
