@@ -24,6 +24,10 @@ export class EditBookmarkComponent implements OnInit {
     }
 
     onFormSubmit(form: NgForm) {
-
+        const { name, url } = form.value;
+        this.bookmarkService.updateBookmark(this.bookmark.id, {
+            name,
+            url: new URL(url),
+        });
     }
 }
