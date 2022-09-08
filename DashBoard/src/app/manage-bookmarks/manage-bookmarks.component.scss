@@ -32,6 +32,7 @@
 
 .content {
     flex-grow: 1;
+    overflow: auto;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
