@@ -4,12 +4,12 @@
     <form #form="ngForm" ngNativeValidate (ngSubmit)="onFormSubmit(form)">
         <div class="form-field">
             <label class="form-label">Bookmark Name</label>
-            <input ngModel #textField="ngModel" name="name" class="textbox" type="text" placeholder="i.e. Wikipedia">
+            <input [ngModel]="bookmark.name" #textField="ngModel" name="name" class="textbox" type="text" placeholder="i.e. Wikipedia">
         </div>
 
         <div class="form-field">
             <label class="form-label">URL Link</label>
-            <input ngModel #textField="ngModel" name="url" class="textbox" type="url"
+            <input [ngModel]="bookmark.url" #textField="ngModel" name="url" class="textbox" type="url"
                 placeholder="i.e. https://wikipedia.org" required>
         </div>
 
