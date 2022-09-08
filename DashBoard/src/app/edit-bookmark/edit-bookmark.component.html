@@ -1,1 +1,22 @@
-<p>edit-bookmark works!</p>
+<div class="edit-bookmark-wrapper">
+    <h2 class="is-bold">Bookmark Name</h2>
+
+    <form #form="ngForm" ngNativeValidate (ngSubmit)="onFormSubmit(form)">
+        <div class="form-field">
+            <label class="form-label">Bookmark Name</label>
+            <input ngModel #textField="ngModel" name="name" class="textbox" type="text" placeholder="i.e. Wikipedia">
+        </div>
+
+        <div class="form-field">
+            <label class="form-label">URL Link</label>
+            <input ngModel #textField="ngModel" name="url" class="textbox" type="url"
+                placeholder="i.e. https://wikipedia.org" required>
+        </div>
+
+        <div class="btns-container">
+            <a routerLink="../" class="btn back">Back to Bookmarks</a>
+            <button type="submit" class="btn align-end" style="cursor: context-menu;">Edit Bookmark</button>
+        </div>
+    </form>
+
+</div>
