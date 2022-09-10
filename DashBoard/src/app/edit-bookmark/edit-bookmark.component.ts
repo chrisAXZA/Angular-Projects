@@ -36,7 +36,7 @@ export class EditBookmarkComponent implements OnInit {
 
     delete() {
         this.bookmarkService.deleteBookmark(this.bookmark.id);
-        this.router.navigate(['../'], {relativeTo: this.route}); // works with relative routes
+        this.router.navigate(['../'], { relativeTo: this.route }); // works with relative routes
         // this.router.navigateByUrl('/bookmarks/manage');
     }
 }
