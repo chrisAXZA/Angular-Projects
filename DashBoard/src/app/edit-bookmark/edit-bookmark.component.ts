@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { Bookmark } from '../shared/bookmark.model';
 import { BookmarkService } from '../shared/bookmark.service';
+import { NotificationService } from '../shared/notification.service';
 
 @Component({
     selector: 'app-edit-bookmark',
@@ -16,6 +17,7 @@ export class EditBookmarkComponent implements OnInit {
 
     constructor(
         private bookmarkService: BookmarkService,
+        private notificationService: NotificationService,
         private route: ActivatedRoute,
         private router: Router) { }
 
@@ -28,6 +30,9 @@ export class EditBookmarkComponent implements OnInit {
 
     onFormSubmit(form: NgForm) {
         const { name, url } = form.value;
+        
+        this.notificationService.show(`Bookmark ${this.bookmark.name} has been updated!`);
+
         this.bookmarkService.updateBookmark(this.bookmark.id, {
             name,
             url: new URL(url),
