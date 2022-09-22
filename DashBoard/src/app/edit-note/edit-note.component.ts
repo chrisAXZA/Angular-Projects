@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { Note } from '../shared/note.model';
 import { NoteService } from '../shared/note.service';
+import { NotificationService } from '../shared/notification.service';
 
 @Component({
     selector: 'app-edit-note',
@@ -17,7 +18,9 @@ export class EditNoteComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private noteService: NoteService,
-        private router: Router) { }
+        private notificationService: NotificationService,
+        private router: Router,
+    ) { }
 
     ngOnInit(): void {
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -34,6 +37,7 @@ export class EditNoteComponent implements OnInit {
     onFormSubmit(form: NgForm) {
         // console.log(form.value);
         this.noteService.updateNote(this.note.id, form.value);
+        this.notificationService.show(`${this.note.title} has been updated!`);
         this.router.navigateByUrl("/notes");
     }
 
