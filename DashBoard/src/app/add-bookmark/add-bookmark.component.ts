@@ -28,6 +28,6 @@ export class AddBookmarkComponent implements OnInit {
         this.bookmarkService.addBookmark(newBookmark);
 
         this.router.navigateByUrl('/bookmarks');
-        this.notificationService.show('A new Bookmark has been added!')
+        this.notificationService.show('A new Bookmark has been added!');
     }
 }
