@@ -43,6 +43,7 @@ export class EditNoteComponent implements OnInit {
 
     deleteNote() {
         this.noteService.deleteNote(this.note.id);
+        this.notificationService.show(`${this.note.title} has been deleted!`)
         this.router.navigateByUrl("/notes");
     }
 }
