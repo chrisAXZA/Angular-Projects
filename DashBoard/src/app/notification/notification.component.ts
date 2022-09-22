@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 
+import { NotificationData } from '../shared/notification-data.model';
 import { NotificationService } from '../shared/notification.service';
 
 @Component({
@@ -29,21 +30,23 @@ import { NotificationService } from '../shared/notification.service';
 })
 export class NotificationComponent implements OnInit {
 
-    notification!: string | null;
+    // notification!: string | null;
+    notification!: NotificationData | null;
 
     timeout: any;
 
     constructor(private notificationService: NotificationService) { }
 
     ngOnInit(): void {
-        this.notificationService.notifications.subscribe((notification: string) => {
+        // this.notificationService.notifications.subscribe((notification: string) => {
+        this.notificationService.notifications.subscribe((notification: NotificationData) => {
             this.notification = notification;
 
             clearTimeout(this.timeout);
 
             this.timeout = setTimeout(() => {
                 this.notification = null;
-            }, 2000);
+            }, this.notification.duration);
         });
     }
 
