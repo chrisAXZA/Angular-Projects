@@ -31,7 +31,7 @@ export class EditBookmarkComponent implements OnInit {
     onFormSubmit(form: NgForm) {
         const { name, url } = form.value;
         
-        this.notificationService.show(`Bookmark ${this.bookmark.name} has been updated!`);
+        this.notificationService.show(`Bookmark ${this.bookmark.name} has been updated!`, 2000);
 
         this.bookmarkService.updateBookmark(this.bookmark.id, {
             name,
