@@ -19,7 +19,8 @@ export class EditBookmarkComponent implements OnInit {
         private bookmarkService: BookmarkService,
         private notificationService: NotificationService,
         private route: ActivatedRoute,
-        private router: Router) { }
+        private router: Router,
+    ) { }
 
     ngOnInit(): void {
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -30,7 +31,7 @@ export class EditBookmarkComponent implements OnInit {
 
     onFormSubmit(form: NgForm) {
         const { name, url } = form.value;
-        
+
         this.notificationService.show(`Bookmark ${this.bookmark.name} has been updated!`, 2000);
 
         this.bookmarkService.updateBookmark(this.bookmark.id, {
