@@ -19,17 +19,19 @@ export class NoteService {
         return this.notes;
     }
 
-    getNote(id: string) : Note {
+    getNote(id: string): Note {
         return this.notes.find((n) => n.id === id)!;
     }
 
     addNote(note: Note) {
         this.notes.push(note);
+        this.saveState();
     }
 
     updateNote(id: string, updatedFields: Partial<Note>) {
         const note = this.getNote(id);
         Object.assign(note, updatedFields);
+        this.saveState();
     }
 
     deleteNote(id: string) {
@@ -40,5 +42,11 @@ export class NoteService {
         }
 
         this.notes.splice(noteIndex, 1);
+        this.saveState();
+    }
+
+    // saveState will save notes array as JSON in localStorage
+    saveState() {
+        localStorage.setItem('notes', JSON.stringify(this.notes));
     }
 }
