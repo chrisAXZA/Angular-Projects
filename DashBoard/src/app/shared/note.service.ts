@@ -55,7 +55,11 @@ export class NoteService {
 
     // data in localStorage will be parsed into an Object
     loadState() {
-        const notesInStorage = JSON.parse(localStorage.getItem('notes')!);
-        this.notes = notesInStorage;
+        try {
+            const notesInStorage = JSON.parse(localStorage.getItem('notes')!);
+            this.notes = notesInStorage || [];
+        } catch (error) {
+            console.log(`Error occurred when retrieving data from localStorage! >>> ${error}`);
+        }
     }
 }
