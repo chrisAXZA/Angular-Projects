@@ -31,7 +31,8 @@ import { NotificationService } from '../shared/notification.service';
 export class NotificationComponent implements OnInit {
 
     // notification!: string | null;
-    notification!: NotificationData | null;
+    // notification!: NotificationData | null;
+    notifications!: NotificationData[] | null;
 
     timeout: any;
 
@@ -40,13 +41,15 @@ export class NotificationComponent implements OnInit {
     ngOnInit(): void {
         // this.notificationService.notifications.subscribe((notification: string) => {
         this.notificationService.notifications.subscribe((notification: NotificationData) => {
-            this.notification = notification;
+            // this.notification = notification;
+            this.notifications = Array(notification);
 
             clearTimeout(this.timeout);
 
             this.timeout = setTimeout(() => {
-                this.notification = null;
-            }, this.notification.duration);
+                this.notifications = null;
+            }, notification.duration);
+            // }, this.notification.duration);
         });
     }
 

@@ -1,3 +1,4 @@
-<div class="notification" *ngIf="notification" @notificationAnim>
+<!-- <div class="notification" *ngIf="notification" @notificationAnim> -->
+<div class="notification" *ngFor="let notification of notifications" @notificationAnim>
     {{ notification.text }}
 </div>
