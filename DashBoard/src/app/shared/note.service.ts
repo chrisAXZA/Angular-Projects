@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { fromEvent } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { fromEvent, Subscription } from 'rxjs';
 
 import { Note } from './note.model';
 
 @Injectable({
     providedIn: 'root'
 })
-export class NoteService {
+export class NoteService implements OnDestroy {
 
     // notes!: Note[];
     // notes: Note[] = [
@@ -14,22 +14,30 @@ export class NoteService {
     //     new Note('Test Note2', 'Some random note content2'),
     // ];
     notes: Note[] = [];
+    storageListenerSub!: Subscription;
 
     constructor() {
         this.loadState();
 
         // fromEvent listens to the StorageEvent on the current window, returns an Observable
-        fromEvent<StorageEvent>(window, 'storage').subscribe((event: StorageEvent) => {
-            console.log(`Storage event fired! >>>`);
-            // console.log(event);
+        this.storageListenerSub = fromEvent<StorageEvent>(window, 'storage')
+            .subscribe((event: StorageEvent) => {
+                console.log(`Storage event fired! >>>`);
+                // console.log(event);
 
-            if (event.key === 'notes') {
-                this.loadState();
-            }
-        });
+                if (event.key === 'notes') {
+                    this.loadState();
+                }
+            });
 
         // fromEvent(document, 'click').subscribe((x: MouseEvent) => console.log(`x: ${x.x}, y: ${x.y}`));
         // fromEvent(document, 'paste').subscribe((x: ClipboardEvent) => console.log(`Paste: ${x.clipboardData.getData('text')}`));
+    }
+
+    ngOnDestroy() {
+        if (this.storageListenerSub) {
+            this.storageListenerSub.unsubscribe();
+        }
     }
 
     getNotes() {
