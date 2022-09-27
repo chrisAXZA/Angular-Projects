@@ -73,9 +73,9 @@ export class NoteService {
             const notesInStorage = JSON.parse(localStorage.getItem('notes')!);
             // this.notes = notesInStorage || [];
 
-            if (!notesInStorage) {
-                return;
-            }
+            // if (!notesInStorage) {
+            //     return;
+            // }
 
             // clears the notes array while keeping the same reference
             this.notes.length = 0;
