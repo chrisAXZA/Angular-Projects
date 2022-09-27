@@ -22,7 +22,7 @@ export class NoteService implements OnDestroy {
         // fromEvent listens to the StorageEvent on the current window, returns an Observable
         this.storageListenerSub = fromEvent<StorageEvent>(window, 'storage')
             .subscribe((event: StorageEvent) => {
-                console.log(`Storage event fired! >>>`);
+                console.log(`Storage event in Notes fired! >>>`);
                 // console.log(event);
 
                 if (event.key === 'notes') {
@@ -89,7 +89,7 @@ export class NoteService implements OnDestroy {
             this.notes.length = 0;
             this.notes.push(...notesInStorage);
         } catch (error) {
-            console.log(`Error occurred when retrieving data from localStorage! >>> ${error}`);
+            console.log(`Error occurred when retrieving notes data from localStorage! >>> ${error}`);
         }
     }
 }
