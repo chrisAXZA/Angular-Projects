@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { fromEvent } from 'rxjs';
 
 import { Note } from './note.model';
 
@@ -16,6 +17,19 @@ export class NoteService {
 
     constructor() {
         this.loadState();
+
+        // fromEvent listens to the StorageEvent on the current window, returns an Observable
+        fromEvent<StorageEvent>(window, 'storage').subscribe((event: StorageEvent) => {
+            console.log(`Storage event fired! >>>`);
+            // console.log(event);
+
+            if (event.key === 'notes') {
+                this.loadState();
+            }
+        });
+
+        // fromEvent(document, 'click').subscribe((x: MouseEvent) => console.log(`x: ${x.x}, y: ${x.y}`));
+        // fromEvent(document, 'paste').subscribe((x: ClipboardEvent) => console.log(`Paste: ${x.clipboardData.getData('text')}`));
     }
 
     getNotes() {
@@ -57,7 +71,15 @@ export class NoteService {
     loadState() {
         try {
             const notesInStorage = JSON.parse(localStorage.getItem('notes')!);
-            this.notes = notesInStorage || [];
+            // this.notes = notesInStorage || [];
+
+            if (!notesInStorage) {
+                return;
+            }
+
+            // clears the notes array while keeping the same reference
+            this.notes.length = 0;
+            this.notes.push(...notesInStorage);
         } catch (error) {
             console.log(`Error occurred when retrieving data from localStorage! >>> ${error}`);
         }

@@ -4,18 +4,18 @@ import { Note } from '../shared/note.model';
 import { NoteService } from '../shared/note.service';
 
 @Component({
-  selector: 'app-notes',
-  templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.scss']
+    selector: 'app-notes',
+    templateUrl: './notes.component.html',
+    styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
 
-  notes!: Note[];
+    notes!: Note[];
 
-  constructor(private noteService: NoteService) { }
+    constructor(private noteService: NoteService) { }
 
-  ngOnInit(): void {
-    this.notes = this.noteService.getNotes();
-  }
+    ngOnInit(): void {
+        this.notes = this.noteService.getNotes();
+    }
 
 }
