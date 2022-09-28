@@ -9,10 +9,19 @@
             <a routerLinkActive="selected" [routerLink]="[bookmark.id]" class="sidebar-item"
                 *ngFor="let bookmark of bookmarks">{{bookmark.name}}</a>
         </div>
+
+        <ng-container *ngIf="bookmarks.length === 0">
+            <div class="edit-bookmark-wrapper">
+                <div class="btns-container">
+                    <a routerLink="../" class="btn back">Back to Bookmarks</a>
+                </div>
+            </div>
+        </ng-container>
     </div>
 
     <div class="content has-blurred-white-bg">
         <router-outlet></router-outlet>
     </div>
+
 
 </div>
