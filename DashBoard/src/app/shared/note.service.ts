@@ -14,7 +14,7 @@ export class NoteService implements OnDestroy {
     //     new Note('Test Note2', 'Some random note content2'),
     // ];
     notes: Note[] = [];
-    storageListenerSub!: Subscription;
+    storageListenerSub: Subscription;
 
     constructor() {
         this.loadState();

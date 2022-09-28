@@ -13,7 +13,7 @@ export class TodoService implements OnDestroy {
     //     new Todo('A second todo on your list!'),
     // ];
     todos: Todo[] = [];
-    storageListenerSub!: Subscription;
+    storageListenerSub: Subscription;
 
     constructor() {
         this.loadState();
