@@ -48,4 +48,8 @@ export class TodosComponent implements OnInit {
         this.notficationService.show(`${todo.text} has been deleted!`);
         this.todoService.deleteTodo(todo.id);
     }
+
+    trackById(index: number, item: Todo) {
+        return item.id;
+    }
 }
