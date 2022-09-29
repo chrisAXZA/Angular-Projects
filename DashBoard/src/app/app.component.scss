@@ -57,4 +57,9 @@
     padding: 10px;
     background: rgba(black, 0.4);
     color: rgba(white, 0.7);
+
+    &:hover {
+        background: rgba(black, 0.6);
+        color: white;
+    }
 }
