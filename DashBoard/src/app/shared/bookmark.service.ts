@@ -72,7 +72,14 @@ export class BookmarkService implements OnDestroy {
 
     loadState() {
         try {
-            const bookmarksInStorage = JSON.parse(localStorage.getItem('bookmarks')!);
+            // second argument JSON.parse is reviver function that transforms the actual result
+            const bookmarksInStorage = JSON.parse(localStorage.getItem('bookmarks')!, (key, value) => {
+                if (key === 'url') {
+                    return new URL(value);
+                }
+
+                return value;
+            });
 
             this.bookmarks.length = 0;
             this.bookmarks.push(...bookmarksInStorage);
