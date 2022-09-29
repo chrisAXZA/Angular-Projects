@@ -62,4 +62,8 @@
         background: rgba(black, 0.6);
         color: white;
     }
+
+    &:active {
+        transform: translateY(4px);
+    }
 }
