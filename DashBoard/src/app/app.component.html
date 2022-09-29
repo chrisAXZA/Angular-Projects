@@ -1,8 +1,8 @@
 <div class="app-wrapper">
 
-    <img [src]="background" class="background-img">
+    <img [src]="background" class="background-img" (load)="onBackgroundImgLoad()">
 
-    <div class="btn change-background-btn" style="cursor: default;" (click)="changeBackgroundImg()">
+    <div class="btn change-background-btn" style="cursor: default;" (click)="changeBackgroundImg()" *ngIf="!loadingBackgroundImg">
         <i class="material-icons" style="cursor: alias;">refresh</i>
     </div>
 
