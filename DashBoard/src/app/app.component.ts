@@ -152,6 +152,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
 })
 export class AppComponent {
     title = 'DashBoard';
+    background: string = 'https://images.unsplash.com/photo-1664425216679-dff9fb34913b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60';
 
     prepareRoute(outlet: RouterOutlet) {
         if (outlet.isActivated) {
