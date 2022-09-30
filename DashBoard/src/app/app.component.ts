@@ -155,6 +155,25 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                 })),
             ]),
         ]),
+        trigger('btnFadeAnim', [
+            transition(':enter', [
+                style({
+                    opacity: 0,
+                }),
+                animate(750,
+                    style({
+                        opacity: 1,
+                    })
+                ),
+            ]),
+            transition(':leave', [
+                animate(750,
+                    style({
+                        opacity: 0,
+                    }),
+                )
+            ]),
+        ]),
     ],
 })
 export class AppComponent {
