@@ -153,7 +153,9 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
 export class AppComponent {
     title = 'DashBoard';
     loadingBackgroundImg!: boolean;
-    background: string = 'https://images.unsplash.com/photo-1664369058082-ee8e36028106?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80';
+    // fade effect for background images
+    backgrounds: string[] = ['https://images.unsplash.com/photo-1664369058082-ee8e36028106?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'];
+    // background: string = 'https://images.unsplash.com/photo-1664369058082-ee8e36028106?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80';
     // background: string = 'https://images.unsplash.com/photo-1664425216679-dff9fb34913b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60';
     // 'https://source.unsplash.com/random'
 
@@ -169,15 +171,22 @@ export class AppComponent {
     async changeBackgroundImg() {
         this.loadingBackgroundImg = true;
 
-        const result = await fetch('https://source.unsplash.com/random', {
+        // const result = await fetch('https://source.unsplash.com/random', {
+        // add size parameters for each image
+        const result = await fetch('https://source.unsplash.com/random/1920x1080', {
             method: 'HEAD', // get request will download the actual image, however only url of given image is required
         });
 
-        if (this.background === result.url) {
+        const sameImg = this.backgrounds.includes(result.url);
+
+        // if (this.background === result.url) {
+        if (sameImg) {
+            // same image is already rendered in app
             this.changeBackgroundImg();
         }
 
-        this.background = result.url;
+        // this.background = result.url;
+        this.backgrounds.push(result.url);
     }
 
     onBackgroundImgLoad() {

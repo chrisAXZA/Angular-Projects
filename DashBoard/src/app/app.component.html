@@ -1,6 +1,8 @@
 <div class="app-wrapper">
 
-    <img [src]="background" class="background-img" (load)="onBackgroundImgLoad()">
+    <!-- <img [src]="background" class="background-img" (load)="onBackgroundImgLoad()"> -->
+    <!-- background of current iteration is passed unto src -->
+    <img [src]="background" *ngFor="let background of backgrounds" class="background-img" (load)="onBackgroundImgLoad()">
 
     <div class="btn change-background-btn" style="cursor: default;" (click)="changeBackgroundImg()" *ngIf="!loadingBackgroundImg">
         <i class="material-icons" style="cursor: alias;">refresh</i>
