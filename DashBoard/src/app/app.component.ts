@@ -189,7 +189,19 @@ export class AppComponent {
         this.backgrounds.push(result.url);
     }
 
-    onBackgroundImgLoad() {
+    onBackgroundImgLoad(imgEvent: Event) {
+        // backgroung img has been loaded, remove the old img from the backgrounds array
+        const imgElement = imgEvent.target as HTMLImageElement;
+        const src = imgElement.src;
+
+        // console.log(imgElement);
+        // console.log('Image src of the new img >>>');
+        // console.log(src);
+
+        // removes all elements except for the latest image src
+        this.backgrounds = this.backgrounds.filter((img) => img === src);
+        // this.backgrounds = [src]; // alternative
+
         this.loadingBackgroundImg = false;
     }
 }
