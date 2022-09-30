@@ -148,6 +148,13 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
             //     animate(700),
             // ]),
         ]),
+        trigger('backgroundAnim', [
+            transition(':leave', [
+                animate(1500, style({
+                    opacity: 0, // will fade out current image
+                })),
+            ]),
+        ]),
     ],
 })
 export class AppComponent {
