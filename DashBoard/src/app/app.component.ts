@@ -116,6 +116,49 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                     ], { optional: true }),
                 ]),
             ]),
+            // transition from any state to secondary
+            transition('* => secondary', [
+                style({
+                    position: 'relative',
+                    overflow: 'hidden',
+                }),
+                query(':enter, :leave', [
+                    style({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                    }),
+                ], { optional: true }),
+                group([
+                    query(':leave', [
+                        style({
+                            // display: 'block',
+                            // height: '100%',
+                        }),
+                        // ease-in (start off slow and then accelerate towards the end)
+                        animate('350ms ease-in', style({
+                            opacity: 0,
+                            transform: 'scale(0.8)', // leaving element animation
+                            // transform: 'translateX(80px)',
+                        })),
+                    ], { optional: true }),
+                    query(':enter', [
+                        style({
+                            // sets starting position of entering component
+                            transform: 'scale(1.2)', // entering element animation
+                            opacity: 0,
+                        }),
+                        // style for entering animation
+                        animate('500ms 120ms ease-out', style({
+                            opacity: 1,
+                            // moves into position
+                            transform: 'scale(1)',
+                        })),
+                    ], { optional: true }),
+                ]),
+            ]),
             // * => * indicates transition from start-state to end-state
             // transition('* => *', [
             //     query(':enter', [
@@ -187,11 +230,19 @@ export class AppComponent {
 
     prepareRoute(outlet: RouterOutlet) {
         if (outlet.isActivated) {
-            return outlet.activatedRouteData['tab'];
+            const tab = outlet.activatedRouteData['tab'];
+
+            if (!tab) {
+                return 'secondary';
+            }
+
+            return tab;
+
+            // return outlet.activatedRouteData['tab']; // see appp-routing.module -> data: {tab: 1}
             // return outlet.activatedRoute.snapshot.url;
         }
 
-        return null;
+        // return null;
     }
 
     async changeBackgroundImg() {
