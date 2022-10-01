@@ -2,6 +2,19 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
 
+const baseStyles = style({
+    position: 'absolute',
+    // top + left 0 must be relative to the content-section and
+    // not the actual browser window
+    top: 0,
+    left: 0,
+    // component width must be set to 100% in order to span the whole window width
+    // and not just the width of its content (content cards)
+    width: '100%',
+    height: '100%',
+    // display: 'block',
+});
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -19,18 +32,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                 }),
                 // set position to absolute for both entering and leaving components
                 query(':enter, :leave', [
-                    style({
-                        position: 'absolute',
-                        // top + left 0 must be relative to the content-section and
-                        // not the actual browser window
-                        top: 0,
-                        left: 0,
-                        // component width must be set to 100% in order to span the whole window width
-                        // and not just the width of its content (content cards)
-                        width: '100%',
-                        height: '100%',
-                        // display: 'block',
-                    }),
+                    baseStyles,
                 ], { optional: true }),
                 // set opacity of entering component to zero, so that it remains invisible 
                 // query(':enter', [
@@ -81,13 +83,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                     overflow: 'hidden',
                 }),
                 query(':enter, :leave', [
-                    style({
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                    }),
+                    baseStyles,
                 ], { optional: true }),
                 group([
                     query(':leave', [
@@ -123,13 +119,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                     // overflow: 'hidden',
                 }),
                 query(':enter, :leave', [
-                    style({
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                    }),
+                    baseStyles,
                 ], { optional: true }),
                 group([
                     query(':leave', [
@@ -165,13 +155,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                     // overflow: 'hidden',
                 }),
                 query(':enter, :leave', [
-                    style({
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                    }),
+                    baseStyles,
                 ], { optional: true }),
                 group([
                     query(':leave', [
@@ -189,7 +173,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                     query(':enter', [
                         style({
                             // entering component will be fading and entering at the same time
-                            transform: 'scale(0.8)', 
+                            transform: 'scale(0.8)',
                             opacity: 0,
                         }),
                         // style for entering animation
