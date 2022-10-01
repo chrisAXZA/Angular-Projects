@@ -120,7 +120,7 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
             transition('* => secondary', [
                 style({
                     position: 'relative',
-                    overflow: 'hidden',
+                    // overflow: 'hidden',
                 }),
                 query(':enter, :leave', [
                     style({
