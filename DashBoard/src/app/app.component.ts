@@ -116,8 +116,8 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                     ], { optional: true }),
                 ]),
             ]),
-            // transition from any state to secondary
-            transition('* => secondary', [
+            // transition from secondary to any state
+            transition('secondary => *', [
                 style({
                     position: 'relative',
                     // overflow: 'hidden',
@@ -148,6 +148,48 @@ import { animate, group, query, style, transition, trigger } from '@angular/anim
                         style({
                             // sets starting position of entering component
                             transform: 'scale(1.2)', // entering element animation
+                            opacity: 0,
+                        }),
+                        // style for entering animation
+                        animate('500ms 120ms ease-out', style({
+                            opacity: 1,
+                            // moves into position
+                            transform: 'scale(1)',
+                        })),
+                    ], { optional: true }),
+                ]),
+            ]),
+            transition('* => secondary', [
+                style({
+                    position: 'relative',
+                    // overflow: 'hidden',
+                }),
+                query(':enter, :leave', [
+                    style({
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                    }),
+                ], { optional: true }),
+                group([
+                    query(':leave', [
+                        style({
+                            // display: 'block',
+                            // height: '100%',
+                        }),
+                        // ease-in (start off slow and then accelerate towards the end)
+                        animate('350ms ease-in', style({
+                            opacity: 0,
+                            transform: 'scale(1.25)', // grows larger when fades out
+                            // transform: 'translateX(80px)',
+                        })),
+                    ], { optional: true }),
+                    query(':enter', [
+                        style({
+                            // entering component will be fading and entering at the same time
+                            transform: 'scale(0.8)', 
                             opacity: 0,
                         }),
                         // style for entering animation
