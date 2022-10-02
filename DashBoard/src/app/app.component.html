@@ -11,9 +11,15 @@
     </div>
 
     <div class="top-section">
+        <h1>{{ dateTime | date:'HH:mm' }}</h1>
+        <h2>{{ dateTime | date:'d MMMM yyyy'}}</h2>
+    </div>
+
+    <!-- 
+    <div class="top-section">
         <h1>19:00</h1>
         <h2>1 January 2022</h2>
-    </div>
+    </div> -->
 
     <!-- <div class="content-section" [@routeAnim]="prepareRoute(outlet)" style="position: relative"> -->
     <div class="content-section" [@routeAnim]="prepareRoute(outlet)">
