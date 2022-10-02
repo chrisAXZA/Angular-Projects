@@ -1,4 +1,28 @@
 # DashBoard
+Project mainly focusing on experimenting with Angular Animations as well as implementing more complex SCSS styles. Includes Bookmark Manager, Todo List and Note Reminder. With automatic re-render of background image.
+
+--
+
+### Main Page:
+<img src="Main-Page.png"/>
+
+--
+
+### Bookmark Manager:
+<img src="Bookmark-Manager.png"/>
+
+--
+
+### Note Reminder:
+<img src="Note-Reminder.png"/>
+
+--
+
+### Todo List:
+<img src="Todo-List.png"/>
+
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
