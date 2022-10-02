@@ -11,8 +11,9 @@
     </div>
 
     <div class="top-section">
-        <h1>{{ dateTime | date:'HH:mm' }}</h1>
-        <h2>{{ dateTime | date:'d MMMM yyyy'}}</h2>
+        <!-- async pipe will subscribe to the values emitted by an observable -->
+        <h1>{{ dateTime | async | date:'HH:mm' }}</h1>
+        <h2>{{ dateTime | async | date:'d MMMM yyyy'}}</h2>
     </div>
 
     <!-- 

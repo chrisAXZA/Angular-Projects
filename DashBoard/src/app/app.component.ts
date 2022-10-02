@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { timer } from 'rxjs';
+import { map, Observable, timer } from 'rxjs';
 import { RouterOutlet } from '@angular/router';
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
 
@@ -254,15 +254,22 @@ export class AppComponent implements OnInit {
     // background: string = 'https://images.unsplash.com/photo-1664369058082-ee8e36028106?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80';
     // background: string = 'https://images.unsplash.com/photo-1664425216679-dff9fb34913b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60';
     // 'https://source.unsplash.com/random'
-    dateTime!: Date;
+    // dateTime!: Date;
+    dateTime!: Observable<Date>;
 
     ngOnInit() {
         // this.dateTime = new Date();
 
         // set intial delay(0) and subsequent update(5000)
-        timer(0, 5000).subscribe(() => {
-            this.dateTime = new Date();
-        });
+        // timer(0, 5000).subscribe(() => {
+        //     this.dateTime = new Date();
+        // });
+
+        this.dateTime = timer(0, 5000).pipe(
+            map(() => {
+                return new Date();
+            }),
+        );
     }
 
     prepareRoute(outlet: RouterOutlet) {
