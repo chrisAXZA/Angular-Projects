@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
 import { RouterOutlet } from '@angular/router';
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
 
@@ -256,7 +257,12 @@ export class AppComponent implements OnInit {
     dateTime!: Date;
 
     ngOnInit() {
-        this.dateTime = new Date();
+        // this.dateTime = new Date();
+
+        // set intial delay(0) and subsequent update(5000)
+        timer(0, 5000).subscribe(() => {
+            this.dateTime = new Date();
+        });
     }
 
     prepareRoute(outlet: RouterOutlet) {
