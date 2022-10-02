@@ -1,4 +1,4 @@
-<a [href]="bookmark.url" class="bookmark-tile">
+<a [href]="bookmark.url" target="_blank" class="bookmark-tile">
     <div class="tile-icon" *ngIf="!faviconError">
         <!-- will listen to a potential error event -->
         <img [src]="tileIconSrc" alt="" (error)="faviconError=true">
