@@ -8,7 +8,7 @@ import { BorderCardDirective } from './border-card.directive';
 @NgModule({
     declarations: [
         AppComponent,
-        BorderCardDirective
+        BorderCardDirective,
     ],
     imports: [
         BrowserModule,
