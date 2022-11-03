@@ -1,19 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Pokemon } from './pokemon';
+import { POKEMONS } from './pokemonList';
+
 @Component({
     selector: 'app-root',
-    template: `<h1> Welcome to {{pokemonList[0]}}! </h1>`,
+    templateUrl: 'app.component.html',
 })
 export class AppComponent implements OnInit {
-    pokemonList = ['Bulbar', 'Salamander', 'Sheller'];
+    pokemonList: Pokemon[] = POKEMONS;
+    pokemonSelected: Pokemon | undefined;
 
     ngOnInit() {
         console.table(this.pokemonList);
-        this.selectPokemon(this.pokemonList[0]);
+
     }
 
-    selectPokemon(pokemonName: string) {
-        console.log(`Pokemon with the name "${pokemonName}" has been clicked!`);
+    selectPokemon(pokemonId: string) {
+        // const index: number = Number((event.target as HTMLInputElement).value);
+        const index = Number(pokemonId);
+        // const pokemon : Pokemon = this.pokemonList[index];
 
+        const pokemon: Pokemon | undefined = this.pokemonList
+            .find((pok) => pok.id === index);
+
+        if (pokemon) {
+            console.log(`Pokemon with the name "${pokemon.name}" has been clicked!`);
+            this.pokemonSelected = pokemon;
+        } else {
+            console.log(`Pokemon with the id "${index}" does not exist!`);
+            this.pokemonSelected = undefined;
+        }
     }
 }
