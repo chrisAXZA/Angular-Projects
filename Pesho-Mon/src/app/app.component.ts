@@ -13,14 +13,12 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         console.table(this.pokemonList);
-
     }
 
     selectPokemon(pokemonId: string) {
         // const index: number = Number((event.target as HTMLInputElement).value);
         const index = Number(pokemonId);
         // const pokemon : Pokemon = this.pokemonList[index];
-
         const pokemon: Pokemon | undefined = this.pokemonList
             .find((pok) => pok.id === index);
 
