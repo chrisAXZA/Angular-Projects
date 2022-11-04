@@ -18,12 +18,16 @@ export class BorderCardDirective {
     // TODO: Add angular animation hover effect
     @HostListener('mouseenter') onMouseEnter() {
         this.setBorder(this.borderColor || '#009688');
-        this.elementRef.nativeElement.style.transition = `1000ms`;
+        this.setTransition('1000ms')
     }
 
     @HostListener('mouseleave') onMouseLeave() {
         this.setBorder('#f5f5f5');
-        this.elementRef.nativeElement.style.transition = `1000ms`;
+        this.setTransition('1000ms')
+    }
+
+    private setTransition(time: string) {
+        this.elementRef.nativeElement.style.transition = `time`;
     }
 
     private setHeight(height: number) {
