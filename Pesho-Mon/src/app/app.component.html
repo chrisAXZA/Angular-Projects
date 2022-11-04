@@ -4,7 +4,7 @@
     <div class="row">
         <!-- 3 peshomon per row, or 2 on small screen -->
         <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
-            <div class="card horizontal" pokemonBorderCard>
+            <div class="card horizontal" pokemonBorderCard="red">
                 <div class="card-image">
                     <img [src]="pokemon.picture" />
                 </div>

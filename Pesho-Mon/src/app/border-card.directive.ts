@@ -4,30 +4,34 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
     selector: '[pokemonBorderCard]'
 })
 export class BorderCardDirective {
-    @Input('pokemonBorderCard') borderColor: string;
+    // @Input() pokemonBorderCard: string; // without alias
+    @Input('pokemonBorderCard') borderColor: string; // with alias
+    private initialColor :string = '#f5f5f5';
+    private defaultColor :string = '#009688';
+    private defaultHeight :number = 180;
 
     // TODO: Implement RendererFactory2 ?
     // nativeElement creates tight coupling between your application 
     // and rendering layers which will make it impossible to separate 
     // the two and deploy your application into a web worker. 
     constructor(private elementRef: ElementRef) {
-        this.setHeight(180);
-        this.setBorder('#f5f5f5');
+        this.setHeight(this.defaultHeight);
+        this.setBorder(this.initialColor);
     }
 
     // TODO: Add angular animation hover effect
     @HostListener('mouseenter') onMouseEnter() {
-        this.setBorder(this.borderColor || '#009688');
-        this.setTransition('1000ms')
+        this.setBorder(this.borderColor || this.defaultColor);
+        this.setTransition('1000ms');
     }
 
     @HostListener('mouseleave') onMouseLeave() {
-        this.setBorder('#f5f5f5');
-        this.setTransition('1000ms')
+        this.setBorder(this.initialColor);
+        this.setTransition('1000ms');
     }
 
     private setTransition(time: string) {
-        this.elementRef.nativeElement.style.transition = `time`;
+        this.elementRef.nativeElement.style.transition = `${time}`;
     }
 
     private setHeight(height: number) {
@@ -35,6 +39,7 @@ export class BorderCardDirective {
     }
 
     private setBorder(color: string) {
-        this.elementRef.nativeElement.style.border = `solid 4px ${color}`;
+        let border = `solid 4px ${color}`
+        this.elementRef.nativeElement.style.border = border;
     }
 }
