@@ -15,12 +15,15 @@ export class BorderCardDirective {
         this.setBorder('#f5f5f5');
     }
 
+    // TODO: Add angular animation hover effect
     @HostListener('mouseenter') onMouseEnter() {
         this.setBorder(this.borderColor || '#009688');
+        this.elementRef.nativeElement.style.transition = `1000ms`;
     }
 
     @HostListener('mouseleave') onMouseLeave() {
         this.setBorder('#f5f5f5');
+        this.elementRef.nativeElement.style.transition = `1000ms`;
     }
 
     private setHeight(height: number) {
