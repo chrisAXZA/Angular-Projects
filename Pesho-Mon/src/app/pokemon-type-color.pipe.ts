@@ -50,5 +50,4 @@ export class PokemonTypeColorPipe implements PipeTransform {
         // chip materialize class icon
         return 'chip ' + color;
     }
-
 }
