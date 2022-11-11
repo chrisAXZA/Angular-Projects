@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <!-- 3 peshomon per row, or 2 on small screen -->
+        <!-- 3 peshomon per row, or 2 on small screen, materialize row by default has 12 width -->
         <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
             <div class="card horizontal" pokemonBorderCard>
                 <div class="card-image">
@@ -11,8 +11,8 @@
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
-                        <p>{{pokemon.name}}</p>
-                        <p> <small>{{pokemon.created | date:"dd/MM/yyyy"}}</small> </p>
+                        <p class="green-text text-darken-4">{{pokemon.name}}</p>
+                        <!-- <p> <small>{{pokemon.created | date:"dd/MM/yyyy"}}</small> </p> -->
                         <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}">
                             {{type}}
                         </span>
