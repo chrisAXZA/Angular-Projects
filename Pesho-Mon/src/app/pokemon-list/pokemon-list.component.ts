@@ -6,17 +6,12 @@ import { POKEMONS } from '../pokemonList';
 @Component({
     selector: 'app-pokemon-list',
     templateUrl: './pokemon-list.component.html',
-    styles: [
-    ]
 })
 export class PokemonListComponent implements OnInit {
     pokemonList: Pokemon[] = POKEMONS;
     pokemonSelected: Pokemon | undefined;
 
-    constructor() { }
-
-    ngOnInit(): void {
-    }
+    ngOnInit(): void { }
 
     selectPokemon(pokemonId: string) {
         // const index: number = Number((event.target as HTMLInputElement).value);
