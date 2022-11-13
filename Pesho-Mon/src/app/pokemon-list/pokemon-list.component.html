@@ -1,1 +1,38 @@
-<p>pokemon-list works!</p>
+<h3 class="center">Peshomon Arena</h3>
+
+<div class="container">
+    <div class="row">
+        <!-- 3 peshomon per row, or 2 on small screen, materialize row by default has 12 width -->
+        <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
+            <div class="card horizontal" pokemonBorderCard>
+                <div class="card-image">
+                    <!-- <img [src]="pokemon.picture" height="100" width="100" style="max-width: none;" /> -->
+                    <img [src]="pokemon.picture" class="pokemonCard" />
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p class="green-text text-darken-4">{{pokemon.name}}</p>
+                        <p><small>HP: {{pokemon.hp}} CP: {{pokemon.cp}}</small></p>
+                        <!-- <p> <small>{{pokemon.created | date:"dd/MM/yyyy" | uppercase}}</small> </p> -->
+                        <br />
+                        <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}} pokemonSkill">
+                            <!-- <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}" style="width: 70px; text-align: center;"> -->
+                            {{type}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <input #input (keyup.enter)="selectPokemon(input.value)" type="number">
+<button (click)="selectPokemon(input.value)">Pesho-Mon</button> -->
+
+<!-- <p>{{input.value}}</p> -->
+<!-- <p *ngIf="pokemonSelected">
+    Pesho-Mon => {{pokemonSelected?.name}}
+</p>
+<p *ngIf="!pokemonSelected">
+    No Pesho-Mon has been found!
+</p> -->
