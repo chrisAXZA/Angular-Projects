@@ -1,1 +1,50 @@
-<h3 class="center">Peshomon Detail</h3>
+<h3 *ngIf="pokemon" class="center">Peshomon Detail</h3>
+
+<div *ngIf="pokemon" class="row">
+    <div class="col s12 m8 offset-m2">
+        <h2 class="header center">{{ pokemon.name }}</h2>
+        <div class="card horizontal hoverable" style="transition: 1000ms;">
+            <div class="card-image">
+                <img [src]="pokemon.picture">
+            </div>
+
+            <div class="card-stacked">
+                <div class="card-content">
+                    <table class="bordered striped">
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td><strong>{{ pokemon.name }}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Health Points</td>
+                                <td><strong>{{ pokemon.hp }}</strong></td>
+                            </tr>
+                             <tr>
+                                <td>Damage</td>
+                                <td><strong>{{ pokemon.cp }}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Types</td>
+                                <td>
+                                    <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor }}">
+                                        {{type }}
+                                    </span>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>Date of Creation</td>
+                                <td><em>{{ pokemon.created | date:"dd/MM/yyyy" }}</em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-action">
+                    <a (click)="return()">Return to PeshoMon Arena!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4 *ngIf='!pokemon' class="center">No PeshoMon selected!</h4>
