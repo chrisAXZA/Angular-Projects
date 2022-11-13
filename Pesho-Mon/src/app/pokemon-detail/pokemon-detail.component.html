@@ -1,9 +1,9 @@
-<h3 *ngIf="pokemon" class="center">Peshomon Detail</h3>
+<h3 *ngIf="pokemon" class="center #f9fbe7 lime lighten-4">Peshomon Detail</h3>
 
 <div *ngIf="pokemon" class="row">
     <!-- offset for centering pokemon card -->
     <div class="col s12 m8 offset-m2">
-        <h2 class="header center">{{ pokemon.name }}</h2>
+        <h4 class="header card center hoverable" style="transition: 1000ms;">++ {{ pokemon.name }} ++</h4>
         <div class="card horizontal hoverable" style="transition: 1000ms;">
             <div class="card-image">
                 <img [src]="pokemon.picture">
@@ -29,7 +29,7 @@
                                 <td>Types</td>
                                 <td>
                                     <span *ngFor="let type of pokemon.types"
-                                        class="{{ type | pokemonTypeColor }} pokemonSkill">
+                                        class="{{ type | pokemonTypeColor }} hoverable pokemonSkill" style="transition: 1000ms;">
                                         {{type }}
                                     </span>
                                 </td>
