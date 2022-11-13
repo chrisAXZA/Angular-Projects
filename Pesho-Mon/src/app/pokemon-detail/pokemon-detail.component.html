@@ -1,6 +1,7 @@
 <h3 *ngIf="pokemon" class="center">Peshomon Detail</h3>
 
 <div *ngIf="pokemon" class="row">
+    <!-- offset for centering pokemon card -->
     <div class="col s12 m8 offset-m2">
         <h2 class="header center">{{ pokemon.name }}</h2>
         <div class="card horizontal hoverable" style="transition: 1000ms;">
@@ -27,7 +28,8 @@
                             <tr>
                                 <td>Types</td>
                                 <td>
-                                    <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor }} pokemonSkill">
+                                    <span *ngFor="let type of pokemon.types"
+                                        class="{{ type | pokemonTypeColor }} pokemonSkill">
                                         {{type }}
                                     </span>
                                 </td>
@@ -39,8 +41,10 @@
                         </tbody>
                     </table>
                 </div>
+                <!-- card-action envolops return btn -->
                 <div class="card-action">
-                    <a (click)="return()">Return to PeshoMon Arena!</a>
+                    <a class="btn hoverable" style="transition: 1000ms;" (click)="return()">Return to PeshoMon
+                        Arena!</a>
                 </div>
             </div>
         </div>
