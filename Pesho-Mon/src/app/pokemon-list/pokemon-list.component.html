@@ -15,7 +15,7 @@
                         <p><small>HP: {{pokemon.hp}} CP: {{pokemon.cp}}</small></p>
                         <!-- <p> <small>{{pokemon.created | date:"dd/MM/yyyy" | uppercase}}</small> </p> -->
                         <br />
-                        <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}} pokemonSkill">
+                        <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}} hoverable pokemonSkill" style="transition: 1000ms;">
                             <!-- <span *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}" style="width: 70px; text-align: center;"> -->
                             {{type}}
                         </span>
