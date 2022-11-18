@@ -4,7 +4,7 @@
     <div class="row">
         <!-- 3 peshomon per row, or 2 on small screen, materialize row by default has 12 width -->
         <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
-            <div class="card horizontal" pokemonBorderCard>
+            <div (click)="selectPokemonDetail(pokemon)" class="card horizontal" pokemonBorderCard>
                 <div class="card-image">
                     <!-- <img [src]="pokemon.picture" height="100" width="100" style="max-width: none;" /> -->
                     <img [src]="pokemon.picture" class="pokemonCard" />
