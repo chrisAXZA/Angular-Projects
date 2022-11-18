@@ -1,7 +1,8 @@
 <h3 *ngIf="pokemon" class="center #f9fbe7 lime lighten-4">Peshomon Detail</h3>
 
+<!-- row => equivalent to a materialize line -->
 <div *ngIf="pokemon" class="row">
-    <!-- offset for centering pokemon card -->
+    <!-- offset for centering pokemon card (center-align ?), one column which takes whole screen width -->
     <div class="col s12 m8 offset-m2">
         <h4 class="header card center hoverable" style="transition: 1000ms;">++ {{ pokemon.name }} ++</h4>
         <div class="card horizontal hoverable" style="transition: 1000ms;">
@@ -36,7 +37,8 @@
                             </tr>
                              <tr>
                                 <td>Date of Creation</td>
-                                <td><em>{{ pokemon.created | date:"dd/MM/yyyy" }}</em></td>
+                                <td><strong>{{ pokemon.created | date:"dd/MM/yyyy" }}</strong></td>
+                                <!-- <td><em>{{ pokemon.created | date:"dd/MM/yyyy" }}</em></td> -->
                             </tr>
                         </tbody>
                     </table>
@@ -51,4 +53,4 @@
     </div>
 </div>
 
-<h4 *ngIf='!pokemon' class="center">No PeshoMon selected!</h4>
+<h3 *ngIf='!pokemon' class="center #ffcdd2 red lighten-4">No PeshoMon selected!</h3>
