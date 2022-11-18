@@ -9,16 +9,15 @@ import { POKEMONS } from '../pokemonList';
     templateUrl: './pokemon-list.component.html',
     styleUrls: ['./pokemon-list.component.scss'],
 })
-export class PokemonListComponent implements OnInit {
+export class PokemonListComponent {
     pokemonList: Pokemon[] = POKEMONS;
     pokemonSelected: Pokemon | undefined;
 
-    constructor(private router: Router) {
+    constructor(private router: Router)  { }
 
+    selectPokemonDetail(pokemon: Pokemon) {
+        this.router.navigate(['/pokemon', pokemon.id]);
     }
-
-    ngOnInit(): void { }
-
 
     // selectPokemon(pokemonId: string) {
     //     // const index: number = Number((event.target as HTMLInputElement).value);
@@ -36,8 +35,6 @@ export class PokemonListComponent implements OnInit {
     //     }
     // }
 
-    selectPokemonDetail(pokemon: Pokemon) {
-        this.router.navigate(['/pokemon', pokemon.id]);
-    }
+
 
 }
