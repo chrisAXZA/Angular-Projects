@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Pokemon } from '../pokemon';
@@ -13,7 +13,7 @@ export class PokemonListComponent {
     pokemonList: Pokemon[] = POKEMONS;
     pokemonSelected: Pokemon | undefined;
 
-    constructor(private router: Router)  { }
+    constructor(private router: Router) { }
 
     selectPokemonDetail(pokemon: Pokemon) {
         this.router.navigate(['/pokemon', pokemon.id]);
