@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Pokemon } from '../pokemon';
 import { POKEMONS } from '../pokemonList';
@@ -13,7 +13,7 @@ export class PokemonDetailComponent implements OnInit {
     pokemonList: Pokemon[] = POKEMONS;
     pokemon: Pokemon;
 
-    constructor(private route: ActivatedRoute) { }
+    constructor(private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
         // snapshot takes current url data, paramMap represents a table containing all of its
@@ -28,8 +28,8 @@ export class PokemonDetailComponent implements OnInit {
         this.pokemon = currentPokemon!;
     }
 
-    return() {
-
+    returnToPokemonList() {
+        this.router.navigate(['/pokemons']);
     }
 
 }

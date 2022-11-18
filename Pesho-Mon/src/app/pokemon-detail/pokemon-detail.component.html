@@ -30,7 +30,8 @@
                                 <td>Types</td>
                                 <td>
                                     <span *ngFor="let type of pokemon.types"
-                                        class="{{ type | pokemonTypeColor }} hoverable pokemonSkill" style="transition: 1000ms;">
+                                        class="{{ type | pokemonTypeColor }} hoverable pokemonSkill"
+                                        style="transition: 1000ms;">
                                         {{type }}
                                     </span>
                                 </td>
@@ -45,8 +46,9 @@
                 </div>
                 <!-- card-action envolops return btn -->
                 <div class="card-action">
-                    <a class="btn hoverable" style="transition: 1000ms;" (click)="return()">Return to PeshoMon
-                        Arena!</a>
+                    <a class="btn hoverable" style="transition: 1000ms;" (click)="returnToPokemonList()">
+                        Return to PeshoMonArena!
+                    </a>
                 </div>
             </div>
         </div>
