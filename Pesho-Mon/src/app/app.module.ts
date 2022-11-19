@@ -21,8 +21,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule,
         PeshomonModule,
+        AppRoutingModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
