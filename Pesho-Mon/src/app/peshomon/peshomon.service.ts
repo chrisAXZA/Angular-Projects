@@ -8,8 +8,29 @@ import POKEMONS from './pokemonList';
 })
 export class PeshomonService {
 
+    getPeshomonById(peshomonId: number): Pokemon | undefined {
+
+        return POKEMONS.find((pok) => pok.id === peshomonId);
+    }
+
     getPeshomonList(): Pokemon[] {
 
         return POKEMONS;
+    }
+
+    getPeshomonTypeList(): string[] {
+        return [
+            'Combat',
+            'Electric',
+            'Fairy',
+            'Fire',
+            'Flying',
+            'Insect',
+            'Normal',
+            'Plant',
+            'Poison',
+            'Psy',
+            'Water',
+        ];
     }
 }
