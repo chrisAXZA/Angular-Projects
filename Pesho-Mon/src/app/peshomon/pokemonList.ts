@@ -1,6 +1,6 @@
 import Pokemon from './pokemon';
 
-export const POKEMONS: Pokemon[] = [
+const POKEMONS: Pokemon[] = [
     {
         id: 1,
         name: 'Bulbar',
@@ -110,3 +110,5 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
 ];
+
+export default POKEMONS;
