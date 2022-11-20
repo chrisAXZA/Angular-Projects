@@ -7,8 +7,8 @@ import PeshomonService from './peshomon.service';
 import { BorderCardDirective } from './border-card.directive';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
-import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { PeshomonFormComponent } from './peshomon-form/peshomon-form.component';
+import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 
 const peshomonRoutes: Routes = [
     { path: 'pokemons', component: PokemonListComponent, },
