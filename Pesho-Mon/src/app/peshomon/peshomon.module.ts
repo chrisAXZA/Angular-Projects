@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -22,6 +23,7 @@ const peshomonRoutes: Routes = [
     ],
     imports: [
         CommonModule,
+        FormsModule,
         RouterModule.forChild(peshomonRoutes),
     ],
     providers: [
