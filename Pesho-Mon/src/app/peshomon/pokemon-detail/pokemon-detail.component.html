@@ -1,13 +1,13 @@
-<h3 *ngIf="pokemon" class="center #f9fbe7 lime lighten-4">Peshomon Detail</h3>
+<h3 *ngIf="peshomon" class="center #f9fbe7 lime lighten-4">Peshomon Detail</h3>
 
 <!-- row => equivalent to a materialize line -->
-<div *ngIf="pokemon" class="row">
+<div *ngIf="peshomon" class="row">
     <!-- offset for centering pokemon card (center-align ?), one column which takes whole screen width -->
     <div class="col s12 m8 offset-m2">
-        <h4 class="header card center hoverable" style="transition: 1000ms;">++ {{ pokemon.name }} ++</h4>
+        <h4 class="header card center hoverable" style="transition: 1000ms;">++ {{ peshomon.name }} ++</h4>
         <div class="card horizontal hoverable" style="transition: 1000ms;">
             <div class="card-image">
-                <img [src]="pokemon.picture">
+                <img [src]="peshomon.picture">
             </div>
 
             <div class="card-stacked">
@@ -16,20 +16,20 @@
                         <tbody>
                             <tr>
                                 <td>Name</td>
-                                <td><strong>{{ pokemon.name }}</strong></td>
+                                <td><strong>{{ peshomon.name }}</strong></td>
                             </tr>
                             <tr>
                                 <td>Health Points</td>
-                                <td><strong>{{ pokemon.hp }}</strong></td>
+                                <td><strong>{{ peshomon.hp }}</strong></td>
                             </tr>
                              <tr>
                                 <td>Damage</td>
-                                <td><strong>{{ pokemon.cp }}</strong></td>
+                                <td><strong>{{ peshomon.cp }}</strong></td>
                             </tr>
                             <tr>
                                 <td>Types</td>
                                 <td>
-                                    <span *ngFor="let type of pokemon.types"
+                                    <span *ngFor="let type of peshomon.types"
                                         class="{{ type | pokemonTypeColor }} hoverable pokemonSkill"
                                         style="transition: 1000ms;">
                                         {{type }}
@@ -38,7 +38,7 @@
                             </tr>
                              <tr>
                                 <td>Date of Creation</td>
-                                <td><strong>{{ pokemon.created | date:"dd/MM/yyyy" }}</strong></td>
+                                <td><strong>{{ peshomon.created | date:"dd/MM/yyyy" }}</strong></td>
                                 <!-- <td><em>{{ pokemon.created | date:"dd/MM/yyyy" }}</em></td> -->
                             </tr>
                         </tbody>
@@ -46,7 +46,7 @@
                 </div>
                 <!-- card-action envolops return btn -->
                 <div class="card-action">
-                    <a class="btn hoverable" style="transition: 1000ms;" (click)="returnToPokemonList()">
+                    <a class="btn hoverable" style="transition: 1000ms;" (click)="returnToPehsomonList()">
                         Return to PeshoMon Arena!
                     </a>
                 </div>
@@ -55,4 +55,4 @@
     </div>
 </div>
 
-<h3 *ngIf='!pokemon' class="center #ffcdd2 red lighten-4">No PeshoMon selected!</h3>
+<h3 *ngIf='!peshomon' class="center #ffcdd2 red lighten-4">No Peshomon selected!</h3>

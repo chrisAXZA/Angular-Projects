@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import Pokemon from '../pokemon';
-import POKEMONS from '../pokemonList';
+import PeshomonService from '../peshomon.service';
 
 @Component({
     selector: 'app-pokemon-detail',
@@ -10,26 +10,32 @@ import POKEMONS from '../pokemonList';
     styleUrls: ['./pokemon-detail.component.scss'],
 })
 export class PokemonDetailComponent implements OnInit {
-    pokemonList: Pokemon[] = POKEMONS;
-    pokemon: Pokemon;
+    // pokemonList: Pokemon[] = POKEMONS;
+    // peshomonList: Pokemon[];
+    peshomon: Pokemon;
 
-    constructor(private route: ActivatedRoute, private router: Router) { }
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private peshomonService: PeshomonService,
+    ) { }
 
     ngOnInit(): void {
         // snapshot takes current url data, paramMap represents a table containing all of its
         // parameters contained in paramMap
-        const pokemonId: number = Number(this.route.snapshot.paramMap.get('id'));
-        const currentPokemon: Pokemon | undefined = this.pokemonList.find((p) => p.id === pokemonId);
+        // this.peshomonList = this.peshomonService.getPeshomonList();
+        // const currentPeshomon: Pokemon | undefined = this.peshomonList.find((p) => p.id === peshomonId);
+        const peshomonId: number = Number(this.route.snapshot.paramMap.get('id'));
+        const currentPeshomon: Pokemon | undefined = this.peshomonService.getPeshomonById(peshomonId);
 
-        if (!currentPokemon) {
-            alert(`Peshomon with id "${pokemonId}" does not exist!`);
+        if (!currentPeshomon) {
+            alert(`Peshomon with id "${peshomonId}" does not exist!`);
         }
 
-        this.pokemon = currentPokemon!;
+        this.peshomon = currentPeshomon!;
     }
 
-    returnToPokemonList() {
+    returnToPehsomonList() {
         this.router.navigate(['/pokemons']);
     }
-
 }
