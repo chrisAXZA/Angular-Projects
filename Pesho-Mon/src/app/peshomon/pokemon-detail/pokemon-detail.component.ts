@@ -35,7 +35,7 @@ export class PokemonDetailComponent implements OnInit {
         this.peshomon = currentPeshomon!;
     }
 
-    returnToPehsomonList() {
+    returnToPeshomonList() {
         this.router.navigate(['/pokemons']);
     }
 }

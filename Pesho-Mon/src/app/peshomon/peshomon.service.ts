@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import Pokemon from './pokemon';
 import POKEMONS from './pokemonList';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export default class PeshomonService {
 
     getPeshomonById(peshomonId: number): Pokemon | undefined {

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
+import PeshomonService from './peshomon.service';
 import { BorderCardDirective } from './border-card.directive';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
@@ -22,6 +23,9 @@ const peshomonRoutes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(peshomonRoutes),
+    ],
+    providers: [
+        PeshomonService,
     ],
 })
 export class PeshomonModule { }
