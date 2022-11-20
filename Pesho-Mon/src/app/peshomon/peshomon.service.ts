@@ -6,7 +6,7 @@ import POKEMONS from './pokemonList';
 @Injectable({
     providedIn: 'root'
 })
-export class PeshomonService {
+export default class PeshomonService {
 
     getPeshomonById(peshomonId: number): Pokemon | undefined {
 

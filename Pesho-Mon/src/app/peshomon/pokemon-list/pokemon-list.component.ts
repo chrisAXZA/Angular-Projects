@@ -1,19 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import Pokemon from '../pokemon';
-import POKEMONS from '../pokemonList';
+import PeshomonService from '../peshomon.service';
 
 @Component({
     selector: 'app-pokemon-list',
     templateUrl: './pokemon-list.component.html',
     styleUrls: ['./pokemon-list.component.scss'],
 })
-export class PokemonListComponent {
-    pokemonList: Pokemon[] = POKEMONS;
-    pokemonSelected: Pokemon | undefined;
+export class PokemonListComponent implements OnInit {
+    peshomonList: Pokemon[];
+    peshomonSelected: Pokemon | undefined;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private peshomonService: PeshomonService) { }
+
+    ngOnInit() {
+        this.peshomonList = this.peshomonService.getPeshomonList();
+    }
 
     selectPokemonDetail(pokemon: Pokemon) {
         this.router.navigate(['/pokemon', pokemon.id]);
@@ -34,7 +38,4 @@ export class PokemonListComponent {
     //         this.pokemonSelected = undefined;
     //     }
     // }
-
-
-
 }
