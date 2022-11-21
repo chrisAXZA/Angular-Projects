@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import Pokemon from '../pokemon';
+import PeshomonService from '../peshomon.service';
 
 @Component({
     selector: 'app-peshomon-form',
@@ -9,23 +10,25 @@ import Pokemon from '../pokemon';
     ]
 })
 export class PeshomonFormComponent implements OnInit {
-    peshomon: Pokemon;
+    @Input() peshomon: Pokemon;
+    peshomonTypes: string[];
 
-    constructor() { }
+    constructor(private peshomonService: PeshomonService) { }
 
     ngOnInit(): void {
+        this.peshomonTypes = this.peshomonService.getPeshomonTypeList();
     }
 
     onSubmit() {
 
     }
 
-    hasType() {
-
+    hasType(type: string): boolean {
+        return this.peshomon.types.includes(type);
     }
 
-    isTypeValid() {
-
+    isTypeValid(type: string) {
+        return this.peshomonTypes.includes(type);
     }
 
     selectType() {

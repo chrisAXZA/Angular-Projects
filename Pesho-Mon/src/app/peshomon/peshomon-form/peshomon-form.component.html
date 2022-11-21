@@ -36,7 +36,7 @@
                 <!-- Peshomon types -->
                 <form class="form-group">
                     <label for="types">Types</label>
-                    <p *ngFor="let type of peshomon.types">
+                    <p *ngFor="let type of peshomonTypes">
                         <label>
                             <input type="checkbox" class="filled-in" id="{{ type }}" [value]="type"
                                 [checked]="hasType(type)" [disabled]="!isTypeValid(type)"
