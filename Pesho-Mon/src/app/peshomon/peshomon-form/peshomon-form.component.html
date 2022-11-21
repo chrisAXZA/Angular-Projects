@@ -9,7 +9,7 @@
                     <input type="text" class="form-control" id="name" required pattern="^[a-zA-Z0-9]{1,25}$"
                         [(ngModel)]="peshomon.name" name="name" #name="ngModel">
                     <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
-                        A Peshomon name is required and must be 1-25 characters long!
+                        A Peshomon alpha-numeric name is required and must be 1-25 characters long!
                     </div>
                 </div>
                   
@@ -39,7 +39,7 @@
                     <p *ngFor="let type of peshomonTypes">
                         <label>
                             <input type="checkbox" class="filled-in" id="{{ type }}" [value]="type"
-                                [checked]="hasType(type)" [disabled]="!isTypeValid(type)"
+                                [checked]="hasType(type)" [disabled]="!isTypeAmountValid(type)"
                                 (change)="selectType($event, type)" />
                             <span [attr.for]="type">
                                 <div class="{{ type | pokemonTypeColor }}">

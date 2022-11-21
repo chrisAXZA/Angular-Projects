@@ -31,8 +31,18 @@ export class PeshomonFormComponent implements OnInit {
     }
 
     // between 1-3 types per peshomon allowed
-    isTypeValid(type: string) {
-        return this.peshomonTypes.includes(type);
+    isTypeAmountValid(type: string): boolean {
+        // prevents removing only peshomon type
+        if (this.peshomon.types.length === 1 && this.hasType(type)) {
+            return false;
+        }
+
+        // prevents adding more than 3 peshomon types
+        if (this.peshomon.types.length === 3 && !this.hasType(type)) {
+            return false;
+        }
+
+        return true;
     }
 
     selectType($event: Event, type: string) {
