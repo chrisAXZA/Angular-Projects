@@ -7,8 +7,7 @@ import PeshomonService from '../peshomon.service';
 @Component({
     selector: 'app-peshomon-form',
     templateUrl: './peshomon-form.component.html',
-    styles: [
-    ]
+    styleUrls: ['./peshomon-form.component.scss'],
 })
 export class PeshomonFormComponent implements OnInit {
     @Input() peshomon: Pokemon;
