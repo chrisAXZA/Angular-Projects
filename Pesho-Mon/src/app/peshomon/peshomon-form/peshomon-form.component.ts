@@ -30,6 +30,7 @@ export class PeshomonFormComponent implements OnInit {
         return this.peshomon.types.includes(type);
     }
 
+    // between 1-3 types per peshomon allowed
     isTypeValid(type: string) {
         return this.peshomonTypes.includes(type);
     }
