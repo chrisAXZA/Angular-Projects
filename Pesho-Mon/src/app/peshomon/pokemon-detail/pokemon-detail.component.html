@@ -55,8 +55,16 @@
             </div>
         </div>
         <div class="card-action center">
-            <a class="btn hoverable" style="transition: 1000ms; min-width: 300px; cursor: w-resize;" (click)="returnToPeshomonList()">
-                Return to PeshoMon Arena!
+            <a class="btn hoverable #b39ddb deep-purple lighten-3"
+                style="transition: 1000ms; min-width: 300px; cursor: zoom-in;" (click)="editPeshomon(peshomon)">
+                Edit Peshomon {{peshomon.name}}
+            </a>
+        </div>
+        <br>
+        <div class="card-action center">
+            <a class="btn hoverable" style="transition: 1000ms; min-width: 300px; cursor: w-resize;"
+                (click)="returnToPeshomonList()">
+                Return to PeshoMon Arena
             </a>
         </div>
     </div>

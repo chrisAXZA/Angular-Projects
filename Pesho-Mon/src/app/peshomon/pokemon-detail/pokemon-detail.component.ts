@@ -35,6 +35,10 @@ export class PokemonDetailComponent implements OnInit {
         this.peshomon = currentPeshomon!;
     }
 
+    editPeshomon(peshomon: Pokemon) {
+        this.router.navigate([`/edit/pokemon`, peshomon.id]);
+    }
+
     returnToPeshomonList() {
         this.router.navigate(['/pokemons']);
     }
