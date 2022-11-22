@@ -9,6 +9,7 @@ import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PeshomonFormComponent } from './peshomon-form/peshomon-form.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
+import { EditPeshomonComponent } from './edit-peshomon/edit-peshomon.component';
 
 const peshomonRoutes: Routes = [
     { path: 'pokemons', component: PokemonListComponent, },
@@ -22,6 +23,7 @@ const peshomonRoutes: Routes = [
         BorderCardDirective,
         PokemonTypeColorPipe,
         PeshomonFormComponent,
+        EditPeshomonComponent,
     ],
     imports: [
         CommonModule,
