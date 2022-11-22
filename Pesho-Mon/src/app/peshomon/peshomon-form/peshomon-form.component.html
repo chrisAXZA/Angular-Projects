@@ -1,8 +1,8 @@
 <form *ngIf="peshomon" (ngSubmit)="onSubmit()" #peshomonForm="ngForm">
     <div class="row">
-        <div class="col s8 offset-s2">
+        <!-- <div class="col s8 offset-s2"> -->
+        <div class="col s12 m8 offset-m2">
             <div class="card-panel">
-
                 <!-- Peshomon name -->
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -42,7 +42,8 @@
                                 [checked]="hasType(type)" [disabled]="!isTypeAmountValid(type)"
                                 (change)="selectType($event, type)" />
                             <span [attr.for]="type">
-                                <div class="{{ type | pokemonTypeColor }} hoverable pokemonSkill" style="transition: 1000ms;">
+                                <div class="{{ type | pokemonTypeColor }} hoverable pokemonSkill"
+                                    style="transition: 1000ms;">
                                     {{ type }}
                                 </div>
                             </span>
@@ -54,23 +55,24 @@
                     </div>
                 </form>
                   
-                <!-- Cancel button -->
-                <div class="divider"></div>
-                <div class="section center">
-                    <button type="button" class="btn hoverable #e53935 red darken-1" style="transition: 1000ms; min-width: 300px; cursor: w-resize;" (click)="cancelChanges($event)">
-                        Cancel Changes
-                    </button>
-                </div>       
-                <br>
-                <!-- Submit button -->
-                <div class="section center">
-                    <!-- <button type="submit" class="waves-effect waves-light btn" [disabled]="!peshomonForm.form.valid"> -->
-                    <button type="submit" class="btn hoverable" [disabled]="!peshomonForm.form.valid"
-                        style="transition: 1000ms; min-width: 300px; cursor: copy;">
-                        Save Peshomon Data
-                    </button>
-                </div>       
+                <!-- <div class="divider"></div> -->
             </div>
+            <!-- Cancel button -->
+            <div class="card-action center">
+                <button type="button" class="btn hoverable #e53935 red darken-1"
+                    style="transition: 1000ms; min-width: 300px; cursor: w-resize;" (click)="cancelChanges($event)">
+                    Cancel Changes
+                </button>
+            </div>       
+            <!-- <br> -->
+            <!-- Submit button -->
+            <div class="card-action center">
+                <!-- <button type="submit" class="waves-effect waves-light btn" [disabled]="!peshomonForm.form.valid"> -->
+                <button type="submit" class="btn hoverable" [disabled]="!peshomonForm.form.valid"
+                    style="transition: 1000ms; min-width: 300px; cursor: copy;">
+                    Save Changes
+                </button>
+            </div>       
         </div>
     </div>
 </form>
