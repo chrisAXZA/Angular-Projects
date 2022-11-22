@@ -1,1 +1,9 @@
-<p>edit-peshomon works!</p>
+<h3>Peshomon Editor</h3>
+<h4 class="card center hoverable" style="transition: 1000ms;" *ngIf="peshomon">++{{peshomon.name}}++</h4>
+<h4 class="center #ffcdd2 red lighten-4" *ngIf="!peshomon">No Peshomon selected!</h4>
+
+<p class="center" *ngIf="peshomon">
+    <img [src]="peshomon.picture" style="min-width: 120px;">
+</p>
+
+<app-peshomon-form *ngIf="peshomon" [peshomon]="peshomon"></app-peshomon-form>
