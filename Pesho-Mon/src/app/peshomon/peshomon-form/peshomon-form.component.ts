@@ -12,6 +12,7 @@ import PeshomonService from '../peshomon.service';
 export class PeshomonFormComponent implements OnInit {
     @Input() peshomon: Pokemon;
     peshomonTypes: string[];
+    showTypesError: boolean = true;
 
     constructor(private peshomonService: PeshomonService, private router: Router) { }
 
@@ -33,11 +34,13 @@ export class PeshomonFormComponent implements OnInit {
     isTypeAmountValid(type: string): boolean {
         // prevents removing only peshomon type
         if (this.peshomon.types.length === 1 && this.hasType(type)) {
+            this.showTypesError = true;
             return false;
         }
 
         // prevents adding more than 3 peshomon types
         if (this.peshomon.types.length === 3 && !this.hasType(type)) {
+            this.showTypesError = true;
             return false;
         }
 
