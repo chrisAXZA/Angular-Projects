@@ -1,12 +1,16 @@
 // for each required + valid field (name, HP, DG) - not by default all checkboxes
 .ng-valid:required {
     // border-left: 5px solid green;
-    border-left: 5px solid #42a948;
+    border-left: 3px solid #42a948;
 }
 
 // invalid fields that are not of type form (input, select, ...)
 .ng-invalid:not(form) {
-    // border-left: 5px solid red;
-    border-left: 5px solid #A94442;
+    // border-left: 3px solid red;
+    border-left: 3px solid #A94442;
+}
 
+.pokemonSkill {
+    width: 70px;
+    text-align: center;
 }

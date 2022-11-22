@@ -42,7 +42,7 @@
                                 [checked]="hasType(type)" [disabled]="!isTypeAmountValid(type)"
                                 (change)="selectType($event, type)" />
                             <span [attr.for]="type">
-                                <div class="{{ type | pokemonTypeColor }}">
+                                <div class="{{ type | pokemonTypeColor }} hoverable pokemonSkill" style="transition: 1000ms;">
                                     {{ type }}
                                 </div>
                             </span>
