@@ -8,7 +8,7 @@
                     <label for="name">Name</label>
                     <input type="text" class="form-control" id="name" required pattern="^[a-zA-Z0-9]{1,25}$"
                         [(ngModel)]="peshomon.name" name="name" #name="ngModel">
-                    <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1">
+                    <div [hidden]="name.valid || name.pristine" class="card-panel red accent-1 hoverable">
                         A Peshomon alpha-numeric name is required and must be 1-25 characters long!
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                     <label for="hp">Health Points</label>
                     <input type="number" class="form-control" id="hp" required pattern="^[0-9]{1,3}$"
                         [(ngModel)]="peshomon.hp" name="hp" #hp="ngModel">
-                    <div [hidden]="hp.valid || hp.pristine" class="card-panel red accent-1">
+                    <div [hidden]="hp.valid || hp.pristine" class="card-panel red accent-1 hoverable">
                         The Health Points of a Peshomon must be between 0 and 999!
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     <label for="cp">Damage Points</label>
                     <input type="number" class="form-control" id="cp" required pattern="^[0-9]{1,2}$"
                         [(ngModel)]="peshomon.cp" name="cp" #cp="ngModel">
-                    <div [hidden]="cp.valid || cp.pristine" class="card-panel red accent-1">
+                    <div [hidden]="cp.valid || cp.pristine" class="card-panel red accent-1 hoverable">
                         The Damage Points of a Peshomon must be between 0 and 99!
                     </div>
                 </div>
@@ -49,16 +49,24 @@
                         </label>
                     </p>
                     <!-- <div [hidden]="showTypesError" class="card-panel green accent-1"> -->
-                    <div class="card-panel green accent-1">
+                    <div class="card-panel green accent-1 hoverable">
                         A Peshomon must have between 1-3 types!
                     </div>
                 </form>
                   
-                <!-- Submit button -->
+                <!-- Cancel button -->
                 <div class="divider"></div>
                 <div class="section center">
+                    <button type="button" class="btn hoverable #e53935 red darken-1" style="transition: 1000ms; min-width: 300px; cursor: w-resize;" (click)="cancelChanges($event)">
+                        Cancel Changes
+                    </button>
+                </div>       
+                <br>
+                <!-- Submit button -->
+                <div class="section center">
                     <!-- <button type="submit" class="waves-effect waves-light btn" [disabled]="!peshomonForm.form.valid"> -->
-                    <button type="submit" class="btn hoverable" [disabled]="!peshomonForm.form.valid">
+                    <button type="submit" class="btn hoverable" [disabled]="!peshomonForm.form.valid"
+                        style="transition: 1000ms; min-width: 300px; cursor: copy;">
                         Save Peshomon Data
                     </button>
                 </div>       
