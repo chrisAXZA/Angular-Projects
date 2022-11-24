@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PeshomonModule } from './peshomon/peshomon.module';
+import { InMemoryDataService } from './in-memory-data.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 @NgModule({
     declarations: [
@@ -17,6 +20,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
         BrowserModule,
         FormsModule,
         HttpClientModule,
+        // if true will enclose all of the received responses in an data element => response.data to access responses
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
         PeshomonModule,
         AppRoutingModule,
     ],
