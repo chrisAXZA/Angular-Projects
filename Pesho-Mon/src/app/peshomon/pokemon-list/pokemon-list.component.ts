@@ -16,6 +16,7 @@ export class PokemonListComponent implements OnInit {
     constructor(private router: Router, private peshomonService: PeshomonService) { }
 
     ngOnInit() {
+        // this.peshomonList = this.peshomonService.getPeshomonList();
         this.peshomonList = this.peshomonService.getPeshomonList();
     }
 
