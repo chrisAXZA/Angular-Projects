@@ -10,9 +10,19 @@ export default class PeshomonService {
 
     constructor(private httpClient: HttpClient) { }
 
-    getPeshomonById(peshomonId: number): Pokemon | undefined {
-        // return POKEMONS.find((pok) => pok.id === peshomonId);
-        return POKEMONS.find((pok) => pok.id === peshomonId);
+    // getPeshomonById(peshomonId: number): Pokemon | undefined {
+    //     return POKEMONS.find((pok) => pok.id === peshomonId);
+    // }
+
+    getPeshomonById(peshomonId: number): Observable<Pokemon | undefined> {
+        return this.httpClient.get<Pokemon>(`api/pokemon/:${peshomonId}`)
+            .pipe(
+                tap((peshomon) => console.log(peshomon),),
+                catchError((error) => {
+                    console.log(error);
+                    return of(undefined);
+                })
+            );
     }
 
     // getPeshomonList(): Pokemon[] { return POKEMONS; }
