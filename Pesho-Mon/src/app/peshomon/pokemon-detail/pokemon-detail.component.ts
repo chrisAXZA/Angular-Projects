@@ -31,6 +31,7 @@ export class PokemonDetailComponent implements OnInit {
         let currentPeshomon: Pokemon | undefined;
         this.peshomonService.getPeshomonById(peshomonId)
             .subscribe((peshomon) => {
+                console.log(peshomon);
                 currentPeshomon = peshomon;
             });
 

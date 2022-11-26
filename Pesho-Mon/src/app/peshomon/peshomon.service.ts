@@ -15,7 +15,7 @@ export default class PeshomonService {
     // }
 
     getPeshomonById(peshomonId: number): Observable<Pokemon | undefined> {
-        return this.httpClient.get<Pokemon>(`api/pokemon/:${peshomonId}`)
+        return this.httpClient.get<Pokemon>(`api/pokemons/${peshomonId}`)
             .pipe(
                 tap((peshomon) => this.log(peshomon),),
                 catchError((error) => {
@@ -40,7 +40,7 @@ export default class PeshomonService {
                     // keep functioning
                     // console.log(error);
                     // return of([]);
-                    
+
                     return this.handleError(error, []);
                 }),
             );
