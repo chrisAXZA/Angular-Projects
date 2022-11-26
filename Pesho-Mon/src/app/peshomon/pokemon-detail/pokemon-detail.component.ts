@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class PokemonDetailComponent implements OnInit {
     // pokemonList: Pokemon[] = POKEMONS;
     // peshomonList: Pokemon[];
-    peshomon: Pokemon;
+    peshomon: Pokemon | undefined;
 
     constructor(
         private route: ActivatedRoute,
@@ -26,20 +26,16 @@ export class PokemonDetailComponent implements OnInit {
         // parameters contained in paramMap
         // this.peshomonList = this.peshomonService.getPeshomonList();
         // const currentPeshomon: Pokemon | undefined = this.peshomonList.find((p) => p.id === peshomonId);
+        // let currentPeshomon: Pokemon | undefined;
+        // if (!currentPeshomon) {
+        //     alert(`Peshomon with id "${peshomonId}" does not exist!`);
+        // }
 
         const peshomonId: number = Number(this.route.snapshot.paramMap.get('id'));
-        let currentPeshomon: Pokemon | undefined;
         this.peshomonService.getPeshomonById(peshomonId)
             .subscribe((peshomon) => {
-                console.log(peshomon);
-                currentPeshomon = peshomon;
+                this.peshomon = peshomon;
             });
-
-        if (!currentPeshomon) {
-            alert(`Peshomon with id "${peshomonId}" does not exist!`);
-        }
-
-        this.peshomon = currentPeshomon!;
     }
 
     editPeshomon(peshomon: Pokemon) {
