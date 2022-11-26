@@ -17,7 +17,12 @@ export class EditPeshomonComponent implements OnInit {
 
     ngOnInit(): void {
         const peshomonId: number = Number(this.route.snapshot.paramMap.get('id'));
-        const currentPeshomon: Pokemon | undefined = this.peshomonService.getPeshomonById(peshomonId);
+        // const currentPeshomon: Pokemon | undefined = this.peshomonService.getPeshomonById(peshomonId);
+        let currentPeshomon: Pokemon | undefined;
+        this.peshomonService.getPeshomonById(peshomonId)
+            .subscribe((peshomon) => {
+                currentPeshomon = peshomon;
+            });
 
         if (!currentPeshomon) {
             alert(`Peshomon with id "${peshomonId}" does not exist!`);

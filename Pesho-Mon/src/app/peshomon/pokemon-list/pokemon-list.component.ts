@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import Pokemon from '../pokemon';
 import PeshomonService from '../peshomon.service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-pokemon-list',
@@ -10,14 +11,19 @@ import PeshomonService from '../peshomon.service';
     styleUrls: ['./pokemon-list.component.scss'],
 })
 export class PokemonListComponent implements OnInit {
+    // peshomonList: Pokemon[];
+    // peshomonSelected: Pokemon | undefined;
     peshomonList: Pokemon[];
-    peshomonSelected: Pokemon | undefined;
 
     constructor(private router: Router, private peshomonService: PeshomonService) { }
 
     ngOnInit() {
         // this.peshomonList = this.peshomonService.getPeshomonList();
-        this.peshomonList = this.peshomonService.getPeshomonList();
+
+        this.peshomonService.getPeshomonList()
+            .subscribe((peshomonList) => {
+                this.peshomonList = peshomonList;
+            });
     }
 
     selectPokemonDetail(pokemon: Pokemon) {

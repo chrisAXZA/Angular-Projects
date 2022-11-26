@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import Pokemon from '../pokemon';
 import PeshomonService from '../peshomon.service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-pokemon-detail',
@@ -25,8 +26,13 @@ export class PokemonDetailComponent implements OnInit {
         // parameters contained in paramMap
         // this.peshomonList = this.peshomonService.getPeshomonList();
         // const currentPeshomon: Pokemon | undefined = this.peshomonList.find((p) => p.id === peshomonId);
+
         const peshomonId: number = Number(this.route.snapshot.paramMap.get('id'));
-        const currentPeshomon: Pokemon | undefined = this.peshomonService.getPeshomonById(peshomonId);
+        let currentPeshomon: Pokemon | undefined;
+        this.peshomonService.getPeshomonById(peshomonId)
+            .subscribe((peshomon) => {
+                currentPeshomon = peshomon;
+            });
 
         if (!currentPeshomon) {
             alert(`Peshomon with id "${peshomonId}" does not exist!`);
