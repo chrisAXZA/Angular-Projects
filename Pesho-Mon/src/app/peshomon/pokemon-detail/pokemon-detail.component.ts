@@ -14,6 +14,7 @@ export class PokemonDetailComponent implements OnInit {
     // pokemonList: Pokemon[] = POKEMONS;
     // peshomonList: Pokemon[];
     peshomon: Pokemon | undefined;
+    noPeshomon: boolean = false;
 
     constructor(
         private route: ActivatedRoute,
@@ -35,6 +36,10 @@ export class PokemonDetailComponent implements OnInit {
         this.peshomonService.getPeshomonById(peshomonId)
             .subscribe((peshomon) => {
                 this.peshomon = peshomon;
+
+                if (this.peshomon === undefined) {
+                    this.noPeshomon = true;
+                }
             });
     }
 
