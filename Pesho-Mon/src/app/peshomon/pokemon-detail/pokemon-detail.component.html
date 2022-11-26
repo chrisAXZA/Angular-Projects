@@ -70,7 +70,11 @@
     </div>
 </div>
 
-<h3 *ngIf="noPeshomon" class="center hoverable #ffcdd2 red lighten-4 errorText">No Peshomon selected!</h3>
+<div *ngIf="noPeshomon" class="errorText">
+    <img src="/assets/noPeshomon.gif">
+    <h3 class="center hoverable #ffcdd2 red lighten-4">No Peshomon selected!</h3>
+</div>
+<!-- <h3 *ngIf="noPeshomon" class="center hoverable #ffcdd2 red lighten-4 errorText">No Peshomon selected!</h3> -->
 
 <h3 *ngIf="!peshomon && !noPeshomon" class="center #ffcdd2 red lighten-4">
     <div class="progress spinner">
