@@ -11,24 +11,22 @@ import PeshomonService from '../peshomon.service';
     ],
 })
 export class EditPeshomonComponent implements OnInit {
-    peshomon: Pokemon;
+    peshomon: Pokemon | undefined;
 
     constructor(private route: ActivatedRoute, private peshomonService: PeshomonService) { }
 
     ngOnInit(): void {
         const peshomonId: number = Number(this.route.snapshot.paramMap.get('id'));
         // const currentPeshomon: Pokemon | undefined = this.peshomonService.getPeshomonById(peshomonId);
-        let currentPeshomon: Pokemon | undefined;
+        // let currentPeshomon: Pokemon | undefined;
         this.peshomonService.getPeshomonById(peshomonId)
             .subscribe((peshomon) => {
-                currentPeshomon = peshomon;
+                this.peshomon = peshomon;
             });
 
-        if (!currentPeshomon) {
-            alert(`Peshomon with id "${peshomonId}" does not exist!`);
-        }
-
-        this.peshomon = currentPeshomon!;
+        // if (!currentPeshomon) {
+        //     alert(`Peshomon with id "${peshomonId}" does not exist!`);
+        // }
     }
 
 }
