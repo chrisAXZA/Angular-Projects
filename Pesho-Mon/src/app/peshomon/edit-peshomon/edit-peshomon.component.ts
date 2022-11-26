@@ -19,14 +19,14 @@ export class EditPeshomonComponent implements OnInit {
         const peshomonId: number = Number(this.route.snapshot.paramMap.get('id'));
         // const currentPeshomon: Pokemon | undefined = this.peshomonService.getPeshomonById(peshomonId);
         // let currentPeshomon: Pokemon | undefined;
+        // if (!currentPeshomon) {
+        //     alert(`Peshomon with id "${peshomonId}" does not exist!`);
+        // }
+
         this.peshomonService.getPeshomonById(peshomonId)
             .subscribe((peshomon) => {
                 this.peshomon = peshomon;
             });
-
-        // if (!currentPeshomon) {
-        //     alert(`Peshomon with id "${peshomonId}" does not exist!`);
-        // }
     }
 
 }
