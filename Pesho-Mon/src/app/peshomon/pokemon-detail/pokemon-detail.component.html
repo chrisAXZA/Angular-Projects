@@ -83,12 +83,12 @@
 
 <div *ngIf="noPeshomon" class="row" style="margin-top: 10%;">
     <div class="col s12 m8 offset-m2 center-align">
-        <div class="card centered" style="transition: 1000ms;">
-            <div class="card-panel hoverable centered">
+        <div class="card centered" style="transition: 1000ms; cursor: not-allowed;">
+            <div class="card-panel hoverable centered" style="transition: 1000ms;">
                 <img src="/assets/noPeshomon.gif" style="max-width: 250px;">
             </div>
         </div>
-        <h4 class="center hoverable #ffcdd2 red lighten-4">No Peshomon selected!</h4>
+        <h4 class="center hoverable #ffcdd2 red lighten-4" style="transition: 1000ms;cursor: default;">No Peshomon selected!</h4>
     </div>
 
     <div class="card-action center">
