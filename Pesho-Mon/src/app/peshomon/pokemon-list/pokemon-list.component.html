@@ -1,6 +1,6 @@
 <h3 class="center #f9fbe7 lime lighten-4">Peshomon Arena</h3>
 
-<div class="container">
+<div class="container" *ngIf="peshomonList.length > 0">
     <div class="row">
         <!-- 3 peshomon per row, or 2 on small screen, materialize row by default has 12 width -->
         <div *ngFor="let peshomon of peshomonList" class="col m4 s6">
@@ -25,6 +25,19 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- No Peshomons in the arena card -->
+<div *ngIf="peshomonList.length === 0"class="row" style="margin-top: 10%;">
+    <div class="col s12 m8 offset-m2 center-align">
+        <div class="card centered" style="transition: 1000ms; cursor: not-allowed;">
+            <div class="card-panel hoverable centered" style="transition: 1000ms;">
+                <img src="/assets/noPeshomon.gif" style="max-width: 250px;">
+            </div>
+        </div>
+        <h4 class="center hoverable #ffcdd2 red lighten-4" style="transition: 1000ms;cursor: default;">No Peshomons
+            in the Arena!</h4>
     </div>
 </div>
 
