@@ -64,7 +64,14 @@
         <div class="card-action center">
             <a class="btn hoverable #b39ddb deep-purple lighten-3"
                 style="transition: 1000ms; min-width: 300px; cursor: zoom-in;" (click)="editPeshomon(peshomon)">
-                Edit Peshomon {{peshomon.name}}
+                Edit Peshomon "{{peshomon.name}}"
+            </a>
+        </div>
+        <br>
+        <div class="card-action center">
+            <a class="btn hoverable #d32f2f red darken-2"
+                style="transition: 1000ms; min-width: 300px; cursor: zoom-out;" (click)="deletePeshomon(peshomon.id)">
+                Delete Peshomon "{{peshomon.name}}"
             </a>
         </div>
         <br>

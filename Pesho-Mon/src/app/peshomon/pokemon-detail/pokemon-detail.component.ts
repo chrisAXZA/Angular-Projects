@@ -48,7 +48,8 @@ export class PokemonDetailComponent implements OnInit {
     }
 
     deletePeshomon(peshomonId: number) {
-        this.peshomonService.deletePeshomonById(peshomonId);
+        this.peshomonService.deletePeshomonById(peshomonId)
+            .subscribe(() => this.returnToPeshomonList());
     }
 
     returnToPeshomonList() {
