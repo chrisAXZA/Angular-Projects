@@ -43,6 +43,15 @@ export default class PeshomonService {
             );
     }
 
+    deletePeshomonById(peshomonId: number): Observable<null> {
+        return this.httpClient
+            .delete(`api/pokemons/${peshomonId}`)
+            .pipe(
+                tap((peshomon: any) => this.log(peshomon),),
+                catchError((error) => this.handleError(error, null),),
+            );
+    }
+
     // getPeshomonList(): Pokemon[] { return POKEMONS; }
     getPeshomonList(): Observable<Pokemon[]> {
         // HttpClient can works with data stream that can be typed, in this scenario
