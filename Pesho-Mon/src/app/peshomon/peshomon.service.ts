@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, of, tap } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import Pokemon from './pokemon';
 // import POKEMONS from './pokemonList';
@@ -27,8 +27,23 @@ export default class PeshomonService {
             );
     }
 
-    // getPeshomonList(): Pokemon[] { return POKEMONS; }
+    // Angualr-In-Memory returns null instead of the modified object
+    // after put query
+    // updatePeshomon(peshomon: Pokemon): Observable<Pokemon | undefined> {
+    updatePeshomon(peshomon: Pokemon): Observable<null> {
+        const httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json', }),
+        };
 
+        return this.httpClient
+            .put('api/pokemons', peshomon, httpOptions)
+            .pipe(
+                tap((peshomon: any) => this.log(peshomon),),
+                catchError((error) => this.handleError(error, null),),
+            );
+    }
+
+    // getPeshomonList(): Pokemon[] { return POKEMONS; }
     getPeshomonList(): Observable<Pokemon[]> {
         // HttpClient can works with data stream that can be typed, in this scenario
         // employing Angular-In-Memory to simulate a server response

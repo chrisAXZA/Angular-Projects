@@ -20,15 +20,16 @@ export class PeshomonFormComponent implements OnInit {
         this.peshomonTypes = this.peshomonService.getPeshomonTypeList();
     }
 
-    cancelChanges(event: Event){
+    cancelChanges(event: Event) {
         event.preventDefault();
         this.router.navigate(['/pokemon', this.peshomon.id]);
     }
 
     onSubmit() {
-        console.log(`Peshomon data of ${this.peshomon.name} has been updated!`);
-
-        this.router.navigate(['/pokemon', this.peshomon.id]);
+        // console.log(`Peshomon data of ${this.peshomon.name} has been updated!`);
+        // this.router.navigate(['/pokemon', this.peshomon.id]);
+        this.peshomonService.updatePeshomon(this.peshomon)
+            .subscribe(() => this.router.navigate(['/pokemon', this.peshomon.id]));
     }
 
     hasType(type: string): boolean {
