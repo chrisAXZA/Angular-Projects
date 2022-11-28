@@ -1,3 +1,10 @@
+<!-- Progress Bar  -->
+<h3 *ngIf="!peshomon && !noPeshomon" class="center #ffcdd2 red lighten-4">
+    <div class="progress spinner">
+        <div class="indeterminate"></div>
+    </div>
+</h3>
+
 <h3 *ngIf="peshomon" class="center #f9fbe7 lime lighten-4">Peshomon Detail</h3>
 
 <!-- row => equivalent to a materialize line -->
@@ -88,9 +95,9 @@
                 <img src="/assets/noPeshomon.gif" style="max-width: 250px;">
             </div>
         </div>
-        <h4 class="center hoverable #ffcdd2 red lighten-4" style="transition: 1000ms;cursor: default;">No Peshomon selected!</h4>
+        <h4 class="center hoverable #ffcdd2 red lighten-4" style="transition: 1000ms;cursor: default;">No Peshomon
+            selected!</h4>
     </div>
-
     <div class="card-action center">
         <a class="btn hoverable" style="transition: 1000ms; min-width: 300px; cursor: w-resize;"
             (click)="returnToPeshomonList()">
@@ -98,11 +105,3 @@
         </a>
     </div>
 </div>
-
-
-
-<h3 *ngIf="!peshomon && !noPeshomon" class="center #ffcdd2 red lighten-4">
-    <div class="progress spinner">
-        <div class="indeterminate"></div>
-    </div>
-</h3>
