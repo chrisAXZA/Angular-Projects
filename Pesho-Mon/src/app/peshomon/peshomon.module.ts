@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import PeshomonService from './peshomon.service';
 import { BorderCardDirective } from './border-card.directive';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
+import { AddPeshomonComponent } from './add-peshomon/add-peshomon.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { EditPeshomonComponent } from './edit-peshomon/edit-peshomon.component';
 import { PeshomonFormComponent } from './peshomon-form/peshomon-form.component';
@@ -25,6 +26,7 @@ const peshomonRoutes: Routes = [
         PokemonTypeColorPipe,
         PeshomonFormComponent,
         EditPeshomonComponent,
+        AddPeshomonComponent,
     ],
     imports: [
         CommonModule,
