@@ -7,8 +7,7 @@ import PeshomonService from '../peshomon.service';
 @Component({
     selector: 'app-edit-peshomon',
     templateUrl: './edit-peshomon.component.html',
-    styleUrls: [
-    ],
+    styleUrls: ['./edit-peshomon.component.scss'],
 })
 export class EditPeshomonComponent implements OnInit {
     peshomon: Pokemon | undefined;

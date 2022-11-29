@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import Pokemon from '../pokemon';
 import PeshomonService from '../peshomon.service';
-import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-pokemon-detail',

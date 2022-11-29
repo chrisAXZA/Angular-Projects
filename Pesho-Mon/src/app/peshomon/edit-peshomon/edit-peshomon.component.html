@@ -2,6 +2,12 @@
 <!-- <h4 class="card center hoverable" style="transition: 1000ms;" *ngIf="peshomon">++{{peshomon.name}}++</h4> -->
 <!-- <h4 class="center #ffcdd2 red lighten-4" *ngIf="noPeshomon">No Peshomon selected!</h4> -->
 
+<div *ngIf="!peshomon && !noPeshomon" class="loader">
+    <div class="progress" style="width: 70%; left: 15%;">
+        <div class="indeterminate"></div>
+    </div>
+</div>
+
 <p class="center" *ngIf="peshomon">
     <img [src]="peshomon.picture" style="min-width: 120px;">
 </p>
