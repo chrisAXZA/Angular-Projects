@@ -1,6 +1,7 @@
 export default class Pokemon {
+    id: number;
+
     constructor(
-        public id: number = 0,
         public name: string = 'Peshomon',
         public hp: number = 100,
         public cp: number = 10,
@@ -8,7 +9,7 @@ export default class Pokemon {
         public types: Array<string> = ['Normal'],
         public created: Date = new Date(),
     ) {
-        this.id = id;
+        // this.id = id;
         this.hp = hp;
         this.cp = cp;
         this.name = name;
