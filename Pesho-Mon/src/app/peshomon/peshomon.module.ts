@@ -13,6 +13,7 @@ import { PeshomonFormComponent } from './peshomon-form/peshomon-form.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 
 const peshomonRoutes: Routes = [
+    { path: 'add/pokemon', component: AddPeshomonComponent, },
     { path: 'edit/pokemon/:id', component: EditPeshomonComponent, },
     { path: 'pokemons', component: PokemonListComponent, },
     { path: 'pokemon/:id', component: PokemonDetailComponent, },
