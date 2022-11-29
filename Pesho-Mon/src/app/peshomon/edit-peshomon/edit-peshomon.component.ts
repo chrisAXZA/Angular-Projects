@@ -14,9 +14,10 @@ export class EditPeshomonComponent implements OnInit {
     noPeshomon: boolean = false;
 
     constructor(
-        private route: ActivatedRoute,
         private router: Router,
-        private peshomonService: PeshomonService) { }
+        private route: ActivatedRoute,
+        private peshomonService: PeshomonService
+    ) { }
 
     ngOnInit(): void {
         const peshomonId: number = Number(this.route.snapshot.paramMap.get('id'));

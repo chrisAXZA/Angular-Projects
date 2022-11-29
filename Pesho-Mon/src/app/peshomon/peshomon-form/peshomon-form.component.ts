@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import Pokemon from '../pokemon';
 import PeshomonService from '../peshomon.service';
@@ -14,7 +14,11 @@ export class PeshomonFormComponent implements OnInit {
     peshomonTypes: string[];
     // showTypesError: boolean = false;
 
-    constructor(private peshomonService: PeshomonService, private router: Router) { }
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute,
+        private peshomonService: PeshomonService,
+    ) { }
 
     ngOnInit(): void {
         this.peshomonTypes = this.peshomonService.getPeshomonTypeList();

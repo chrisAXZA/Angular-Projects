@@ -16,8 +16,8 @@ export class PokemonDetailComponent implements OnInit {
     noPeshomon: boolean = false;
 
     constructor(
-        private route: ActivatedRoute,
         private router: Router,
+        private route: ActivatedRoute,
         private peshomonService: PeshomonService,
     ) { }
 
