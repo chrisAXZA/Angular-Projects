@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import Pokemon from '../pokemon';
 import PeshomonService from '../peshomon.service';
@@ -12,8 +12,12 @@ import PeshomonService from '../peshomon.service';
 })
 export class EditPeshomonComponent implements OnInit {
     peshomon: Pokemon | undefined;
+    noPeshomon: boolean = false;
 
-    constructor(private route: ActivatedRoute, private peshomonService: PeshomonService) { }
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private peshomonService: PeshomonService) { }
 
     ngOnInit(): void {
         const peshomonId: number = Number(this.route.snapshot.paramMap.get('id'));
@@ -26,7 +30,15 @@ export class EditPeshomonComponent implements OnInit {
         this.peshomonService.getPeshomonById(peshomonId)
             .subscribe((peshomon) => {
                 this.peshomon = peshomon;
+
+                if (this.peshomon === undefined) {
+                    this.noPeshomon = true;
+                }
             });
+    }
+
+    returnToPeshomonList() {
+        this.router.navigate(['/pokemons']);
     }
 
 }
