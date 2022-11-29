@@ -27,8 +27,21 @@ export default class PeshomonService {
             );
     }
 
-    // Angualr-In-Memory returns null instead of the modified object
-    // after put query
+    // Angualar-In-Memory returns null instead of the modified object after post query
+    addPeshomon(peshomon: Pokemon): Observable<null> {
+        const httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json', }),
+        };
+
+        return this.httpClient
+            .post('api/pokemons', peshomon, httpOptions)
+            .pipe(
+                tap((peshomon: any) => this.log(peshomon),),
+                catchError((error) => this.handleError(error, null),),
+            );
+    }
+
+    // Angualar-In-Memory returns null instead of the modified object after put query
     // updatePeshomon(peshomon: Pokemon): Observable<Pokemon | undefined> {
     updatePeshomon(peshomon: Pokemon): Observable<null> {
         const httpOptions = {
