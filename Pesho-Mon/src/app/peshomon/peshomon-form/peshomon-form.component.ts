@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import Pokemon from '../pokemon';
 import PeshomonService from '../peshomon.service';
@@ -12,16 +12,17 @@ import PeshomonService from '../peshomon.service';
 export class PeshomonFormComponent implements OnInit {
     @Input() peshomon: Pokemon;
     peshomonTypes: string[];
+    isAddForm: boolean = false;
     // showTypesError: boolean = false;
 
     constructor(
         private router: Router,
-        private route: ActivatedRoute,
         private peshomonService: PeshomonService,
     ) { }
 
     ngOnInit(): void {
         this.peshomonTypes = this.peshomonService.getPeshomonTypeList();
+        this.isAddForm = this.router.url.includes('add');
     }
 
     cancelChanges(event: Event) {
@@ -32,8 +33,14 @@ export class PeshomonFormComponent implements OnInit {
     onSubmit() {
         // console.log(`Peshomon data of ${this.peshomon.name} has been updated!`);
         // this.router.navigate(['/pokemon', this.peshomon.id]);
-        this.peshomonService.updatePeshomon(this.peshomon)
-            .subscribe(() => this.router.navigate(['/pokemon', this.peshomon.id]));
+        if (this.isAddForm) {
+            // back-end will create new id value and pass on to this.router
+            this.peshomonService.addPeshomon(this.peshomon)
+                .subscribe((peshomon: Pokemon) => this.router.navigate(['/pokemon', peshomon.id]));
+        } else {
+            this.peshomonService.updatePeshomon(this.peshomon)
+                .subscribe(() => this.router.navigate(['/pokemon', this.peshomon.id]));
+        }
     }
 
     hasType(type: string): boolean {

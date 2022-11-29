@@ -28,13 +28,14 @@ export default class PeshomonService {
     }
 
     // Angualar-In-Memory returns null instead of the modified object after post query
-    addPeshomon(peshomon: Pokemon): Observable<null> {
+    addPeshomon(peshomon: Pokemon): Observable<Pokemon> {
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json', }),
         };
 
+        // post query will return newly created Peshomon
         return this.httpClient
-            .post('api/pokemons', peshomon, httpOptions)
+            .post<Pokemon>('api/pokemons', peshomon, httpOptions)
             .pipe(
                 tap((peshomon: any) => this.log(peshomon),),
                 catchError((error) => this.handleError(error, null),),
