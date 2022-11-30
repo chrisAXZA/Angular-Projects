@@ -66,6 +66,15 @@ export default class PeshomonService {
             );
     }
 
+    searchPeshomonList(input: string): Observable<Pokemon[]> {
+        return this.httpClient
+            .get<Pokemon[]>(`api/pokemons/?name=${input}`) // executes query on peshomon name parameter
+            .pipe(
+                tap((peshomon: any) => this.log(peshomon),),
+                catchError((error) => this.handleError(error, []),),
+            );
+    }
+
     // getPeshomonList(): Pokemon[] { return POKEMONS; }
     getPeshomonList(): Observable<Pokemon[]> {
         // HttpClient can works with data stream that can be typed, in this scenario
