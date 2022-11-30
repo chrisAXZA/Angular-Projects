@@ -9,7 +9,8 @@
 </div>
 
 <p class="center" *ngIf="peshomon">
-    <img [src]="peshomon.picture" style="min-width: 120px;">
+    <!-- <img [src]="peshomon.picture" style="min-width: 120px;"> -->
+    <img [src]="peshomon.picture" class="responsive-img">
 </p>
 
 <app-peshomon-form *ngIf="peshomon" [peshomon]="peshomon"></app-peshomon-form>
@@ -18,7 +19,8 @@
     <div class="col s12 m8 offset-m2 center-align">
         <div class="card centered" style="transition: 1000ms; cursor: not-allowed;">
             <div class="card-panel hoverable centered" style="transition: 1000ms;">
-                <img src="/assets/noPeshomon.gif" style="max-width: 250px;">
+                <img src="/assets/noPeshomon.gif" class="responsive-img">
+                <!-- <img src="/assets/noPeshomon.gif" style="max-width: 250px;"> -->
             </div>
         </div>
         <h4 class="center hoverable #ffcdd2 red lighten-4" style="transition: 1000ms;cursor: default;">No Peshomon
