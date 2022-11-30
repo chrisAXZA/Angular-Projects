@@ -30,6 +30,10 @@ export class PokemonListComponent implements OnInit {
         this.router.navigate(['/pokemon', pokemon.id]);
     }
 
+    addPeshomon(){
+        this.router.navigate(['/add/pokemon']);
+    }
+
     // selectPokemon(pokemonId: string) {
     //     // const index: number = Number((event.target as HTMLInputElement).value);
     //     const index = Number(pokemonId);
