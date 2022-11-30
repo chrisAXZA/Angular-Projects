@@ -12,6 +12,17 @@
                         A Peshomon alpha-numeric name is required and must be 1-25 characters long!
                     </div>
                 </div>
+
+                <!-- Peshomon image -->
+                <!-- <div class="form-group"> -->
+                <div *ngIf="isAddForm" class="form-group">
+                    <label for="picture">Picture</label>
+                    <input type="url" class="form-control" id="picture" required pattern="^https://"
+                        [(ngModel)]="peshomon.picture" name="picture" #picture="ngModel">
+                    <div [hidden]="picture.valid || picture.pristine" class="card-panel red accent-1 hoverable">
+                        A valid picture url must be entered!
+                    </div>
+                </div>
                   
                 <!-- Peshomon hp -->
                 <div class="form-group">
