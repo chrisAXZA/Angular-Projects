@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -7,8 +7,15 @@ import Pokemon from './pokemon';
 
 @Injectable()
 export default class PeshomonService {
+    peshomons: Pokemon[];
 
-    constructor(private httpClient: HttpClient) { }
+    constructor(private httpClient: HttpClient) { 
+        this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
+    }
+
+    // ngOnInit() {
+    //     this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
+    // }
 
     // getPeshomonById(peshomonId: number): Pokemon | undefined {
     //     return POKEMONS.find((pok) => pok.id === peshomonId);
@@ -29,6 +36,10 @@ export default class PeshomonService {
 
     // Angualar-In-Memory returns null instead of the modified object after post query
     addPeshomon(peshomon: Pokemon): Observable<Pokemon> {
+        // this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
+        this.peshomons.push(peshomon);
+        localStorage.setItem('peshomons', JSON.stringify(this.peshomons));
+
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json', }),
         };
@@ -45,6 +56,11 @@ export default class PeshomonService {
     // Angualar-In-Memory returns null instead of the modified object after put query
     // updatePeshomon(peshomon: Pokemon): Observable<Pokemon | undefined> {
     updatePeshomon(peshomon: Pokemon): Observable<null> {
+        // this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
+        const index = this.peshomons.findIndex((p) => p.id === peshomon.id);
+        this.peshomons.splice(index, 1, peshomon);
+        localStorage.setItem('peshomons', JSON.stringify(this.peshomons));
+
         const httpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json', }),
         };
@@ -58,6 +74,13 @@ export default class PeshomonService {
     }
 
     deletePeshomonById(peshomonId: number): Observable<null> {
+        // this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
+        // console.log(this.peshomons);
+
+        const index = this.peshomons.findIndex((p) => p.id === peshomonId);
+        this.peshomons.splice(index, 1);
+        localStorage.setItem('peshomons', JSON.stringify(this.peshomons));
+
         return this.httpClient
             .delete(`api/pokemons/${peshomonId}`)
             .pipe(

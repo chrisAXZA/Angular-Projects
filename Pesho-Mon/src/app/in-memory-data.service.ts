@@ -15,7 +15,17 @@ export class InMemoryDataService implements InMemoryDbService {
 
     // will seed peshomon data for simulated REST-API
     createDb() {
-        const pokemons = POKEMONS;
+        // const pokemons = POKEMONS;
+        
+        let pokemons = POKEMONS;
+        const storage = localStorage.getItem('peshomons');
+
+        if (storage) {
+            pokemons = JSON.parse(storage);
+        } else {
+            localStorage.setItem('peshomons', JSON.stringify(pokemons));
+        }
+
         return { pokemons };
     }
 }
