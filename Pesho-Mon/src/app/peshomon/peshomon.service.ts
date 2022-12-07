@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -9,7 +9,7 @@ import Pokemon from './pokemon';
 export default class PeshomonService {
     peshomons: Pokemon[];
 
-    constructor(private httpClient: HttpClient) { 
+    constructor(private httpClient: HttpClient) {
         this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
     }
 
