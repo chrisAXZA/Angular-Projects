@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 
 import Pokemon from '../pokemon';
 
@@ -10,6 +11,12 @@ import Pokemon from '../pokemon';
     ]
 })
 export class SearchPeshomonComponent implements OnInit {
+    // Subject, allows to store successive searchInputs provided by the user
+    // Subject allows to subscribe to a data stream as well as for its modification
+    searchInputs = new Subject<string>();
+    // Will hold the resulting data as a result of the inputStream, a PeshomonList
+    // Observable allows only to subscribe to a given data stream
+    peshomonList$: Observable<Pokemon[]>;
 
     constructor(private router: Router) { }
 
@@ -17,7 +24,9 @@ export class SearchPeshomonComponent implements OnInit {
     }
 
     search(input: string) {
-
+        // each time the user is entering a a new input, will be passed unto the searchInput
+        // similar to push in array
+        this.searchInputs.next(input);
     }
 
     goToPeshomonDetail(peshomon: Pokemon) {
