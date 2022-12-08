@@ -1,1 +1,22 @@
-<p>search-peshomon works!</p>
+<div class="row">
+    <div class="col s12 m6 offset-3">
+        <div class="card hoverable" style="transition: 1000ms;">
+            <div class="card-content">
+                <div class="input-field">
+                    <input #searchBox type="text" (keyup)="search(searchBox.value)" placeholder="Enter Peshomon Name" />
+
+                    <!-- materialize list of terms holds the corresponding term for the given search input -->
+                    <div class="collection">
+                        <!-- async pipe can only be applied on Observables and avoids to subscribe to the stream
+                         avoids to subscribe to a given stream that will be initiated inside of ngOnInit, async
+                        will execute more efficiently  -->
+                        <a class="collection-item" *ngFor="let peshomon of peshomonList$ | async"
+                            (click)="goToPeshomonDetail(peshomon)">
+                            {{peshomon.name}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
