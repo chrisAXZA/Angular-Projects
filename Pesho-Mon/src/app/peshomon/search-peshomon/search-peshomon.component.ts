@@ -18,7 +18,6 @@ export class SearchPeshomonComponent implements OnInit {
     // Observable allows only to subscribe to a given data stream
     peshomonList$: Observable<Pokemon[]>;
     spinner: boolean = false;
-    // newRequest: boolean = false;
 
     constructor(private router: Router, private peshomonService: PeshomonService) { }
 

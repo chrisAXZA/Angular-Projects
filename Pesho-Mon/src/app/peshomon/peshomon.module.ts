@@ -12,6 +12,7 @@ import { EditPeshomonComponent } from './edit-peshomon/edit-peshomon.component';
 import { PeshomonFormComponent } from './peshomon-form/peshomon-form.component';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { SearchPeshomonComponent } from './search-peshomon/search-peshomon.component';
+import { LoaderComponent } from './loader/loader.component';
 
 const peshomonRoutes: Routes = [
     { path: 'add/pokemon', component: AddPeshomonComponent, },
@@ -30,6 +31,7 @@ const peshomonRoutes: Routes = [
         EditPeshomonComponent,
         AddPeshomonComponent,
         SearchPeshomonComponent,
+        LoaderComponent,
     ],
     imports: [
         CommonModule,
