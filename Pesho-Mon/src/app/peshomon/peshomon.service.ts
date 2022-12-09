@@ -90,6 +90,10 @@ export default class PeshomonService {
     }
 
     searchPeshomonList(input: string): Observable<Pokemon[]> {
+        if(input.length < 2){
+            return of([]);
+        }
+        
         return this.httpClient
             .get<Pokemon[]>(`api/pokemons/?name=${input}`) // executes query on peshomon name parameter
             .pipe(
