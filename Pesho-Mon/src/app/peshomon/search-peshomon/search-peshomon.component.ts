@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, Observable, Subject, switchMap } from 'rxjs';
 
 import Pokemon from '../pokemon';
+import PeshomonService from '../peshomon.service';
 
 @Component({
     selector: 'app-search-peshomon',
@@ -18,9 +19,23 @@ export class SearchPeshomonComponent implements OnInit {
     // Observable allows only to subscribe to a given data stream
     peshomonList$: Observable<Pokemon[]>;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private peshomonService: PeshomonService) { }
 
     ngOnInit(): void {
+        this.peshomonList$ = this.searchInputs
+            .pipe(
+                // debounceTime will hold back requests to server for the given amount of time
+                debounceTime(300),
+                // distinctUntilChanged will filter out successive identical search inputs,
+                // will wait until there is a change in the last given value and no repetition
+                distinctUntilChanged(),
+                // will execute the final requests to the server, map will transform search input
+                // into Observable peshomon object
+                switchMap((input) => this.peshomonService.searchPeshomonList(input))
+                // map((input) => this.peshomonService.searchPeshomonList(input))
+                // concatMap, switchMap, mergeMap can transform from Observable to peshomon object
+                // switchMap will annulate prior request and only work with the current one
+            );
     }
 
     search(input: string) {

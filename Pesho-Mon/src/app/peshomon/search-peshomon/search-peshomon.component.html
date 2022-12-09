@@ -11,7 +11,8 @@
                          avoids to subscribe to a given stream that will be initiated inside of ngOnInit, async
                         will execute more efficiently  -->
                         <a class="collection-item" *ngFor="let peshomon of peshomonList$ | async"
-                            (click)="goToPeshomonDetail(peshomon)">
+                            (click)="goToPeshomonDetail(peshomon)" title="{{peshomon.name}} Details"
+                            style="cursor: zoom-in;">
                             {{peshomon.name}}
                         </a>
                     </div>
