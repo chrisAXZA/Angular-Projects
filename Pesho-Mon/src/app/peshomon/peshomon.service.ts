@@ -34,17 +34,8 @@ export default class PeshomonService {
             );
     }
 
-    findPeshomonByName(peshomonName: string): Observable<Pokemon | undefined> {
-        return this.httpClient.get<Pokemon[]>(`api/pokemons/?name=${peshomonName}`)
-            .pipe(
-                tap((peshomon) => this.log(peshomon),),
-                catchError((error) => {
-                    // console.log(error);
-                    // return of(undefined);
-
-                    return this.handleError(error, undefined);
-                })
-            );
+    findPeshomonByName(peshomonName: string): Pokemon | undefined {
+        return this.peshomons.find((p) => p.name === peshomonName);
     }
 
     // Angualar-In-Memory returns null instead of the modified object after post query
