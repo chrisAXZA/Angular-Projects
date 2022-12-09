@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { debounceTime, distinctUntilChanged, map, Observable, Subject, switchMap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, Observable, of, Subject, switchMap, tap } from 'rxjs';
 
 import Pokemon from '../pokemon';
 import PeshomonService from '../peshomon.service';
@@ -8,8 +8,7 @@ import PeshomonService from '../peshomon.service';
 @Component({
     selector: 'app-search-peshomon',
     templateUrl: './search-peshomon.component.html',
-    styles: [
-    ]
+    styleUrls: ['./search-peshomon.component.scss'],
 })
 export class SearchPeshomonComponent implements OnInit {
     // Subject, allows to store successive searchInputs provided by the user
@@ -18,12 +17,16 @@ export class SearchPeshomonComponent implements OnInit {
     // Will hold the resulting data as a result of the inputStream, a PeshomonList
     // Observable allows only to subscribe to a given data stream
     peshomonList$: Observable<Pokemon[]>;
+    spinner: boolean = false;
+    // newRequest: boolean = false;
 
     constructor(private router: Router, private peshomonService: PeshomonService) { }
 
     ngOnInit(): void {
         this.peshomonList$ = this.searchInputs
             .pipe(
+                tap(() => this.spinner = true),
+                // tap(() => this.newRequest = true),
                 // debounceTime will hold back requests to server for the given amount of time
                 debounceTime(300),
                 // distinctUntilChanged will filter out successive identical search inputs,
@@ -31,10 +34,12 @@ export class SearchPeshomonComponent implements OnInit {
                 distinctUntilChanged(),
                 // will execute the final requests to the server, map will transform search input
                 // into Observable peshomon object
-                switchMap((input) => this.peshomonService.searchPeshomonList(input))
+                switchMap((input) => this.peshomonService.searchPeshomonList(input)),
                 // map((input) => this.peshomonService.searchPeshomonList(input))
                 // concatMap, switchMap, mergeMap can transform from Observable to peshomon object
                 // switchMap will annulate prior request and only work with the current one
+                tap(() => this.spinner = false),
+                // tap(() => this.newRequest = false),
             );
     }
 
