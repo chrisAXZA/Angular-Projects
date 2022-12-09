@@ -34,6 +34,19 @@ export default class PeshomonService {
             );
     }
 
+    findPeshomonByName(peshomonName: string): Observable<Pokemon | undefined> {
+        return this.httpClient.get<Pokemon[]>(`api/pokemons/?name=${peshomonName}`)
+            .pipe(
+                tap((peshomon) => this.log(peshomon),),
+                catchError((error) => {
+                    // console.log(error);
+                    // return of(undefined);
+
+                    return this.handleError(error, undefined);
+                })
+            );
+    }
+
     // Angualar-In-Memory returns null instead of the modified object after post query
     addPeshomon(peshomon: Pokemon): Observable<Pokemon> {
         // this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
@@ -90,10 +103,10 @@ export default class PeshomonService {
     }
 
     searchPeshomonList(input: string): Observable<Pokemon[]> {
-        if(input.length < 2){
+        if (input.length < 2) {
             return of([]);
         }
-        
+
         return this.httpClient
             .get<Pokemon[]>(`api/pokemons/?name=${input}`) // executes query on peshomon name parameter
             .pipe(

@@ -34,6 +34,14 @@ export class PeshomonFormComponent implements OnInit {
         // console.log(`Peshomon data of ${this.peshomon.name} has been updated!`);
         // this.router.navigate(['/pokemon', this.peshomon.id]);
         if (this.isAddForm) {
+            // const peshomon = this.peshomonService.searchPeshomonList(this.peshomon.name)
+            //     .subscribe();
+            const peshomon = this.peshomonService.findPeshomonByName(this.peshomon.name);
+
+            if (peshomon) {
+                return alert(`Peshomon with given name "${this.peshomon.name}" already exists !`);
+            }
+
             // back-end will create new id value and pass on to this.router
             this.peshomonService.addPeshomon(this.peshomon)
                 .subscribe((peshomon: Pokemon) => this.router.navigate(['/pokemon', peshomon.id]));
