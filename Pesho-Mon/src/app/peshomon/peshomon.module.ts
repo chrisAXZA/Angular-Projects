@@ -16,10 +16,10 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
 import { SearchPeshomonComponent } from './search-peshomon/search-peshomon.component';
 
 const peshomonRoutes: Routes = [
-    { path: 'add/pokemon', component: AddPeshomonComponent, canActivate: [AuthGuard] },
-    { path: 'edit/pokemon/:id', component: EditPeshomonComponent, },
+    { path: 'add/pokemon', component: AddPeshomonComponent, canActivate: [AuthGuard], },
+    { path: 'edit/pokemon/:id', component: EditPeshomonComponent, canActivate: [AuthGuard], },
     { path: 'pokemons', component: PokemonListComponent, },
-    { path: 'pokemon/:id', component: PokemonDetailComponent, },
+    { path: 'pokemon/:id', component: PokemonDetailComponent, canActivate: [AuthGuard], },
 ];
 
 @NgModule({

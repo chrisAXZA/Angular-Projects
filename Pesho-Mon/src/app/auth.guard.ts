@@ -7,6 +7,7 @@ import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } fro
 })
 export class AuthGuard implements CanActivate {
     // canActivate will check for boolean true/false
+    // true will allow access to all users for given page
     // canActivate(
     //     route: ActivatedRouteSnapshot,
     //     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -15,8 +16,7 @@ export class AuthGuard implements CanActivate {
 
     canActivate() {
         console.log('Auth guard has been triggered!');
-        
-        // true will allow access to all users for given page
+
         return true;
     }
 }
