@@ -6,6 +6,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
 import { PeshomonModule } from './peshomon/peshomon.module';
 import { InMemoryDataService } from './in-memory-data.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -15,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     declarations: [
         AppComponent,
         PageNotFoundComponent,
+        LoginComponent,
     ],
     imports: [
         BrowserModule,
