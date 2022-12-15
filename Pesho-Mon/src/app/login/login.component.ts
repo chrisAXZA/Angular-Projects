@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
     constructor(private router: Router, public authService: AuthService) { }
 
     ngOnInit(): void {
+        this.message = this.authService.isLoggedIn
+            ? 'You are connected to the most awesome Peshomon App!'
+            : 'You are currently not logged in to the most awesome Peshomon App!';
     }
 
     login() {

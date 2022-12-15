@@ -10,6 +10,10 @@ export class AppComponent {
 
     constructor(private router: Router) { }
 
+    goToLogin(){
+        this.router.navigate(['/login']);
+    }
+
     returnToPeshomonList() {
         this.router.navigate(['/pokemons']);
     }
