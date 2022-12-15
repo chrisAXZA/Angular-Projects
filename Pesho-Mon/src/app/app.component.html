@@ -1,21 +1,32 @@
 <!-- <h1 class="center #e0f2f1 teal lighten-5">Welcome to Pesho-Mon!</h1> -->
-<nav>
-    <div class="nav-wrapper teal">
-        <!-- <a href="/pokemons" class="brand-logo center" style="min-width: 215px; cursor: context-menu;">Peshomon Arena</a> -->
-        <!-- <a (click)="goToLogin()" class="brand-logo right" style="min-width: 215px; cursor: context-menu;">Login</a> -->
-        <a (click)="returnToPeshomonList()" class="brand-logo center"
-            style="min-width: 215px; cursor: context-menu;">Peshomon Arena</a>
+<header class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper teal">
+            <!-- <a href="/pokemons" class="brand-logo center" style="min-width: 215px; cursor: context-menu;">Peshomon Arena</a> -->
+            <!-- <a (click)="goToLogin()" class="brand-logo right" style="min-width: 215px; cursor: context-menu;">Login</a> -->
+            <a (click)="returnToPeshomonList()" class="brand-logo center"
+                style="min-width: 215px; cursor: context-menu;">Peshomon Arena</a>
 
-        <ul class="right hide-on-med-and-down">
-            <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()"
-                    style="min-width: 215px; cursor: pointer;">Login</a> </li>
-            <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()"
-                    style="min-width: 215px; cursor: pointer;">Register</a> </li>
-            <li *ngIf="authService.isLoggedIn"> <a (click)="logout()"
-                    style="min-width: 215px; cursor: pointer">Logout</a> </li>
+            <a href="#" class="sidenav-trigger right" data-target="sidebar">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <ul class="right hide-on-med-and-down">
+                <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Login</a> </li>
+                <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Register</a>
+                </li>
+                <li *ngIf="authService.isLoggedIn"> <a (click)="logout()" style="cursor: pointer">Logout</a> </li>
+            </ul>
+        </div>
+
+
+        <ul class="sidenav" id="sidebar">
+            <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Login</a> </li>
+            <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Register</a> </li>
+            <li *ngIf="authService.isLoggedIn"> <a (click)="logout()" style="cursor: pointer">Logout</a> </li>
         </ul>
+    </nav>
+</header>
 
-    </div>
-</nav>
 
 <router-outlet></router-outlet>
