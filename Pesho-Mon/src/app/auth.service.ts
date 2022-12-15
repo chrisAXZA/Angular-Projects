@@ -13,7 +13,7 @@ export class AuthService {
     login(username: string, password: string): Observable<boolean> {
         const storage = localStorage.getItem('user');
 
-        if (storage) {
+        if (storage && storage.length > 0) {
             const user = JSON.parse(storage);
             username = user.username;
             password = user.password;
@@ -27,6 +27,7 @@ export class AuthService {
         }
 
         const isLoggedIn = (username === 'pesho' && password === 'pesho123');
+        // const isLoggedIn = true;
 
         // delay will simulate time-lapse for given request
         return of(isLoggedIn)
@@ -38,5 +39,6 @@ export class AuthService {
 
     logout() {
         this.isLoggedIn = false;
+        localStorage.removeItem('user');
     }
 }

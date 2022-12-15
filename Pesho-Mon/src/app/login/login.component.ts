@@ -35,12 +35,15 @@ export class LoginComponent implements OnInit {
 
                 this.isLoading = false;
             });
-
-
     }
 
     login() {
+        if (!this.username || !this.password) {
+            return;
+        }
+
         this.message = 'Login request is currently being handled!';
+
         this.authService.login(this.username, this.password)
             .subscribe((isLoggedIn: boolean) => {
                 this.setMessage();
