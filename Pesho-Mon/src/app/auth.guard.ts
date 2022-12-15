@@ -9,9 +9,7 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-    constructor(private router: Router, private authService: AuthService) {
-
-    }
+    constructor(private router: Router, private authService: AuthService) { }
 
     // canActivate will check for boolean true/false
     // true will allow access to all users for given page

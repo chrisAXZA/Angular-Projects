@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
                     : 'You are currently not logged in to the most awesome Peshomon App!';
 
                 if (!isLoggedIn) {
-                    this.username = 'Try again';
-                    this.password = 'Try again';
+                    this.username = '';
+                    this.password = '';
                     this.router.navigate(['/login']);
                 }
 
@@ -38,9 +38,9 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
-        if (!this.username || !this.password) {
-            return;
-        }
+        // if (!this.username || !this.password) {
+        //     return;
+        // }
 
         this.message = 'Login request is currently being handled!';
 
@@ -51,8 +51,8 @@ export class LoginComponent implements OnInit {
                 if (isLoggedIn) {
                     this.router.navigate(['/pokemons']);
                 } else {
-                    this.username = 'Try again';
-                    this.password = 'Try again';
+                    this.username = '';
+                    this.password = '';
                     this.router.navigate(['/login']);
                 }
             });
