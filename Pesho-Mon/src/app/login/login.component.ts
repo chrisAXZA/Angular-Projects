@@ -10,6 +10,7 @@ import { AuthService } from '../auth.service';
     ]
 })
 export class LoginComponent implements OnInit {
+    isLoading: boolean = true;
     message: string = 'You are currently not logged in to the most awesome Peshomon App!';
     username: string;
     password: string;
@@ -17,9 +18,25 @@ export class LoginComponent implements OnInit {
     constructor(private router: Router, public authService: AuthService) { }
 
     ngOnInit(): void {
-        this.message = this.authService.isLoggedIn
-            ? 'You are connected to the most awesome Peshomon App!'
-            : 'You are currently not logged in to the most awesome Peshomon App!';
+        this.isLoading = true;
+
+        this.authService.login(this.username, this.password)
+            .subscribe((isLoggedIn: boolean) => {
+                // this.setMessage();
+                this.message = this.authService.isLoggedIn
+                    ? 'You are connected to the most awesome Peshomon App!'
+                    : 'You are currently not logged in to the most awesome Peshomon App!';
+
+                if (!isLoggedIn) {
+                    this.username = 'Try again';
+                    this.password = 'Try again';
+                    this.router.navigate(['/login']);
+                }
+
+                this.isLoading = false;
+            });
+
+
     }
 
     login() {

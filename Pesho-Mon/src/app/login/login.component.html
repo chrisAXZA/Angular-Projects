@@ -5,7 +5,13 @@
                 <h4 class="center #f9fbe7 lime lighten-4" style="cursor: default;">Login Page</h4>
                 <!-- <span class="card-title">Login Page</span> -->
 
-                <p style="cursor: default;"><b>{{message}}</b></p>
+                <div *ngIf="isLoading" class="loader">
+                    <div class="progress spinner" style="width: 70%; left: 15%;">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+
+                <p *ngIf="!isLoading" style="cursor: default;"><b>{{message}}</b></p>
                 <!-- <p><em>{{message}}</em></p> -->
             </div>
 
