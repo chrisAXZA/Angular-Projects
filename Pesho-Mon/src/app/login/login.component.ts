@@ -25,7 +25,9 @@ export class LoginComponent implements OnInit {
             .subscribe((isLoggedIn: boolean) => {
                 this.setMessage();
 
-                if (isLoggedIn) { this.router.navigate(['/pokemons']); } else {
+                if (isLoggedIn) {
+                    this.router.navigate(['/pokemons']);
+                } else {
                     this.username = 'Try again';
                     this.password = 'Try again';
                     this.router.navigate(['/login']);
@@ -34,7 +36,8 @@ export class LoginComponent implements OnInit {
     }
 
     logout() {
-
+        this.authService.logout();
+        this.message = 'You have been disconnected from the most awesome Peshomon App!';
     }
 
     // updates message depending on whether the user is logged in or not
@@ -42,7 +45,7 @@ export class LoginComponent implements OnInit {
         if (this.authService.isLoggedIn) {
             this.message = 'You are connected to the most awesome Peshomon App!';
         } else {
-            this.message = 'Username or password are invalid - No most awesome Peshomon App!';
+            this.message = 'Username or password are invalid -> No most awesome Peshomon App!';
         }
     }
 }
