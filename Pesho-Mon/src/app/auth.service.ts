@@ -13,10 +13,6 @@ export class AuthService {
     }
 
     login(username: string, password: string): Observable<boolean> {
-        // if (!username || !password) {
-        //     return of(false);
-        // }
-
         const storage = localStorage.getItem('user');
 
         if (storage && storage.length > 0) {
@@ -24,6 +20,10 @@ export class AuthService {
             username = user.username;
             password = user.password;
         } else {
+            if (!username || !password) {
+                return of(false);
+            }
+
             const currentUser = {
                 username,
                 password,
