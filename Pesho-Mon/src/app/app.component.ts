@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
     templateUrl: 'app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
     isLoggedIn: boolean;
 
     constructor(private router: Router, public authService: AuthService,) { }
@@ -18,15 +18,15 @@ export class AppComponent implements OnInit {
         this.isLoggedIn = this.authService.isLoggedIn;
     }
 
-    // ngAfterViewInit() {
-    //     var elems = document.querySelectorAll('.sidenav');
-    //     M.Sidenav.init(elems, {});
+    ngAfterViewInit() {
+        var elems = document.querySelectorAll('.sidenav');
+        M.Sidenav.init(elems, {});
 
-    //     const elemDropdown = document.querySelectorAll('.dropdown-trigger');
-    //     M.Dropdown.init(elemDropdown, {
-    //         coverTrigger: false,
-    //     });
-    // }
+        const elemDropdown = document.querySelectorAll('.dropdown-trigger');
+        M.Dropdown.init(elemDropdown, {
+            coverTrigger: false,
+        });
+    }
 
     logout() {
         this.authService.logout();
