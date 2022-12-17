@@ -13,7 +13,8 @@
                 <i class="material-icons">menu</i>
             </a> -->
 
-            <a class="dropdown-trigger left hide-on-large-only" data-target="dropdown-list" style="cursor: pointer; padding-left: 10px;">
+            <a class="dropdown-trigger left hide-on-large-only" data-target="dropdown-list"
+                style="cursor: pointer; padding-left: 10px;">
                 <!-- <i class="material-icons">arrow_drop_down</i> -->
                 <i class="material-icons">list</i>
             </a>
@@ -50,20 +51,23 @@
             style="cursor: pointer;">
                 <i class="material-icons">badge</i>
         </li> -->
-        <li *ngIf="!authService.isLoggedIn" title="Login" (click)="goToLogin()">
-            <a style="cursor: pointer;">
+        <li *ngIf="!authService.isLoggedIn" title="Login" (click)="goToLogin()" class="hoverable"
+            style="transition: 1000ms;">
+            <a style="cursor: pointer; background: none;">
                 <!-- Login -->
                 <i class="material-icons">badge</i>
             </a>
         </li>
-        <li *ngIf="!authService.isLoggedIn" title="Register" (click)="goToLogin()">
-            <a style="cursor: pointer;">
+        <li *ngIf="!authService.isLoggedIn" title="Register" (click)="goToLogin()" class="hoverable"
+            style="transition: 1000ms;">
+            <a style="cursor: pointer; background: none;">
                 <!-- Register -->
                 <i class="material-icons">group_add</i>
             </a>
         </li>
-        <li *ngIf="authService.isLoggedIn" title="Logout" (click)="logout()">
-            <a style="cursor: pointer">
+        <li *ngIf="authService.isLoggedIn" title="Logout" (click)="logout()" class="hoverable"
+            style="transition: 1000ms;">
+            <a style="cursor: pointer; background: none;">
                 <!-- Logout -->
                 <i class="material-icons">logout</i>
             </a>
