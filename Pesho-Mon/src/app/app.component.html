@@ -5,43 +5,70 @@
             <!-- <a href="/pokemons" class="brand-logo center" style="min-width: 215px; cursor: context-menu;">Peshomon Arena</a> -->
             <!-- <a (click)="goToLogin()" class="brand-logo right" style="min-width: 215px; cursor: context-menu;">Login</a> -->
             <a (click)="returnToPeshomonList()" class="brand-logo center"
-                style="min-width: 215px; cursor: context-menu;">Peshomon Arena</a>
+                style="min-width: 215px; cursor: context-menu;">
+                Peshomon Arena
+            </a>
 
-            <a href="#" class="sidenav-trigger right" data-target="sidebar">
+            <!-- <a class="sidenav-trigger right" data-target="sidebar-list" style="cursor: pointer;">
                 <i class="material-icons">menu</i>
+            </a> -->
+
+            <a class="dropdown-trigger left hide-on-large-only" data-target="dropdown-list" style="cursor: pointer; padding-left: 10px;">
+                <!-- <i class="material-icons">arrow_drop_down</i> -->
+                <i class="material-icons">list</i>
             </a>
 
             <!-- <ul class="align-items-end"> -->
-            <ul class="right hide-on-med-and-down">
+            <ul class="left hide-on-med-and-down">
                 <li *ngIf="!authService.isLoggedIn" title="Login">
                     <a (click)="goToLogin()" style="cursor: pointer;">
-                        <!-- Login -->
                         <i class="material-icons">badge</i>
                     </a>
                 </li>
                 <li *ngIf="!authService.isLoggedIn" title="Register">
                     <a (click)="goToLogin()" style="cursor: pointer;">
-                        <!-- Register -->
                         <i class="material-icons">group_add</i>
                     </a>
                 </li>
                 <li *ngIf="authService.isLoggedIn" title="Logout">
                     <a (click)="logout()" style="cursor: pointer">
-                        <!-- Logout -->
                         <i class="material-icons">logout</i>
                     </a>
                 </li>
             </ul>
         </div>
-
-
-        <ul class="sidenav" id="sidebar">
-            <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Login</a> </li>
-            <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Register</a> </li>
-            <li *ngIf="authService.isLoggedIn"> <a (click)="logout()" style="cursor: pointer">Logout</a> </li>
-        </ul>
     </nav>
-</header>
 
+    <ul class="sidenav" id="sidenav" id="sidebar-list">
+        <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Login</a> </li>
+        <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Register</a> </li>
+        <li *ngIf="authService.isLoggedIn"> <a (click)="logout()" style="cursor: pointer">Logout</a> </li>
+    </ul>
+
+    <ul id="dropdown-list" class="dropdown-content">
+        <!-- <li *ngIf="!authService.isLoggedIn" title="Login" class="hoverable listitem" (click)="goToLogin()"
+            style="cursor: pointer;">
+                <i class="material-icons">badge</i>
+        </li> -->
+        <li *ngIf="!authService.isLoggedIn" title="Login" (click)="goToLogin()">
+            <a style="cursor: pointer;">
+                <!-- Login -->
+                <i class="material-icons">badge</i>
+            </a>
+        </li>
+        <li *ngIf="!authService.isLoggedIn" title="Register" (click)="goToLogin()">
+            <a style="cursor: pointer;">
+                <!-- Register -->
+                <i class="material-icons">group_add</i>
+            </a>
+        </li>
+        <li *ngIf="authService.isLoggedIn" title="Logout" (click)="logout()">
+            <a style="cursor: pointer">
+                <!-- Logout -->
+                <i class="material-icons">logout</i>
+            </a>
+        </li>
+    </ul>
+</header>
 
 <router-outlet></router-outlet>
