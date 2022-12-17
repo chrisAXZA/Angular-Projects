@@ -11,6 +11,7 @@
                 <i class="material-icons">menu</i>
             </a>
 
+            <!-- <ul class="align-items-end"> -->
             <ul class="right hide-on-med-and-down">
                 <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Login</a> </li>
                 <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Register</a>

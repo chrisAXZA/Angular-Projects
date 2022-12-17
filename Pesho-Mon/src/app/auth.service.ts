@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { delay, Observable, of, tap } from 'rxjs';
 
 @Injectable({
@@ -8,7 +9,7 @@ export class AuthService {
     isLoggedIn: boolean = false;
     redirectUrl: string;
 
-    constructor() {
+    constructor(private router: Router) {
         this.login('', '');
     }
 
@@ -46,5 +47,6 @@ export class AuthService {
     logout() {
         this.isLoggedIn = false;
         localStorage.removeItem('user');
+        this.router.navigate(['/pokemons']);
     }
 }
