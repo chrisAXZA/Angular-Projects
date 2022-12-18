@@ -21,6 +21,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         var elems = document.querySelectorAll('.sidenav');
         M.Sidenav.init(elems, {
+            edge: 'right',
+            draggable: true,
             inDuration: 500,
             outDuration: 500,
         });
