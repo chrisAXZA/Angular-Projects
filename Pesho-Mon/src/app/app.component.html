@@ -9,9 +9,9 @@
                 Peshomon Arena
             </a>
 
-            <!-- <a class="sidenav-trigger right" data-target="sidebar-list" style="cursor: pointer;">
+            <a class="sidenav-trigger right" data-target="sidebar-list" style="cursor: pointer;">
                 <i class="material-icons">menu</i>
-            </a> -->
+            </a>
 
             <a class="dropdown-trigger left hide-on-large-only" data-target="dropdown-list"
                 style="cursor: pointer; padding-left: 10px;">
@@ -40,17 +40,7 @@
         </div>
     </nav>
 
-    <ul class="sidenav" id="sidenav" id="sidebar-list">
-        <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Login</a> </li>
-        <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Register</a> </li>
-        <li *ngIf="authService.isLoggedIn"> <a (click)="logout()" style="cursor: pointer">Logout</a> </li>
-    </ul>
-
     <ul id="dropdown-list" class="dropdown-content">
-        <!-- <li *ngIf="!authService.isLoggedIn" title="Login" class="hoverable listitem" (click)="goToLogin()"
-            style="cursor: pointer;">
-                <i class="material-icons">badge</i>
-        </li> -->
         <li *ngIf="!authService.isLoggedIn" title="Login" (click)="goToLogin()" class="hoverable"
             style="transition: 1000ms;">
             <a style="cursor: pointer; background: none;">
@@ -74,5 +64,11 @@
         </li>
     </ul>
 </header>
+
+<ul class="sidenav" id="sidebar-list">
+    <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Login</a> </li>
+    <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Register</a> </li>
+    <li *ngIf="authService.isLoggedIn"> <a (click)="logout()" style="cursor: pointer">Logout</a> </li>
+</ul>
 
 <router-outlet></router-outlet>

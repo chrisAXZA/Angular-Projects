@@ -20,7 +20,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         var elems = document.querySelectorAll('.sidenav');
-        M.Sidenav.init(elems, {});
+        M.Sidenav.init(elems, {
+            inDuration: 500,
+            outDuration: 500,
+        });
 
         const elemDropdown = document.querySelectorAll('.dropdown-trigger');
         M.Dropdown.init(elemDropdown, {
