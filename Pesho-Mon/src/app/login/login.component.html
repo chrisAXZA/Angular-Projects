@@ -21,7 +21,7 @@
                     <!-- <input type="text" id="username" [(ngModel)]="username" name="username" required> -->
                     <input type="text" id="username" [(ngModel)]="username" name="username" #usernameValidate="ngModel" required
                         pattern="^[a-zA-Z]{3,15}$">
-                    <div [hidden]="usernameValidate.valid || usernameValidate.pristine" class="card-panel red accent-1 hoverable">
+                    <div [hidden]="usernameValidate.valid || usernameValidate.untouched" class="card-panel red accent-1 hoverable">
                         A valid username must have 3-15 characters!
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <!-- <input type="password" id="password" [(ngModel)]="password" name="password" required> -->
                     <input type="password" id="password" [(ngModel)]="password" name="password" #passwordValidate="ngModel"
                         required pattern="^[a-zA-Z0-9]{3,25}$">
-                    <div [hidden]="passwordValidate.valid || passwordValidate.pristine" class="card-panel red accent-1 hoverable">
+                    <div [hidden]="passwordValidate.valid || passwordValidate.untouched" class="card-panel red accent-1 hoverable">
                         A valid password url must contain 3-25 alphanumeric characters!
                     </div>
                 </div>
