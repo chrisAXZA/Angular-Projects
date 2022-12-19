@@ -16,9 +16,22 @@ export class AuthService {
     }
 
     login2(username: string, password: string): Observable<boolean> {
+        if (!username && !password) {
+            const storage = localStorage.getItem('isLoggedIn');
+
+            if (!storage) {
+                return of(false);
+            } else {
+                return of(true);
+            }
+        }
+
         const trainer = this.findTrainerByUsername(username);
 
         if (trainer) {
+            const isLoggedIn = true;
+            localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
+
             return of(true)
                 .pipe(
                     delay(1000),
@@ -33,7 +46,7 @@ export class AuthService {
             );
     }
 
-    login(username: string, password: string): Observable<boolean> {
+    login3(username: string, password: string): Observable<boolean> {
         const storage = localStorage.getItem('user');
 
         if (storage && storage.length > 0) {
@@ -67,6 +80,7 @@ export class AuthService {
     logout() {
         this.isLoggedIn = false;
         localStorage.removeItem('user');
+        localStorage.removeItem('isLoggedIn');
         this.router.navigate(['/pokemons']);
     }
 
