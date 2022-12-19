@@ -36,7 +36,7 @@ export class PeshomonFormComponent implements OnInit {
         if (this.isAddForm) {
             // const peshomon = this.peshomonService.searchPeshomonList(this.peshomon.name)
             //     .subscribe();
-            const peshomon = this.peshomonService.findPeshomonByName(this.peshomon.name);
+            const peshomon = this.peshomonService.findPeshomonByName(this.peshomon.name)!;
 
             if (peshomon) {
                 return alert(`Peshomon with given name "${this.peshomon.name}" already exists !`);

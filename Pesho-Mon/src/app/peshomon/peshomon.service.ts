@@ -40,7 +40,9 @@ export default class PeshomonService {
 
     // Angualar-In-Memory returns null instead of the modified object after post query
     addPeshomon(peshomon: Pokemon): Observable<Pokemon> {
-        // this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
+        this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
+        // peshomon.id = this.peshomons.length;
+
         this.peshomons.push(peshomon);
         localStorage.setItem('peshomons', JSON.stringify(this.peshomons));
 
@@ -60,7 +62,7 @@ export default class PeshomonService {
     // Angualar-In-Memory returns null instead of the modified object after put query
     // updatePeshomon(peshomon: Pokemon): Observable<Pokemon | undefined> {
     updatePeshomon(peshomon: Pokemon): Observable<null> {
-        // this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
+        this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
         const index = this.peshomons.findIndex((p) => p.id === peshomon.id);
         this.peshomons.splice(index, 1, peshomon);
         localStorage.setItem('peshomons', JSON.stringify(this.peshomons));
@@ -78,7 +80,7 @@ export default class PeshomonService {
     }
 
     deletePeshomonById(peshomonId: number): Observable<null> {
-        // this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
+        this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
         // console.log(this.peshomons);
 
         const index = this.peshomons.findIndex((p) => p.id === peshomonId);
