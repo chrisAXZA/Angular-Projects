@@ -10,9 +10,12 @@
     text-align: center;
 }
 
-.listitem {
-    height: 50px;
-    color: #26a69a;
-    display: block;
-    padding: 14px 16px;
+.sidenav > li > a {
+    margin: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.sidenav > li > a:hover {
+    background-color: rgb(200, 200, 200);
 }

@@ -9,11 +9,11 @@
                 Peshomon Arena
             </a>
 
-            <a class="sidenav-trigger right" data-target="sidebar-list" style="cursor: pointer;">
+            <a class="right sidenav-trigger" data-target="sidebar-list" style="cursor: pointer;">
                 <i class="material-icons">menu</i>
             </a>
 
-            <a class="dropdown-trigger left hide-on-large-only" data-target="dropdown-list"
+            <a class="left dropdown-trigger hide-on-large-only" data-target="dropdown-list"
                 style="cursor: pointer; padding-left: 10px;">
                 <!-- <i class="material-icons">arrow_drop_down</i> -->
                 <i class="material-icons">list</i>
@@ -66,9 +66,9 @@
 </header>
 
 <ul class="sidenav" id="sidebar-list" style="max-width: 150px;">
-    <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Login</a> </li>
-    <li *ngIf="!authService.isLoggedIn"> <a (click)="goToLogin()" style="cursor: pointer;">Register</a> </li>
-    <li *ngIf="authService.isLoggedIn"> <a (click)="logout()" style="cursor: pointer">Logout</a> </li>
+    <li *ngIf="!authService.isLoggedIn"> <a class="waves-effect waves-purple" (click)="goToLogin()" style="cursor: pointer;">Login</a> </li>
+    <li *ngIf="!authService.isLoggedIn"> <a class="waves-effect waves-purple" (click)="goToLogin()" style="cursor: pointer;">Register</a> </li>
+    <li *ngIf="authService.isLoggedIn"> <a class="waves-effect waves-purple" (click)="logout()" style="cursor: pointer">Logout</a> </li>
 </ul>
 
 <router-outlet></router-outlet>
