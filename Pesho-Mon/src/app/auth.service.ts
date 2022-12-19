@@ -55,7 +55,7 @@ export class AuthService {
             );
     }
 
-    login3(username: string, password: string): Observable<boolean> {
+    loginDeprecated(username: string, password: string): Observable<boolean> {
         const storage = localStorage.getItem('user');
 
         if (storage && storage.length > 0) {
