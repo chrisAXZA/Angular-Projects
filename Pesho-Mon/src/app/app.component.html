@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li *ngIf="!authService.isLoggedIn" title="Register">
-                    <a (click)="goToLogin()" style="cursor: pointer;">
+                    <a (click)="goToRegister()" style="cursor: pointer;">
                         <i class="material-icons">group_add</i>
                     </a>
                 </li>
@@ -48,7 +48,7 @@
                 <i class="material-icons">badge</i>
             </a>
         </li>
-        <li *ngIf="!authService.isLoggedIn" title="Register" (click)="goToLogin()" class="hoverable"
+        <li *ngIf="!authService.isLoggedIn" title="Register" (click)="goToRegister()" class="hoverable"
             style="transition: 1000ms;">
             <a style="cursor: pointer; background: none;">
                 <!-- Register -->

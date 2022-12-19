@@ -41,6 +41,10 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.router.navigate(['/login']);
     }
 
+    goToRegister() {
+        this.router.navigate(['/register']);
+    }
+
     returnToPeshomonList() {
         this.router.navigate(['/pokemons']);
     }
