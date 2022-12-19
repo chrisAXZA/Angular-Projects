@@ -25,26 +25,8 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/pokemons']);
     }
 
-    onSubmit() {
-        const storage = localStorage.getItem('trainers');
-        console.log(storage);
-        console.log(this.password, this.username, this.email);
-
-        const trainer: Trainer = {
-            username: this.username,
-            password: this.password,
-            email: this.email,
-        };
-
-        if (storage) {
-            const trainers: Trainer[] = JSON.parse(storage);
-            trainers.push(trainer);
-            localStorage.setItem('trainers', JSON.stringify(trainers));
-        } else {
-            const trainers: Trainer[] = [];
-            trainers.push(trainer);
-            localStorage.setItem('trainers', JSON.stringify(trainers));
-        }
+    async onSubmit() {
+        await this.authService.register(this.username, this.password, this.email);
 
         this.authService.login(this.username, this.password)
             .subscribe((isLoggedIn: boolean) => {
@@ -57,7 +39,6 @@ export class RegisterComponent implements OnInit {
                     this.router.navigate(['/register']);
                 }
             });
-
         // if (this.isAddForm) {
         //     const peshomon = this.peshomonService.findPeshomonByName(this.peshomon.name);
 

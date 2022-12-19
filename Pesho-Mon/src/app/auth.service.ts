@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { delay, Observable, of, tap } from 'rxjs';
 
+import Trainer from './trainer';
+
 @Injectable({
     providedIn: 'root'
 })
@@ -48,5 +50,25 @@ export class AuthService {
         this.isLoggedIn = false;
         localStorage.removeItem('user');
         this.router.navigate(['/pokemons']);
+    }
+
+    register(username: string, password: string, email: string) {
+        const storage = localStorage.getItem('trainers');
+
+        const trainer: Trainer = {
+            username,
+            password,
+            email,
+        };
+
+        if (storage) {
+            const trainers: Trainer[] = JSON.parse(storage);
+            trainers.push(trainer);
+            localStorage.setItem('trainers', JSON.stringify(trainers));
+        } else {
+            const trainers: Trainer[] = [];
+            trainers.push(trainer);
+            localStorage.setItem('trainers', JSON.stringify(trainers));
+        }
     }
 }
