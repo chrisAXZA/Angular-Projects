@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
         this.isLoading = true;
 
-        this.authService.login(this.username, this.password)
+        this.authService.login2(this.username, this.password)
             .subscribe((isLoggedIn: boolean) => {
                 // this.setMessage();
                 this.message = this.authService.isLoggedIn
@@ -38,13 +38,9 @@ export class LoginComponent implements OnInit {
     }
 
     login() {
-        // if (!this.username || !this.password) {
-        //     return;
-        // }
-
         this.message = 'Login request is currently being handled!';
 
-        this.authService.login(this.username, this.password)
+        this.authService.login2(this.username, this.password)
             .subscribe((isLoggedIn: boolean) => {
                 this.setMessage();
 

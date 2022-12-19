@@ -12,7 +12,25 @@ export class AuthService {
     redirectUrl: string;
 
     constructor(private router: Router) {
-        this.login('', '');
+        this.login2('', '');
+    }
+
+    login2(username: string, password: string): Observable<boolean> {
+        const trainer = this.findTrainerByUsername(username);
+
+        if (trainer) {
+            return of(true)
+                .pipe(
+                    delay(1000),
+                    tap((isLoggedIn) => this.isLoggedIn = isLoggedIn),
+                );
+        }
+
+        return of(false)
+            .pipe(
+                delay(1000),
+                tap((isLoggedIn) => this.isLoggedIn = isLoggedIn),
+            );
     }
 
     login(username: string, password: string): Observable<boolean> {
@@ -74,7 +92,11 @@ export class AuthService {
 
     findTrainerByUsername(username: string): Trainer | undefined {
         const storage = localStorage.getItem('trainers')!;
-        const trainers: Trainer[] = JSON.parse(storage);
+        const trainers: Trainer[] | null = JSON.parse(storage);
+
+        if (!trainers) {
+            return undefined;
+        }
 
         return trainers.find((t: Trainer) => t.username === username);
     }
