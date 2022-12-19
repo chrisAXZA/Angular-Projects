@@ -71,4 +71,11 @@ export class AuthService {
             localStorage.setItem('trainers', JSON.stringify(trainers));
         }
     }
+
+    findTrainerByUsername(username: string): Trainer | undefined {
+        const storage = localStorage.getItem('trainers')!;
+        const trainers: Trainer[] = JSON.parse(storage);
+
+        return trainers.find((t: Trainer) => t.username === username);
+    }
 }

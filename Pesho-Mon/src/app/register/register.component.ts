@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
 
+import { AuthService } from '../auth.service';
 import Trainer from '../trainer';
 
 @Component({
@@ -26,19 +26,31 @@ export class RegisterComponent implements OnInit {
     }
 
     async onSubmit() {
-        await this.authService.register(this.username, this.password, this.email);
+        const trainerExists: Trainer | undefined = await this.authService.findTrainerByUsername(this.username);
 
-        this.authService.login(this.username, this.password)
-            .subscribe((isLoggedIn: boolean) => {
-                if (isLoggedIn) {
-                    this.router.navigate(['/pokemons']);
-                } else {
-                    this.username = '';
-                    this.password = '';
-                    this.email = '';
-                    this.router.navigate(['/register']);
-                }
-            });
+        if (trainerExists) {
+            alert(`A Peshomon Trainer with the username "${this.username}" already exists!`);
+            this.username = '';
+            this.password = '';
+            this.email = '';
+            this.router.navigate(['/register']);
+        }
+
+        if (!trainerExists) {
+            await this.authService.register(this.username, this.password, this.email);
+
+            this.authService.login(this.username, this.password)
+                .subscribe((isLoggedIn: boolean) => {
+                    if (isLoggedIn) {
+                        this.router.navigate(['/pokemons']);
+                    } else {
+                        this.username = '';
+                        this.password = '';
+                        this.email = '';
+                        this.router.navigate(['/register']);
+                    }
+                });
+        }
         // if (this.isAddForm) {
         //     const peshomon = this.peshomonService.findPeshomonByName(this.peshomon.name);
 
