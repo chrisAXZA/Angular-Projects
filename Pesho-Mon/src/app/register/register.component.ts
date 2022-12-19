@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../auth.service';
 import Trainer from '../trainer';
+import { AuthService } from '../auth.service';
 
 @Component({
     selector: 'app-register',
@@ -51,19 +51,5 @@ export class RegisterComponent implements OnInit {
                     }
                 });
         }
-        // if (this.isAddForm) {
-        //     const peshomon = this.peshomonService.findPeshomonByName(this.peshomon.name);
-
-        //     if (peshomon) {
-        //         return alert(`Peshomon with given name "${this.peshomon.name}" already exists !`);
-        //     }
-
-        //     // back-end will create new id value and pass on to this.router
-        //     this.peshomonService.addPeshomon(this.peshomon)
-        //         .subscribe((peshomon: Pokemon) => this.router.navigate(['/pokemon', peshomon.id]));
-        // } else {
-        //     this.peshomonService.updatePeshomon(this.peshomon)
-        //         .subscribe(() => this.router.navigate(['/pokemon', this.peshomon.id]));
-        // }
     }
 }
