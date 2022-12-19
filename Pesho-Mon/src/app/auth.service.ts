@@ -12,10 +12,10 @@ export class AuthService {
     redirectUrl: string;
 
     constructor(private router: Router) {
-        this.login2('', '');
+        this.login('', '');
     }
 
-    login2(username: string, password: string): Observable<boolean> {
+    login(username: string, password: string): Observable<boolean> {
         if (!username && !password) {
             const storage = localStorage.getItem('isLoggedIn');
 

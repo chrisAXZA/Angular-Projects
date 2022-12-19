@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
         if (!trainerExists) {
             await this.authService.register(this.username, this.password, this.email);
 
-            this.authService.login2(this.username, this.password)
+            this.authService.login(this.username, this.password)
                 .subscribe((isLoggedIn: boolean) => {
                     if (isLoggedIn) {
                         this.router.navigate(['/pokemons']);
