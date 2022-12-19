@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { delay, Observable, of, tap } from 'rxjs';
 
@@ -8,23 +8,32 @@ import Trainer from './trainer';
     providedIn: 'root'
 })
 export class AuthService {
-    isLoggedIn: boolean = false;
+    // isLoggedIn: boolean = false;
+    isLoggedIn: boolean;
     redirectUrl: string;
 
     constructor(private router: Router) {
-        this.login('', '');
+        // this.login('', '');
+
+        const storage = localStorage.getItem('isLoggedIn');
+
+        if (storage) {
+            this.isLoggedIn = true;
+        } else {
+            this.isLoggedIn = false;
+        }
     }
 
     login(username: string, password: string): Observable<boolean> {
-        if (!username && !password) {
-            const storage = localStorage.getItem('isLoggedIn');
+        // if (!username && !password) {
+        //     const storage = localStorage.getItem('isLoggedIn');
 
-            if (!storage) {
-                return of(false);
-            } else {
-                return of(true);
-            }
-        }
+        //     if (!storage) {
+        //         return of(false);
+        //     } else {
+        //         return of(true);
+        //     }
+        // }
 
         const trainer = this.findTrainerByUsername(username);
 

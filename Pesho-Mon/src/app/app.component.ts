@@ -16,6 +16,15 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.isLoggedIn = this.authService.isLoggedIn;
+        // const storage = localStorage.getItem('isLoggedIn');
+
+        // if (storage) {
+        //     this.isLoggedIn = true;
+        // } else {
+        //     this.isLoggedIn = false;
+        // }
+
+        // console.log(this.isLoggedIn);
     }
 
     ngAfterViewInit() {
