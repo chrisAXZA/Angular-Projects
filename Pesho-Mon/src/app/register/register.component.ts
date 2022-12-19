@@ -27,8 +27,8 @@ export class RegisterComponent implements OnInit {
 
     onSubmit() {
         const storage = localStorage.getItem('trainers');
-        // console.log(storage);
-        // console.log(this.password, this.username, this.email);
+        console.log(storage);
+        console.log(this.password, this.username, this.email);
 
         const trainer: Trainer = {
             username: this.username,

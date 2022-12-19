@@ -19,7 +19,8 @@
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" id="username" required pattern="^[a-zA-Z0-9]{1,25}$"
-                        [(ngModel)]="username" name="username" #usernameValid="ngModel" placeholder="Enter your username">
+                        [(ngModel)]="username" name="username" #usernameValid="ngModel"
+                        placeholder="Enter your username">
                     <div [hidden]="usernameValid.valid || usernameValid.untouched"
                         class="card-panel red accent-1 hoverable">
                         An username is required and must be 1-25 characters long!
@@ -40,8 +41,9 @@
                 <!-- Password -->
                 <div class="form-group">
                     <label for="pasword">Password</label>
-                    <input type="text" class="form-control" id="password" required pattern="^[a-zA-Z0-9]{1,25}$"
-                        [(ngModel)]="password" name="password" #passwordValid="ngModel" placeholder="Enter your password">
+                    <input type="password" class="form-control" id="password" required pattern="^[a-zA-Z0-9]{1,25}$"
+                        [(ngModel)]="password" name="password" #passwordValid="ngModel"
+                        placeholder="Enter your password">
                     <div [hidden]="passwordValid.valid || passwordValid.untouched"
                         class="card-panel red accent-1 hoverable">
                         A password is required and must be 1-25 characters long!
@@ -51,7 +53,7 @@
                 <!-- Email -->
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="url" class="form-control" id="email" required pattern="^https?:\/\/(.+)"
+                    <input type="url" class="form-control" id="email" required pattern="[a-z]+@[a-z]+\.[a-z]{2,6}"
                         [(ngModel)]="email" name="email" #emailValid="ngModel" placeholder="Enter your email">
                     <div [hidden]="emailValid.valid || emailValid.untouched" class="card-panel red accent-1 hoverable">
                         A valid email must be entered!
