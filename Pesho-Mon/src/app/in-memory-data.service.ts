@@ -20,7 +20,6 @@ export class InMemoryDataService implements InMemoryDbService {
         let pokemons = POKEMONS;
         const storage = localStorage.getItem('peshomons');
         
-
         if (storage && storage.length > 2) {
             pokemons = JSON.parse(storage);
         } else {

@@ -1,4 +1,4 @@
-export default class Pokemon {
+export default class Trainer {
     username: string;
     password: string;
     email: string;

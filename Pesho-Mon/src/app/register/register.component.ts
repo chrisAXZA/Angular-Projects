@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+
+import Trainer from '../trainer';
 
 @Component({
     selector: 'app-register',
@@ -12,7 +15,7 @@ export class RegisterComponent implements OnInit {
     password: string;
     email: string;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private authService: AuthService) { }
 
     ngOnInit(): void {
     }
@@ -23,6 +26,38 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit() {
+        const storage = localStorage.getItem('trainers');
+        // console.log(storage);
+        // console.log(this.password, this.username, this.email);
+
+        const trainer: Trainer = {
+            username: this.username,
+            password: this.password,
+            email: this.email,
+        };
+
+        if (storage) {
+            const trainers: Trainer[] = JSON.parse(storage);
+            trainers.push(trainer);
+            localStorage.setItem('trainers', JSON.stringify(trainers));
+        } else {
+            const trainers: Trainer[] = [];
+            trainers.push(trainer);
+            localStorage.setItem('trainers', JSON.stringify(trainers));
+        }
+
+        this.authService.login(this.username, this.password)
+            .subscribe((isLoggedIn: boolean) => {
+                if (isLoggedIn) {
+                    this.router.navigate(['/pokemons']);
+                } else {
+                    this.username = '';
+                    this.password = '';
+                    this.email = '';
+                    this.router.navigate(['/register']);
+                }
+            });
+
         // if (this.isAddForm) {
         //     const peshomon = this.peshomonService.findPeshomonByName(this.peshomon.name);
 
