@@ -19,17 +19,19 @@ export class PokemonListComponent implements OnInit {
     ngOnInit() {
         // this.peshomonList = this.peshomonService.getPeshomonList();
 
+        // ++
         this.peshomonService.getPeshomonList()
             .subscribe((peshomonList) => {
                 this.peshomonList = peshomonList;
             });
+        // this.peshomonList = JSON.parse(localStorage.getItem('peshomons')!);
     }
 
     selectPokemonDetail(pokemon: Pokemon) {
         this.router.navigate(['/pokemon', pokemon.id]);
     }
 
-    addPeshomon(){
+    addPeshomon() {
         this.router.navigate(['/add/pokemon']);
     }
 

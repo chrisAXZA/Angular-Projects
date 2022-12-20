@@ -41,7 +41,8 @@ export default class PeshomonService {
     // Angualar-In-Memory returns null instead of the modified object after post query
     addPeshomon(peshomon: Pokemon): Observable<Pokemon> {
         this.peshomons = JSON.parse(localStorage.getItem('peshomons')!);
-        // peshomon.id = this.peshomons.length;
+        const id  = this.peshomons[this.peshomons.length - 1].id + 1;
+        peshomon.id = id;
 
         this.peshomons.push(peshomon);
         localStorage.setItem('peshomons', JSON.stringify(this.peshomons));
