@@ -24,6 +24,16 @@ export class AuthService {
         }
     }
 
+    checkLogin(): boolean {
+        const storage = localStorage.getItem('isLoggedIn');
+
+        if (storage) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     login(username: string, password: string): Observable<boolean> {
         // if (!username && !password) {
         //     const storage = localStorage.getItem('isLoggedIn');

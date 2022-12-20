@@ -20,21 +20,26 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
         this.isLoading = true;
 
-        this.authService.login(this.username, this.password)
-            .subscribe((isLoggedIn: boolean) => {
-                // this.setMessage();
-                this.message = this.authService.isLoggedIn
-                    ? 'You are connected to the most awesome Peshomon App!'
-                    : 'You are currently not logged in to the most awesome Peshomon App!';
+        if (!this.username && !this.password) {
+            this.message = 'You are connected to the most awesome Peshomon App!';
+            this.isLoading = false;
+        } else {
+            this.authService.login(this.username, this.password)
+                .subscribe((isLoggedIn: boolean) => {
+                    // this.setMessage();
+                    this.message = this.authService.isLoggedIn
+                        ? 'You are connected to the most awesome Peshomon App!'
+                        : 'You are currently not logged in to the most awesome Peshomon App!';
 
-                if (!isLoggedIn) {
-                    this.username = '';
-                    this.password = '';
-                    this.router.navigate(['/login']);
-                }
+                    if (!isLoggedIn) {
+                        this.username = '';
+                        this.password = '';
+                        this.router.navigate(['/login']);
+                    }
 
-                this.isLoading = false;
-            });
+                    this.isLoading = false;
+                });
+        }
     }
 
     login() {
