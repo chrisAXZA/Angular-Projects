@@ -41,7 +41,8 @@
             <div class="card-action center">
                 <a (click)="login()" class="waves-effect waves-light btn hoverable"
                     style="transition: 1000ms; border-radius: 20px;" *ngIf="!authService.isLoggedIn">Login</a>
-                <a (click)="logout()" *ngIf="authService.isLoggedIn">Logout</a>
+                <a (click)="logout()" class="waves-effect waves-light btn hoverable"
+                    style="transition: 1000ms; border-radius: 20px;" *ngIf="authService.isLoggedIn">Logout</a>
             </div>  
         </div>  
     </div>
