@@ -65,8 +65,8 @@
                     </div>
                 </form>
                   
-                <!-- <div class="divider"></div> -->
             </div>
+            <!-- <div class="divider"></div> -->
             <!-- Cancel button -->
             <div *ngIf="!isAddForm" class="card-action center">
                 <button type="button" class="btn hoverable #e53935 red darken-1"
@@ -83,11 +83,11 @@
                     Save Changes
                 </button>
             </div>   
-            
+
             <!-- Create Peshomon button -->
             <div *ngIf="isAddForm" class="card-action center">
                 <!-- <button type="submit" class="waves-effect waves-light btn" [disabled]="!peshomonForm.form.valid"> -->
-                <button type="submit" class="btn hoverable" [disabled]="!peshomonForm.form.valid"
+                <button type="submit" class="btn hoverable light-blue darken-1" [disabled]="!peshomonForm.form.valid"
                     style="transition: 1000ms; min-width: 300px; cursor: copy;">
                     Create Peshomon
                 </button>
