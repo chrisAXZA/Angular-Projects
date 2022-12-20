@@ -19,3 +19,11 @@
 .sidenav > li > a:hover {
     background-color: rgb(200, 200, 200);
 }
+
+.background-img {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    object-fit: cover; // prevents image from being stretched by window size
+    z-index: -1;
+}
