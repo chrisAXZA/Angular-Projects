@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, } from '@angular/core';
 import * as M from 'materialize-css';
 import { Router } from '@angular/router';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 import { AuthService } from './auth.service';
 
@@ -8,6 +9,15 @@ import { AuthService } from './auth.service';
     selector: 'app-root',
     templateUrl: 'app.component.html',
     styleUrls: ['./app.component.scss'],
+    animations:[
+        trigger('backgroundAnim', [
+            transition(':leave', [
+                animate(1500, style({
+                    opacity: 0, // will fade out current image
+                })),
+            ]),
+        ]),
+    ],
 })
 export class AppComponent implements OnInit, AfterViewInit {
     isLoggedIn: boolean;
