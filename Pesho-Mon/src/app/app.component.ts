@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
     selector: 'app-root',
     templateUrl: 'app.component.html',
     styleUrls: ['./app.component.scss'],
-    animations:[
+    animations: [
         trigger('backgroundAnim', [
             transition(':leave', [
                 animate(1500, style({
@@ -20,6 +20,12 @@ import { AuthService } from './auth.service';
     ],
 })
 export class AppComponent implements OnInit, AfterViewInit {
+    backgrounds: string[] = [
+        '/assets/pesho1.png',
+        '/assets/pesho2.png',
+        '/assets/pesho3.png',
+        '/assets/pesho4.png',
+    ];
     isLoggedIn: boolean;
 
     constructor(private router: Router, public authService: AuthService,) { }
