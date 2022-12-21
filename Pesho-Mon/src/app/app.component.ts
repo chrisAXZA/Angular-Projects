@@ -13,9 +13,12 @@ import { SharedBackgroundService } from './shared-background.service';
     styleUrls: ['./app.component.scss'],
     animations: [
         trigger('backgroundAnim', [
-            transition(':leave', [
-                animate(1500, style({
-                    opacity: 0, // will fade out current image
+            transition(':enter', [
+                style({
+                    opacity: 0,
+                }),
+                animate('1s ease-in', style({
+                    opacity: 1,
                 })),
             ]),
         ]),

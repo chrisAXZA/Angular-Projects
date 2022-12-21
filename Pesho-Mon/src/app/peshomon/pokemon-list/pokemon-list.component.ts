@@ -4,11 +4,24 @@ import { Router } from '@angular/router';
 import Pokemon from '../pokemon';
 import PeshomonService from '../peshomon.service';
 import { SharedBackgroundService } from 'src/app/shared-background.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
     selector: 'app-pokemon-list',
     templateUrl: './pokemon-list.component.html',
     styleUrls: ['./pokemon-list.component.scss'],
+    animations: [
+        trigger('cardAnim', [
+            transition(':enter', [
+                style({
+                    opacity: 0,
+                }),
+                animate('1s ease-in', style({
+                    opacity: 1,
+                })),
+            ]),
+        ]),
+    ],
 })
 export class PokemonListComponent implements OnInit {
     // peshomonList: Pokemon[];
