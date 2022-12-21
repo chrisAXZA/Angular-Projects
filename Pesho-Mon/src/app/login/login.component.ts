@@ -21,7 +21,14 @@ export class LoginComponent implements OnInit {
         this.isLoading = true;
 
         if (!this.username && !this.password) {
-            this.message = 'You are connected to the most awesome Peshomon App!';
+            const storage = localStorage.getItem('isLoggedIn');
+
+            if (storage) {
+                this.message = 'You are connected to the most awesome Peshomon App!';
+            } else {
+                this.message = 'You are currently not logged in to the most awesome Peshomon App!';
+            }
+
             this.isLoading = false;
         } else {
             this.authService.login(this.username, this.password)
