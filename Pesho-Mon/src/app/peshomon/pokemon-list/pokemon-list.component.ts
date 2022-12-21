@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import Pokemon from '../pokemon';
 import PeshomonService from '../peshomon.service';
+import { SharedBackgroundService } from 'src/app/shared-background.service';
 
 @Component({
     selector: 'app-pokemon-list',
@@ -12,9 +13,14 @@ import PeshomonService from '../peshomon.service';
 export class PokemonListComponent implements OnInit {
     // peshomonList: Pokemon[];
     // peshomonSelected: Pokemon | undefined;
+    // @Output() changeBackground = new EventEmitter<boolean>();
     peshomonList: Pokemon[];
 
-    constructor(private router: Router, private peshomonService: PeshomonService) { }
+    constructor(
+        private router: Router,
+        private peshomonService: PeshomonService,
+        private sharedBackgroundService: SharedBackgroundService,
+    ) { }
 
     ngOnInit() {
         // this.peshomonList = this.peshomonService.getPeshomonList();
@@ -33,6 +39,10 @@ export class PokemonListComponent implements OnInit {
 
     addPeshomon() {
         this.router.navigate(['/add/pokemon']);
+    }
+
+    clickBackgroundBtn() {
+        this.sharedBackgroundService.buttonClicked.next(() => { });
     }
 
     // selectPokemon(pokemonId: string) {

@@ -1,9 +1,11 @@
-import { AfterViewInit, Component, OnInit, } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, } from '@angular/core';
+import { Subscription } from 'rxjs';
 import * as M from 'materialize-css';
 import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 import { AuthService } from './auth.service';
+import { SharedBackgroundService } from './shared-background.service';
 
 @Component({
     selector: 'app-root',
@@ -19,19 +21,37 @@ import { AuthService } from './auth.service';
         ]),
     ],
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     backgrounds: string[] = [
         '/assets/pesho1.png',
         '/assets/pesho2.png',
         '/assets/pesho3.png',
         '/assets/pesho4.png',
     ];
+    backgroundImg: string = '/assets/pesho1.png';
+    index: number = 1;
     isLoggedIn: boolean;
+    changeBackground: Subscription;
 
-    constructor(private router: Router, public authService: AuthService,) { }
+    constructor(
+        private router: Router,
+        public authService: AuthService,
+        private sharedBackgroundService: SharedBackgroundService,
+    ) { }
 
     ngOnInit() {
         this.isLoggedIn = this.authService.isLoggedIn;
+        this.changeBackground = this.sharedBackgroundService.changeBackgroundClicked()
+            .subscribe(() => {
+                console.log('background btn clicked');
+                this.backgroundImg = this.backgrounds[this.index];
+
+                this.index++;
+                if (this.index === this.backgrounds.length) {
+                    this.index = 0;
+                }
+            });
+
         // const storage = localStorage.getItem('isLoggedIn');
 
         // if (storage) {
@@ -39,8 +59,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         // } else {
         //     this.isLoggedIn = false;
         // }
-
-        // console.log(this.isLoggedIn);
     }
 
     ngAfterViewInit() {
@@ -56,6 +74,10 @@ export class AppComponent implements OnInit, AfterViewInit {
         M.Dropdown.init(elemDropdown, {
             coverTrigger: false,
         });
+    }
+
+    ngOnDestroy() {
+        this.changeBackground.unsubscribe();
     }
 
     logout() {
