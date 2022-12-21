@@ -35,6 +35,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     index: number = 1;
     isLoggedIn: boolean;
     changeBackground: Subscription;
+    isShown: boolean = true;
 
     constructor(
         private router: Router,
@@ -46,13 +47,18 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         this.isLoggedIn = this.authService.isLoggedIn;
         this.changeBackground = this.sharedBackgroundService.changeBackgroundClicked()
             .subscribe(() => {
-                console.log('background btn clicked');
+                // console.log('background btn clicked');
+                this.isShown = false;
                 this.backgroundImg = this.backgrounds[this.index];
 
                 this.index++;
                 if (this.index === this.backgrounds.length) {
                     this.index = 0;
                 }
+
+                setTimeout(() => {
+                    this.isShown = true;
+                }, 100);
             });
 
         // const storage = localStorage.getItem('isLoggedIn');
