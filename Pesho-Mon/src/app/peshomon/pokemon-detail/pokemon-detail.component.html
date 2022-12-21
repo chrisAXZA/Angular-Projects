@@ -12,7 +12,7 @@
 <div *ngIf="peshomon" class="row">
     <!-- offset for centering pokemon card (center-align ?), one column which takes whole screen width -->
     <div class="col s12 m8 offset-m2">
-        <h4 class="header card center hoverable" style="transition: 1000ms;">++ {{ peshomon.name }} ++</h4>
+        <h4 class="header card center hoverable" style="transition: 1000ms; cursor: default;">++ {{ peshomon.name }} ++</h4>
         <div class="card horizontal hoverable" style="transition: 1000ms;">
             <div class="card-image responsive-img">
                 <!-- <img [src]="peshomon.picture" style="min-width: 120px;"> -->
@@ -40,7 +40,7 @@
                                 <td>
                                     <span *ngFor="let type of peshomon.types"
                                         class="{{ type | pokemonTypeColor }} hoverable pokemonSkill"
-                                        style="transition: 1000ms;">
+                                        style="transition: 1000ms; cursor: default;">
                                         {{type }}
                                     </span>
                                 </td>
