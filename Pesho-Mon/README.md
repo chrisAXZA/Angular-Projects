@@ -7,7 +7,7 @@ Demo project employing Angular 13 and the following auxiliary components :
 → Animations effects : @angular/animations
 → Full Error handling + Data validation
 → Unit-tests:
-→ Bonus: 1. materialize-css for full responsiveness + smartphone screen compatibility 2. Google Material Icons for graphical elements 3. Multiple backgrounds 4. Search box for individual peshomons
+→ Bonus: 1. materialize-css for full responsiveness + smartphone screen compatibility 2. Google Material Icons for graphical elements 3. Multiple backgrounds 4. Search box for individual peshomons 5. Homemade peshomon favicon !!!
 
 
 
