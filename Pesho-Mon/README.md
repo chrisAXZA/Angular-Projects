@@ -1,4 +1,69 @@
 # PeshoMon
+Demo project employing Angular 13 and the following auxiliary components :
+→ Client Side : Angular 13
+→ Authentication : Login, Logout, Register + Authentication Guard throughout whole App via CanActivate
+→ Remote service : angular-in-memory-web-api + localStorage for data-persistence after page refresh
+→ State management : RxJS
+→ Animations effects : @angular/animations
+→ Full Error handling + Data validation
+→ Unit-tests:
+→ Bonus: 1. materialize-css for full responsiveness + smartphone screen compatibility 2. Google Material Icons for graphical elements 3. Multiple backgrounds 4. Search box for individual peshomons
+
+
+
+--
+
+### Main Page:
+<img src="Main-Page-1.png"/>
+
+<img src="Main-Page-2.png"/>
+
+--
+
+### Login Page:
+<img src="Login.png"/>
+
+--
+
+### Register Page:
+<img src="Register.png"/>
+
+--
+
+### Not Found Page:
+<img src="Page-Not-Found.png"/>
+
+--
+
+### Data Validation:
+<img src="Data-Validation.png"/>
+
+--
+
+### Peshomon Details Page:
+<img src="Detail-Peshomon.png"/>
+
+--
+
+### Peshomon Edit Page:
+<img src="Edit-Peshomon.png"/>
+
+--
+
+### Peshomon Add Page:
+<img src="Add-Peshomon.png"/>
+
+--
+
+### Peshomon Search Page:
+<img src="Search-Peshomon.png"/>
+
+--
+
+### Peshomon Not Found Page:
+<img src="Peshomon-Not-Found.png"/>
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
